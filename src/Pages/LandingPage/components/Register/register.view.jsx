@@ -20,20 +20,24 @@ import { Link } from "react-router-dom";
 import GoogleLogin from "react-google-login";
 
 //background image and logo
-import background from "../../../../images/cropregister.jpg";
-import logo from "../../../../images/croplogo.jpg";
-
-//google-oauth-response-handler
-const responseGoogle = (response) => {
-  console.log(response);
-  console.log(response.profileObj);
-};
+import background from "../../../../utils/images/cropregister.jpg";
+import logo from "../../../../utils/images/croplogo.jpg";
 
 const RegisterPageView = ({
   registerdetails,
   setRegisterDetails,
   handleRegistrationDetails,
+  handleSubmit,
+  handleGoogleSignin,
 }) => {
+  //google-oauth-response-handler
+  const responseGoogle = (response) => {
+    handleGoogleSignin(
+      response.profileObj.email,
+      response.googleId,
+      response.profileObj.name
+    );
+  };
   return (
     <Grid container>
       <Grid item xs={12} sm={6}>
@@ -82,9 +86,9 @@ const RegisterPageView = ({
                       >
                         <InputLabel>Enter Full Name</InputLabel>
                         <OutlinedInput
-                          value={registerdetails.fullname}
-                          id="fullname"
-                          name="fullname"
+                          value={registerdetails.full_name}
+                          id="full_name"
+                          name="full_name"
                           onChange={handleRegistrationDetails}
                           labelWidth={120}
                           endAdornment={
@@ -170,8 +174,8 @@ const RegisterPageView = ({
                         <Button
                           variant="contained"
                           color="primary"
-                          onClick={(event) => {
-                            console.log(registerdetails);
+                          onClick={() => {
+                            handleSubmit(registerdetails);
                           }}
                         >
                           Register
