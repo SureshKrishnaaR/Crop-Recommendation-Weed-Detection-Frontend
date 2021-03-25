@@ -18,19 +18,20 @@ import { Link } from "react-router-dom";
 import GoogleLogin from "react-google-login";
 
 //background image
-import background from "../../../../images/croplogin.jpg";
-
-//google oauth response handler
-const responseGoogle = (response) => {
-  console.log(response);
-  console.log(response.profileObj);
-};
+import background from "../../../../utils/images/croplogin.jpg";
 
 const LoginPageView = ({
   loginDetails,
   setLoginDetils,
   handleLoginDetails,
+  handleSubmit,
+  handleGoogleSignin,
 }) => {
+  //google oauth response handler
+  const responseGoogle = (response) => {
+    console.log(response);
+    handleGoogleSignin(response.profileObj.email, response.googleId);
+  };
   return (
     <Box
       style={{
@@ -52,7 +53,6 @@ const LoginPageView = ({
           justifyContent: "center",
           alignItems: "center",
         }}
-        x
       >
         <Paper elevation={5}>
           <Box p={4}>
@@ -99,17 +99,6 @@ const LoginPageView = ({
                   />
                 </FormControl>
               </Box>
-              <Box mt={2}>
-                <FormControl
-                  style={{ width: "300px", textAlign: "right" }}
-                  variant="outlined"
-                  size="small"
-                >
-                  <Typography variant="body2" style={{ color: "red" }}>
-                    Forgot Password?
-                  </Typography>
-                </FormControl>
-              </Box>
 
               <Box mt={5}>
                 <FormControl
@@ -121,7 +110,7 @@ const LoginPageView = ({
                     variant="contained"
                     color="primary"
                     onClick={() => {
-                      console.log(loginDetails);
+                      handleSubmit(loginDetails);
                     }}
                   >
                     Login
