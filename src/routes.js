@@ -1,10 +1,10 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-// import Home from "./Components/home.jsx";
-// import About from "./Components/about.jsx";
-// import Contact from "./Components/contact.jsx";
+import EditProfile from "./Pages/Profile/components/EditProfile";
+import Profile from "./Pages/Profile";
 import Register from "./Pages/LandingPage/components/Register/index";
 import LandingPage from "./Pages/LandingPage";
+import HomePage from "./Pages/HomePage";
 
 const Routes = () => {
   return (
@@ -12,7 +12,9 @@ const Routes = () => {
       <Switch>
         <Route exact path="/" component={LandingPage} />
         <Route path="/register" component={Register} />
-        {/* <Route path="/contact" component={Contact} /> */}
+        <Route path="/home" component={HomePage} />
+        <Route path="/profile" component={Profile} />
+        <Route path="/editprofile" component={EditProfile} />
       </Switch>
     </>
   );
