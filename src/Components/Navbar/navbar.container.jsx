@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import NavbarView from "./navbar.view.jsx";
 
-const HomePage = () => {
+const Navbar = () => {
   //states
   const [open, setOpen] = useState(false);
 
@@ -25,4 +25,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Navbar;
