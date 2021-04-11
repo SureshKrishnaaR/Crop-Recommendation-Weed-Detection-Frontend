@@ -29,7 +29,7 @@ const LoginPageView = ({
 }) => {
   //google oauth response handler
   const responseGoogle = (response) => {
-    console.log(response);
+    localStorage.setItem("accountpicturesrc", response.profileObj.imageUrl);
     handleGoogleSignin(response.profileObj.email, response.googleId);
   };
   return (
@@ -89,6 +89,7 @@ const LoginPageView = ({
                     value={loginDetails.password}
                     id="password"
                     name="password"
+                    type="password"
                     onChange={handleLoginDetails}
                     labelWidth={75}
                     endAdornment={

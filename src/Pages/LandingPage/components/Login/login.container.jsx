@@ -1,10 +1,13 @@
 import React, { useState } from "react";
+import { Redirect, useHistory } from "react-router-dom";
 
 import LoginPageView from "./login.view";
 
 import { login } from "../../../../utils/requests";
 
 const Login = () => {
+  const history = useHistory();
+
   //states
   const [loginDetails, setLoginDetails] = useState({
     username: "",
@@ -29,8 +32,8 @@ const Login = () => {
   const handleSubmit = (logindetails) => {
     login(logindetails)
       .then((res) => {
-        console.log(res.data.token);
         console.log(res);
+        history.push("/home");
       })
       .catch((err) => {
         console.log(err);
