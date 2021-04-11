@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import RegisterPageView from "./register.view";
 import { signUp } from "../../../../utils/requests";
+import { useHistory } from "react-router-dom";
 
 const Register = () => {
+  const history = useHistory();
+
   const [registerdetails, setRegisterDetails] = useState({
     username: "",
     password: "",
@@ -30,6 +33,7 @@ const Register = () => {
     signUp(registerobj)
       .then((res) => {
         console.log(res);
+        history.push("/");
       })
       .catch((err) => {
         console.log(err);

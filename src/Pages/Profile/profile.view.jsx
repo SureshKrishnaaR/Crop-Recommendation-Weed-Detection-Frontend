@@ -8,7 +8,7 @@ import {
   Box,
   Input,
   Button,
-  IconButton,
+  Avatar,
 } from "@material-ui/core";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import PhoneAndroidIcon from "@material-ui/icons/PhoneAndroid";
@@ -21,10 +21,11 @@ import EditProfile from "./components/EditProfile";
 import Navbar from "../../Components/Navbar";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    width: "100%",
-    maxWidth: 360,
-    background: theme.palette.background.paper,
+  large: {
+    width: theme.spacing(20),
+    height: theme.spacing(20),
+    margin: "auto",
+    marginBottom: "10px",
   },
 }));
 
@@ -34,6 +35,8 @@ const ProfileView = ({
   editprofile,
   handleEditProfile,
 }) => {
+  const classes = useStyles();
+
   return (
     <>
       <Navbar />
@@ -50,17 +53,11 @@ const ProfileView = ({
               Edit Profile
             </Button>
             <Box style={{ textAlign: "center" }}>
-              <IconButton>
-                <img
-                  style={{
-                    width: "150px",
-                    height: "150px",
-                    borderRadius: "100px",
-                  }}
-                  src={profiledetails.accountpicturesrc}
-                  alt="profilephoto"
-                />
-              </IconButton>
+              <Avatar
+                src={localStorage.getItem("accountpicturesrc")}
+                style={{ textAlign: "center" }}
+                className={classes.large}
+              />
             </Box>
             <Box p={1}>
               <Grid container spacing={2} justify="center">
@@ -121,6 +118,7 @@ const ProfileView = ({
                     <Input
                       id="password"
                       name="password"
+                      type="password"
                       disabled
                       value={profiledetails["password"]}
                       onChange={handleChange}

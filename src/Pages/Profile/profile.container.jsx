@@ -11,9 +11,8 @@ const Profile = () => {
     mobile: "",
     state: "",
     district: "",
-    area: 0.0,
+    area: null,
     soil_type: "",
-    accountpicturesrc: "",
   });
   const [editprofile, setEditProfile] = useState(false);
 
@@ -21,7 +20,7 @@ const Profile = () => {
   useEffect(() => {
     getProfileDetails()
       .then((res) => {
-        console.log("printttttt");
+        setProfileDetails(res);
         console.log(res);
       })
       .catch((err) => {

@@ -107,6 +107,7 @@ const EditProfileView = ({
               <OutlinedInput
                 id="password"
                 name="password"
+                type="password"
                 value={profiledetails["password"]}
                 onChange={handleChange}
                 labelWidth={75}

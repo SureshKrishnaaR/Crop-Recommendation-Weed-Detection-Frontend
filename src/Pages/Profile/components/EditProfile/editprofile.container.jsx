@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import EditProfileView from "./editprofile.view";
 
 const EditProfile = ({ profiledetails, handleChange, handleEditProfile }) => {
@@ -9,7 +9,6 @@ const EditProfile = ({ profiledetails, handleChange, handleEditProfile }) => {
 
   return (
     <>
-      <></>
       <EditProfileView
         profiledetails={profiledetails}
         handleChange={handleChange}
