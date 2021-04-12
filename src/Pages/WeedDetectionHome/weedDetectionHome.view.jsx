@@ -8,6 +8,7 @@ import {
   Box,
 } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
+import { useHistory } from "react-router-dom";
 
 const buttonVariants = {
   hidden: {
@@ -55,6 +56,7 @@ const titleVariants = {
 };
 
 const CropRecommendationHomeView = () => {
+  const history = useHistory();
   const mediatheme2 = useTheme();
   const matches = useMediaQuery(mediatheme2.breakpoints.up("md"));
 
@@ -72,7 +74,6 @@ const CropRecommendationHomeView = () => {
                   <Typography
                     style={{
                       textAlign: "justify",
-                      marginBottom: "10px",
                     }}
                   >
                     Crop using machine learning techniques recommend crop using
@@ -103,6 +104,7 @@ const CropRecommendationHomeView = () => {
                   <Button
                     variant="contained"
                     color="primary"
+                    onClick={() => history.push("/weedDetection")}
                     style={{
                       width: "100%",
                       height: "100%",
@@ -140,6 +142,7 @@ const CropRecommendationHomeView = () => {
                   <Button
                     variant="contained"
                     color="primary"
+                    onClick={() => history.push("/weedDetection")}
                     style={{ margin: "30px" }}
                   >
                     DETECT WEED

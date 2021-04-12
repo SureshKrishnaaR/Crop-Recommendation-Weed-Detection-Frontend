@@ -8,6 +8,8 @@ import {
   Box,
 } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
+import { green } from "@material-ui/core/colors";
+import { useHistory } from "react-router-dom";
 
 const buttonVariants = {
   hidden: {
@@ -57,13 +59,10 @@ const titleVariants = {
 const CropRecommendationHomeView = () => {
   const mediatheme = useTheme();
   const matches = useMediaQuery(mediatheme.breakpoints.up("md"));
-
+  const history = useHistory();
   return (
     <>
-      <div style={{ background: "#9ACD32", height: "100%" }}>
-        {/* <div style={{ textAlign: "left" }}>
-          <Navbar />
-        </div> */}
+      <div style={{ background: green[500], height: "100%" }}>
         <motion.h5
           variants={titleVariants}
           initial="hidden"
@@ -111,6 +110,7 @@ const CropRecommendationHomeView = () => {
                   <Button
                     variant="contained"
                     color="primary"
+                    onClick={() => history.push("/cropRecommendation")}
                     style={{
                       border: "2px solid white",
                       width: "100%",
@@ -148,6 +148,7 @@ const CropRecommendationHomeView = () => {
                   <Button
                     variant="contained"
                     color="primary"
+                    onClick={() => history.push("/cropRecommendation")}
                     style={{ margin: "30px" }}
                   >
                     CHOOSE CROP
