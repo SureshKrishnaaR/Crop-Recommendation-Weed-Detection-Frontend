@@ -7,10 +7,10 @@ import {
   ThemeProvider,
   useTheme,
 } from "@material-ui/core/styles";
-import { teal, green } from "@material-ui/core/colors";
+import { green } from "@material-ui/core/colors";
 
 //import required component files
-import Routes from "./routes";
+import Routes from "./Routes";
 import "./App.css";
 import Navbar from "./Components/Navbar";
 
