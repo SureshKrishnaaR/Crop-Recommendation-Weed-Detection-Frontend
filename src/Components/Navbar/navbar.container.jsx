@@ -1,25 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import NavbarView from "./navbar.view.jsx";
+import { useHistory } from "react-router-dom";
 
 const Navbar = () => {
+  // Const
+  const history = useHistory();
   //states
-  const [open, setOpen] = useState(false);
+  const anchorRef = useRef(null);
+  const [profileOpen, setProfileOpen] = useState(false);
 
   //handlers
-
-  const handleMenu = (event) => {
-    setOpen(event.currentTarget);
+  const handleProfileOpen = () => {
+    setProfileOpen(!profileOpen);
   };
-
-  const handleClose = () => {
-    setOpen(null);
+  const handleLogout = () => {
+    localStorage.clear();
+    history.push("/");
+    handleProfileOpen();
   };
   return (
     <>
       <NavbarView
-        open={open}
-        handleMenu={handleMenu}
-        handleClose={handleClose}
+        profileOpen={profileOpen}
+        anchorRef={anchorRef}
+        handleProfileOpen={handleProfileOpen}
+        handleLogout={handleLogout}
       />
     </>
   );
