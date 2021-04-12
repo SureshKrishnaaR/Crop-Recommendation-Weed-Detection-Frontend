@@ -1,6 +1,5 @@
 import React from "react";
 import { Box, Avatar } from "@material-ui/core";
-import PhotoCamera from "@material-ui/icons/PhotoCamera";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -23,18 +22,6 @@ const AccountPictureView = ({ profiledetails, handleChange }) => {
             style={{ textAlign: "center" }}
             className={classes.large}
           />
-        </Box>
-
-        <Box>
-          <input
-            style={{ display: "none" }}
-            accept="image/*"
-            id="icon-button-file"
-            type="file"
-          />
-          <label htmlFor="icon-button-file">
-            <PhotoCamera />
-          </label>
         </Box>
       </Box>
     </>

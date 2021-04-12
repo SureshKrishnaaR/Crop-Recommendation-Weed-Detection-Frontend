@@ -35,13 +35,14 @@ const LoginPageView = ({
   return (
     <Box
       style={{
-        height: "100vh",
+        height: "100%",
         width: "100vw",
         background: `url(${background})`,
         backgroundAttachment: "fixed",
         backgroundPosition: "center",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
+        textAlign: "center",
       }}
     >
       <Box

@@ -18,7 +18,6 @@ import LandscapeIcon from "@material-ui/icons/Landscape";
 
 //component imports
 import EditProfile from "./components/EditProfile";
-import Navbar from "../../Components/Navbar";
 
 const useStyles = makeStyles((theme) => ({
   large: {
@@ -39,7 +38,6 @@ const ProfileView = ({
 
   return (
     <>
-      <Navbar />
       {!editprofile ? (
         <>
           <Box p={2} style={{ textAlign: "right" }}>

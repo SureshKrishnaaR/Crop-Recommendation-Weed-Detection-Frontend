@@ -26,7 +26,7 @@ const EditProfileView = ({
   handleFormSubmit,
 }) => {
   return (
-    <>
+    <div style={{ overflow: "hidden" }}>
       <AccountPicture
         profiledetails={profiledetails}
         handleChange={handleChange}
@@ -169,7 +169,7 @@ const EditProfileView = ({
           </Grid>
         </Grid>
       </Box>
-    </>
+    </div>
   );
 };
 

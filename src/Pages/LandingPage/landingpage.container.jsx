@@ -7,9 +7,7 @@ import LandingPageView from "./landingpage.view";
 const LandingPage = () => {
   return (
     <>
-      <div className="App">
-        <LandingPageView />
-      </div>
+      <LandingPageView />
     </>
   );
 };
