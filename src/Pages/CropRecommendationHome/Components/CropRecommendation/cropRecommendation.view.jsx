@@ -1,22 +1,53 @@
 import React from "react";
-import FertilizerQuestion from "../FertilizerQuestion";
-import PredictCrop from "../PredictCrop";
 
-const CropRecommendationView = ({ page, handlePageChange }) => {
+import FertilizerQuestion from "./Components/FertilizerQuestion";
+import PredictCrop from "./Components/FertilizerQuestion/Components/PredictCropApproach1";
+import NpkPrediction from "./Components/FertilizerQuestion/Components/PredictCropApproach1/Components/NPKPrediction";
+
+const CropRecommendationView = ({
+  page,
+  handlePageChange,
+  envfactors,
+  location,
+  crop,
+  handleCropChange,
+  handleEnvFactorsChange,
+  handleLocationChange,
+  npkValues,
+  handleNpkChange,
+}) => {
   return (
     <>
       <div
         style={{
           background: "#ffffff",
           backgroundImage: "linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%)",
-          height: "100%",
+          height: "calc(100vh - 65px)", 
         }}
       >
         {page === 1 ? (
           <FertilizerQuestion page={page} handlePageChange={handlePageChange} />
+        ) : page === 2 ? (
+          <PredictCrop
+            page={page}
+            handlePageChange={handlePageChange}
+            envfactors={envfactors}
+            location={location}
+            crop={crop}
+            handleCropChange={handleCropChange}
+            handleEnvFactorsChange={handleEnvFactorsChange}
+            handleLocationChange={handleLocationChange}
+          />
         ) : (
-          page === 2 && (
-            <PredictCrop page={page} handlePageChange={handlePageChange} />
+          page === 3 && (
+            <NpkPrediction
+              page={page}
+              handlePageChange={handlePageChange}
+              envfactors={envfactors}
+              crop={crop}
+              npkValues={npkValues}
+              handleNpkChange={handleNpkChange}
+            />
           )
         )}
       </div>
