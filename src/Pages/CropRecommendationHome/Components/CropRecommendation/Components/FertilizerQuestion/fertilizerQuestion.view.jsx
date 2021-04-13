@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Button, Typography, Grid } from "@material-ui/core";
+import { Typography, Grid, IconButton } from "@material-ui/core";
+import DoneIcon from "@material-ui/icons/Done";
+import ClearIcon from "@material-ui/icons/Clear";
 
 const FertilizerQuestionView = ({ handleYes, handleNo }) => {
   return (
@@ -27,7 +29,7 @@ const FertilizerQuestionView = ({ handleYes, handleNo }) => {
           direction="row"
           justify="space-around"
           alignItems="center"
-          style={{ width: "300px", marginTop: "10px" }}
+          style={{ width: "300px", marginTop: "10px", overflow: "hidden" }}
         >
           <Grid item>
             <motion.div
@@ -35,20 +37,20 @@ const FertilizerQuestionView = ({ handleYes, handleNo }) => {
               animate={{ x: 0 }}
               transition={{ duration: 0.9, delay: 0.4 }}
             >
-              <Button variant="contained" color="primary" onClick={handleYes}>
-                YES
-              </Button>
+              <IconButton color="primary" onClick={handleYes}>
+                <DoneIcon />
+              </IconButton>
             </motion.div>
           </Grid>
           <Grid item>
             <motion.div
-              initial={{ x: "200vw" }}
+              initial={{ x: "100vw" }}
               animate={{ x: 0 }}
               transition={{ duration: 0.9, delay: 0.4 }}
             >
-              <Button variant="contained" color="primary" onClick={handleNo}>
-                NO
-              </Button>
+              <IconButton style={{ color: "red" }} onClick={handleNo}>
+                <ClearIcon />
+              </IconButton>
             </motion.div>
           </Grid>
         </Grid>

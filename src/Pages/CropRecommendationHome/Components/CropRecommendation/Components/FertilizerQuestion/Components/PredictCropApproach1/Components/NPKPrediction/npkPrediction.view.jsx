@@ -25,19 +25,18 @@ const NpkPredictionView = ({
         <div
           style={{
             display: "flex",
-            flexDirection: "row",
+            flexDirection: "column",
             alignItems: "center",
             justifyContent: "center",
           }}
         >
           <motion.div
-            initial={{ opacity: 0, x: "-100vw" }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: "-300vh" }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{
-              delay: 0.1,
-              duration: 0.3,
+              delay: 0.3,
               type: "spring",
-              stiffness: 100,
+              stiffness: 40,
             }}
           >
             <Typography
@@ -58,13 +57,12 @@ const NpkPredictionView = ({
             </Typography>
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, x: "100vw" }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: "-200vh" }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{
-              delay: 0.1,
-              duration: 0.3,
+              delay: 0.2,
               type: "spring",
-              stiffness: 100,
+              stiffness: 40,
             }}
           >
             <Typography
@@ -85,13 +83,12 @@ const NpkPredictionView = ({
             </Typography>
           </motion.div>
           <motion.div
-            initial={{ opacity: 0, x: "-100vw" }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: "-100vh" }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{
               delay: 0.1,
-              duration: 0.3,
               type: "spring",
-              stiffness: 100,
+              stiffness: 40,
             }}
           >
             <Typography

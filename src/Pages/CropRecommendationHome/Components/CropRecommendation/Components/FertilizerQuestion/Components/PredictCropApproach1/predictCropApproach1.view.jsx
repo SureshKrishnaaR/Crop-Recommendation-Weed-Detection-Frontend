@@ -21,6 +21,7 @@ const PredictCropView = ({
             display: "flex",
             justifyContent: "flex-end",
             padding: "30px",
+            overflow: "hidden",
           }}
         >
           <div
@@ -58,6 +59,7 @@ const PredictCropView = ({
             height: "100%",
             alignItems: "center",
             justifyContent: "center",
+            overflow: "hidden",
           }}
         >
           <Button
@@ -79,6 +81,7 @@ const PredictCropView = ({
             alignItems: "center",
             justifyContent: "center",
             height: "70%",
+            overflow: "hidden",
           }}
         >
           <>

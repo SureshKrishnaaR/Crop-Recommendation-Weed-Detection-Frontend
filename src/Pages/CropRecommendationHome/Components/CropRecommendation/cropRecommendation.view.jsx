@@ -20,9 +20,9 @@ const CropRecommendationView = ({
     <>
       <div
         style={{
-          background: "#84fb95",
-          backgroundImage: "linear-gradient(315deg, #84fb95 0%, #cef576 74%)",
-          height: "calc(100vh - 65px)",
+          background: "#ffffff",
+          backgroundImage: "linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%)",
+          height: "calc(100vh - 65px)", 
         }}
       >
         {page === 1 ? (
