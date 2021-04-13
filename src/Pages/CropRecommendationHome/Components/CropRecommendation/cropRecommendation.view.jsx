@@ -1,8 +1,8 @@
 import React from "react";
 
-import FertilizerQuestion from "./Components/FertilizerQuestion";
-import PredictCrop from "./Components/FertilizerQuestion/Components/PredictCropApproach1";
-import NpkPrediction from "./Components/FertilizerQuestion/Components/PredictCropApproach1/Components/NPKPrediction";
+import FertilizerQuestion from "./components/FertilizerQuestion";
+import PredictCrop from "./components/FertilizerQuestion/components/PredictCropApproach1";
+import NpkPrediction from "./components/FertilizerQuestion/components/PredictCropApproach1/components/NPKPrediction";
 
 const CropRecommendationView = ({
   page,
@@ -22,7 +22,7 @@ const CropRecommendationView = ({
         style={{
           background: "#ffffff",
           backgroundImage: "linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%)",
-          height: "calc(100vh - 65px)", 
+          height: "calc(100vh - 65px)",
         }}
       >
         {page === 1 ? (

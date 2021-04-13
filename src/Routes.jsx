@@ -5,7 +5,7 @@ import Profile from "./pages/Profile";
 import Register from "./pages/LandingPage/components/Register/index";
 import LandingPage from "./pages/LandingPage";
 import HomePage from "./pages/HomePage";
-import CropRecommendation from "./pages/CropRecommendationHome/Components/CropRecommendation";
+import CropRecommendation from "./pages/CropRecommendationHome/components/CropRecommendation";
 import WeedDetection from "./pages/WeedDetectionHome/components/WeedDetection";
 
 const PrivateRoute = ({ children, component: Component, ...rest }) => {

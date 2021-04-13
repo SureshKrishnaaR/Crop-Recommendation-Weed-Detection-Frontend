@@ -12,7 +12,7 @@ import { green } from "@material-ui/core/colors";
 //import required component files
 import Routes from "./Routes";
 import "./App.css";
-import Navbar from "./Components/Navbar";
+import Navbar from "./components/Navbar";
 
 const theme = createMuiTheme({
   palette: {
