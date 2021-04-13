@@ -6,10 +6,11 @@ const StateView = ({ profiledetails, handleChange, states }) => {
     <>
       <Dropdown
         label="State"
+        value={profiledetails["state_name"]}
         handleChange={handleChange}
         options={states}
-        id="state"
-        name="state"
+        id="state_name"
+        name="state_name"
       />
     </>
   );

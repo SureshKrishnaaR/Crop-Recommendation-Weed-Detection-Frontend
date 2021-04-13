@@ -5,12 +5,12 @@ const DistrictView = ({ profiledetails, handleChange, districts }) => {
   return (
     <>
       <Dropdown
-        value={profiledetails["district"]}
+        value={profiledetails["district_name"]}
         handleChange={handleChange}
         options={districts}
         label="District"
-        id="district"
-        name="district"
+        id="district_name"
+        name="district_name"
       />
     </>
   );

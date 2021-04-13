@@ -9,7 +9,7 @@ const District = ({ profiledetails, handleChange }) => {
   //handlers
 
   useEffect(() => {
-    getDistricts()
+    getDistricts(profiledetails.state_name)
       .then((res) => {
         let resp = [];
         for (let i in res.data) {
@@ -20,7 +20,7 @@ const District = ({ profiledetails, handleChange }) => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [profiledetails.state_name]);
 
   return (
     <>

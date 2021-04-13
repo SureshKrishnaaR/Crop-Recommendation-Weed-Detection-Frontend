@@ -6,6 +6,7 @@ const SoilTypeView = ({ profiledetails, handleChange, soil }) => {
     <div>
       <Dropdown
         label="Soil Type"
+        value={profiledetails["soil_type"]}
         options={soil}
         handleChange={handleChange}
         id="soil_type"

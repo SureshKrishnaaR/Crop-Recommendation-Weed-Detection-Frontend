@@ -9,8 +9,8 @@ const Profile = () => {
     username: "",
     password: "",
     mobile: "",
-    state: "",
-    district: "",
+    state_name: "",
+    district_name: "",
     area: null,
     soil_type: "",
   });

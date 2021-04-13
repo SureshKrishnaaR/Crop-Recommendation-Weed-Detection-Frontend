@@ -132,10 +132,10 @@ const ProfileView = ({
                   <FormControl style={{ width: "100%" }}>
                     <InputLabel>State</InputLabel>
                     <Input
-                      id="state"
-                      name="state"
+                      id="state_name"
+                      name="state_name"
                       disabled
-                      value={profiledetails["state"]}
+                      value={profiledetails["state_name"]}
                       onChange={handleChange}
                       endAdornment={
                         <InputAdornment position="end">
@@ -149,10 +149,10 @@ const ProfileView = ({
                   <FormControl style={{ width: "100%" }}>
                     <InputLabel>District</InputLabel>
                     <Input
-                      id="district"
-                      name="district"
+                      id="district_name"
+                      name="district_name"
                       disabled
-                      value={profiledetails["district"]}
+                      value={profiledetails["district_name"]}
                       onChange={handleChange}
                       endAdornment={
                         <InputAdornment position="end">
@@ -168,6 +168,7 @@ const ProfileView = ({
                     <Input
                       id="area"
                       name="area"
+                      type="number"
                       disabled
                       value={profiledetails["area"]}
                       onChange={handleChange}

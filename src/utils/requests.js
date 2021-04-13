@@ -1,4 +1,5 @@
 import axios from "axios";
+import { StaticRouter } from "react-router";
 import { baseUrl } from "./constants";
 
 export const signUp = async (registerdetails) => {
@@ -26,8 +27,8 @@ export const getProfileDetails = async () => {
   return response.data;
 };
 
-export const getDistricts = async () => {
-  let response = await axios.get(baseUrl + "/districts", {
+export const getDistricts = async (state) => {
+  let response = await axios.get(baseUrl + `/districts?state_name=${state}`, {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("token")}`,
     },
@@ -52,4 +53,13 @@ export const getSoil = async () => {
     },
   });
   return response;
+};
+
+export const updateProfile = async (profileDetails) => {
+  let response = await axios.put(baseUrl + "/user/update", profileDetails, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  });
+  return response.data;
 };
