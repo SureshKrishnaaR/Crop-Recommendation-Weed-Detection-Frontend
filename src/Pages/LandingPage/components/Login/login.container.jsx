@@ -1,12 +1,22 @@
 import React, { useState } from "react";
-import { Redirect, useHistory } from "react-router-dom";
-
+import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addUserToken } from "../../../../redux/ActionCreators/user.action";
+import {
+  addSuccessAlert,
+  addFailureAlert,
+} from "../../../../redux/ActionCreators/alert.action";
+import {
+  showBackDrop,
+  hideBackDrop,
+} from "../../../../redux/ActionCreators/backdrop.action";
 import LoginPageView from "./login.view";
 
 import { login } from "../../../../utils/requests";
 
 const Login = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
 
   //states
   const [loginDetails, setLoginDetails] = useState({
@@ -59,13 +69,17 @@ const Login = () => {
   };
 
   const handleSubmit = (logindetails) => {
+    dispatch(showBackDrop());
     login(logindetails)
       .then((res) => {
-        console.log(res);
+        dispatch(addUserToken(res.token));
+        dispatch(addSuccessAlert(res.message));
+        dispatch(hideBackDrop());
         history.push("/home");
       })
-      .catch((err) => {
-        console.log(err);
+      .catch((error) => {
+        dispatch(hideBackDrop());
+        dispatch(addFailureAlert(error.response.data.message));
       });
   };
 

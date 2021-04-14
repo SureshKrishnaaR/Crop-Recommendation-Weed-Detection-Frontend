@@ -1,16 +1,15 @@
 import axios from "axios";
-import { StaticRouter } from "react-router";
 import { baseUrl } from "./constants";
 
 export const signUp = async (registerdetails) => {
   let response = await axios.post(baseUrl + "/signup", registerdetails);
-  return response;
+  return response.data;
 };
 
 export const login = async (logindetails) => {
   let response = await axios.post(baseUrl + "/login", logindetails);
   localStorage.setItem("token", response.data.token);
-  return response;
+  return response.data;
 };
 
 export const getProfileDetails = async () => {

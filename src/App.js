@@ -1,12 +1,10 @@
 //import required built in modules
 import React from "react";
 import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import { configureReducer } from "./redux/configureReducer";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import {
-  createMuiTheme,
-  ThemeProvider,
-  useTheme,
-} from "@material-ui/core/styles";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import { green } from "@material-ui/core/colors";
 
 //import required component files
@@ -24,15 +22,17 @@ const theme = createMuiTheme({
 });
 
 const App = () => {
-  const mediatheme = useTheme();
+  const store = configureReducer();
   return (
-    <BrowserRouter>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <Navbar />
-        <Routes />
-      </ThemeProvider>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <Navbar />
+          <Routes />
+        </ThemeProvider>
+      </BrowserRouter>
+    </Provider>
   );
 };
 

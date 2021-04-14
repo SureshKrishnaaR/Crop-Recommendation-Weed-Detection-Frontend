@@ -2,9 +2,19 @@ import React, { useState } from "react";
 import RegisterPageView from "./register.view";
 import { signUp } from "../../../../utils/requests";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import {
+  addSuccessAlert,
+  addFailureAlert,
+} from "../../../../redux/ActionCreators/alert.action";
+import {
+  showBackDrop,
+  hideBackDrop,
+} from "../../../../redux/ActionCreators/backdrop.action";
 
 const Register = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const [registerdetails, setRegisterDetails] = useState({
     username: "",
@@ -44,7 +54,7 @@ const Register = () => {
       }
     } else if (name === "password") {
       if (!value.length) {
-        error = "Name is required";
+        error = "Password is required";
       } else if (!value.match(/[a-z]/g)) {
         error = "At least 1 lowercase character.";
       } else if (!value.match(/[A-Z]/g)) {
@@ -80,10 +90,16 @@ const Register = () => {
 
   const handleSubmit = (registerobj) => {
     if (registerobj.confirmPassword === registerobj.password) {
+      dispatch(showBackDrop());
       signUp(registerobj)
         .then((res) => {
-          console.log(res);
           history.push("/");
+          if (res.success) {
+            dispatch(addSuccessAlert(res.message));
+          } else {
+            dispatch(addFailureAlert(res.message));
+          }
+          dispatch(hideBackDrop());
         })
         .catch((err) => {
           console.log(err);

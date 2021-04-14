@@ -2,6 +2,9 @@ import React, { useState, useRef } from "react";
 import NavbarView from "./navbar.view.jsx";
 import { useHistory } from "react-router-dom";
 
+import BackDrop from "../BackDrop";
+import SnackBar from "../SnackBar";
+
 const Navbar = () => {
   // Const
   const history = useHistory();
@@ -20,6 +23,8 @@ const Navbar = () => {
   };
   return (
     <>
+      <BackDrop />
+      <SnackBar />
       <NavbarView
         profileOpen={profileOpen}
         anchorRef={anchorRef}
