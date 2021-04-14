@@ -196,6 +196,16 @@ const RegisterPageView = ({
                         onClick={() => {
                           handleSubmit(registerdetails);
                         }}
+                        disabled={
+                          !registerdetails.username ||
+                          !registerdetails.password ||
+                          !registerdetails.full_name ||
+                          !registerdetails.confirmPassword ||
+                          registerdetailsErrors.username ||
+                          registerdetailsErrors.password ||
+                          registerdetailsErrors.full_name ||
+                          registerdetailsErrors.confirmPassword
+                        }
                       >
                         Register
                       </Button>

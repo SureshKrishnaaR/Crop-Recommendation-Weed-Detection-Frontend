@@ -123,17 +123,16 @@ const NavbarView = ({
               AGRI ASSISTANCE
             </Typography>
             <div>
-              <Button
-                color="inherit"
-                ref={anchorRef}
-                onClick={() => handleProfileOpen()}
-                disableRipple
-              >
-                <Avatar
-                  variant="rounded"
-                  src={userDetails && userDetails.profileUrl}
-                />
-              </Button>
+              {userDetails && (
+                <Button
+                  color="inherit"
+                  ref={anchorRef}
+                  onClick={() => handleProfileOpen()}
+                  disableRipple
+                >
+                  <Avatar variant="rounded" src={userDetails.profileUrl} />
+                </Button>
+              )}
               <Popper
                 className={classes.popper}
                 open={profileOpen}

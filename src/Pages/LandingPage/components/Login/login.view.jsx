@@ -118,6 +118,12 @@ const LoginPageView = ({
                     onClick={() => {
                       handleSubmit(loginDetails);
                     }}
+                    disabled={
+                      !loginDetails.username ||
+                      !loginDetails.password ||
+                      loginDetailsErrors.username ||
+                      loginDetailsErrors.password
+                    }
                   >
                     Login
                   </Button>

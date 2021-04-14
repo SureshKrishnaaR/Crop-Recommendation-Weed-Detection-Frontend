@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Avatar } from "@material-ui/core";
+import { Avatar } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { useSelector, shallowEqual } from "react-redux";
 
@@ -20,15 +20,11 @@ const AccountPictureView = ({ profiledetails, handleChange }) => {
   );
   return (
     <>
-      <Box m={5} style={{ textAlign: "center" }}>
-        <Box style={{ textAlign: "center" }}>
-          <Avatar
-            src={userDetails && userDetails.profileUrl}
-            style={{ textAlign: "center" }}
-            className={classes.large}
-          />
-        </Box>
-      </Box>
+      <Avatar
+        src={userDetails && userDetails.profileUrl}
+        style={{ textAlign: "center" }}
+        className={classes.large}
+      />
     </>
   );
 };

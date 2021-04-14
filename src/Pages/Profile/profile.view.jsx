@@ -10,6 +10,7 @@ import {
   Button,
   Avatar,
 } from "@material-ui/core";
+import { useSelector, shallowEqual } from "react-redux";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import PhoneAndroidIcon from "@material-ui/icons/PhoneAndroid";
 import PersonIcon from "@material-ui/icons/Person";
@@ -35,7 +36,10 @@ const ProfileView = ({
   handleEditProfile,
 }) => {
   const classes = useStyles();
-
+  const userDetails = useSelector(
+    ({ userDetails }) => userDetails.userDetails,
+    shallowEqual
+  );
   return (
     <>
       {!editprofile ? (
@@ -93,41 +97,45 @@ const ProfileView = ({
                     />
                   </FormControl>
                 </Grid>
-                <Grid item xs={12} md={6}>
-                  <FormControl style={{ width: "100%" }}>
-                    <InputLabel>Username</InputLabel>
-                    <Input
-                      id="username"
-                      name="username"
-                      disabled
-                      value={profiledetails["username"]}
-                      onChange={handleChange}
-                      endAdornment={
-                        <InputAdornment position="end">
-                          <AccountCircleIcon style={{ color: "#777" }} />
-                        </InputAdornment>
-                      }
-                    />
-                  </FormControl>
-                </Grid>
-                <Grid item xs={12} md={6}>
-                  <FormControl style={{ width: "100%" }}>
-                    <InputLabel>Password</InputLabel>
-                    <Input
-                      id="password"
-                      name="password"
-                      type="password"
-                      disabled
-                      value={profiledetails["password"]}
-                      onChange={handleChange}
-                      endAdornment={
-                        <InputAdornment position="end">
-                          <VpnKeyIcon style={{ color: "#777" }} />
-                        </InputAdornment>
-                      }
-                    />
-                  </FormControl>
-                </Grid>
+                {userDetails && !userDetails.profileUrl && (
+                  <>
+                    <Grid item xs={12} md={6}>
+                      <FormControl style={{ width: "100%" }}>
+                        <InputLabel>Username</InputLabel>
+                        <Input
+                          id="username"
+                          name="username"
+                          disabled
+                          value={profiledetails["username"]}
+                          onChange={handleChange}
+                          endAdornment={
+                            <InputAdornment position="end">
+                              <AccountCircleIcon style={{ color: "#777" }} />
+                            </InputAdornment>
+                          }
+                        />
+                      </FormControl>
+                    </Grid>
+                    <Grid item xs={12} md={6}>
+                      <FormControl style={{ width: "100%" }}>
+                        <InputLabel>Password</InputLabel>
+                        <Input
+                          id="password"
+                          name="password"
+                          type="password"
+                          disabled
+                          value={profiledetails["password"]}
+                          onChange={handleChange}
+                          endAdornment={
+                            <InputAdornment position="end">
+                              <VpnKeyIcon style={{ color: "#777" }} />
+                            </InputAdornment>
+                          }
+                        />
+                      </FormControl>
+                    </Grid>
+                  </>
+                )}
                 <Grid item xs={12} md={6}>
                   <FormControl style={{ width: "100%" }}>
                     <InputLabel>State</InputLabel>

@@ -13,6 +13,8 @@ import PhoneAndroidIcon from "@material-ui/icons/PhoneAndroid";
 import PersonIcon from "@material-ui/icons/Person";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import LandscapeIcon from "@material-ui/icons/Landscape";
+import { useSelector, shallowEqual } from "react-redux";
+
 //component imports
 import AccountPicture from "./components/AccountPicture";
 import SoilType from "./components/SoilType";
@@ -25,13 +27,27 @@ const EditProfileView = ({
   handleEditProfile,
   handleFormSubmit,
 }) => {
+  const userDetails = useSelector(
+    ({ userDetails }) => userDetails.userDetails,
+    shallowEqual
+  );
   return (
     <div style={{ overflow: "hidden" }}>
-      <AccountPicture
-        profiledetails={profiledetails}
-        handleChange={handleChange}
-      />
-
+      <Box p={2} style={{ textAlign: "right" }}>
+        <Button
+          variant="outlined"
+          color="primary"
+          onClick={() => handleEditProfile(false)}
+        >
+          CANCEL
+        </Button>
+        <Box style={{ textAlign: "center" }}>
+          <AccountPicture
+            profiledetails={profiledetails}
+            handleChange={handleChange}
+          />
+        </Box>
+      </Box>
       <Box p={2}>
         <Grid container spacing={2} justify="center">
           <Grid item xs={12} md={6}>
@@ -76,49 +92,53 @@ const EditProfileView = ({
               />
             </FormControl>
           </Grid>
-          <Grid item xs={12} md={6}>
-            <FormControl
-              style={{ width: "100%" }}
-              variant="outlined"
-              size="small"
-            >
-              <InputLabel>Username</InputLabel>
-              <OutlinedInput
-                id="username"
-                name="username"
-                value={profiledetails["username"]}
-                onChange={handleChange}
-                labelWidth={75}
-                endAdornment={
-                  <InputAdornment position="end">
-                    <AccountCircleIcon style={{ color: "#777" }} />
-                  </InputAdornment>
-                }
-              />
-            </FormControl>
-          </Grid>
-          <Grid item xs={12} md={6}>
-            <FormControl
-              style={{ width: "100%" }}
-              variant="outlined"
-              size="small"
-            >
-              <InputLabel>Password</InputLabel>
-              <OutlinedInput
-                id="password"
-                name="password"
-                type="password"
-                value={profiledetails["password"]}
-                onChange={handleChange}
-                labelWidth={75}
-                endAdornment={
-                  <InputAdornment position="end">
-                    <VpnKeyIcon style={{ color: "#777" }} />
-                  </InputAdornment>
-                }
-              />
-            </FormControl>
-          </Grid>
+          {userDetails && !userDetails.profileUrl && (
+            <>
+              <Grid item xs={12} md={6}>
+                <FormControl
+                  style={{ width: "100%" }}
+                  variant="outlined"
+                  size="small"
+                >
+                  <InputLabel>Username</InputLabel>
+                  <OutlinedInput
+                    id="username"
+                    name="username"
+                    value={profiledetails["username"]}
+                    onChange={handleChange}
+                    labelWidth={75}
+                    endAdornment={
+                      <InputAdornment position="end">
+                        <AccountCircleIcon style={{ color: "#777" }} />
+                      </InputAdornment>
+                    }
+                  />
+                </FormControl>
+              </Grid>
+              <Grid item xs={12} md={6}>
+                <FormControl
+                  style={{ width: "100%" }}
+                  variant="outlined"
+                  size="small"
+                >
+                  <InputLabel>Password</InputLabel>
+                  <OutlinedInput
+                    id="password"
+                    name="password"
+                    type="password"
+                    value={profiledetails["password"]}
+                    onChange={handleChange}
+                    labelWidth={75}
+                    endAdornment={
+                      <InputAdornment position="end">
+                        <VpnKeyIcon style={{ color: "#777" }} />
+                      </InputAdornment>
+                    }
+                  />
+                </FormControl>
+              </Grid>
+            </>
+          )}
           <Grid item xs={12} md={6}>
             <State
               profiledetails={profiledetails}
@@ -158,13 +178,13 @@ const EditProfileView = ({
               handleChange={handleChange}
             />
           </Grid>
-          <Grid item xs={12}>
+          <Grid container item justify="center" xs={12}>
             <Button
               variant="contained"
               color="primary"
               onClick={handleFormSubmit}
             >
-              DONE
+              UPDATE PROFILE
             </Button>
           </Grid>
         </Grid>
