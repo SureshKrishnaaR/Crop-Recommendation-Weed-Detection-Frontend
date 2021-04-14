@@ -10,6 +10,7 @@ import {
   InputAdornment,
   Grid,
   Typography,
+  FormHelperText,
 } from "@material-ui/core";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
@@ -25,6 +26,7 @@ import logo from "../../../../utils/images/croplogo.jpg";
 
 const RegisterPageView = ({
   registerdetails,
+  registerdetailsErrors,
   setRegisterDetails,
   handleRegistrationDetails,
   handleSubmit,
@@ -39,17 +41,14 @@ const RegisterPageView = ({
     );
   };
   return (
-    <Grid
-      container
-      style={{ height: "calc(100vh - 65px)", overflow: "hidden" }}
-    >
+    <Grid container>
       <Grid item xs={12} sm={6}>
         <img
           src={background}
           alt="crops"
           style={{
+            height: "calc(100vh - 70px)",
             width: "100%",
-            height: "calc(100vh - 65px)",
             objectFit: "cover",
           }}
         />
@@ -63,9 +62,6 @@ const RegisterPageView = ({
         direction="column"
         justify="center"
       >
-        <Grid container justify="center">
-          <img src={logo} alt="logo" width={150} />
-        </Grid>
         <Grid container justify="center">
           <Box
             mt={3}
@@ -86,19 +82,26 @@ const RegisterPageView = ({
                       variant="outlined"
                       size="small"
                     >
-                      <InputLabel>Enter Full Name</InputLabel>
+                      <InputLabel htmlFor="full_name">
+                        Enter Full Name
+                      </InputLabel>
                       <OutlinedInput
                         value={registerdetails.full_name}
                         id="full_name"
                         name="full_name"
                         onChange={handleRegistrationDetails}
+                        required
                         labelWidth={120}
                         endAdornment={
                           <InputAdornment position="end">
                             <PermIdentityIcon style={{ color: "#777" }} />
                           </InputAdornment>
                         }
+                        aria-describedby="full_name_error"
                       />
+                      <FormHelperText id="full_name_error">
+                        {registerdetailsErrors.full_name}
+                      </FormHelperText>
                     </FormControl>
                   </Box>
 
@@ -114,6 +117,7 @@ const RegisterPageView = ({
                         id="username"
                         name="username"
                         onChange={handleRegistrationDetails}
+                        required
                         labelWidth={120}
                         endAdornment={
                           <InputAdornment position="end">
@@ -121,6 +125,9 @@ const RegisterPageView = ({
                           </InputAdornment>
                         }
                       />
+                      <FormHelperText>
+                        {registerdetailsErrors.username}
+                      </FormHelperText>
                     </FormControl>
                   </Box>
 
@@ -137,6 +144,7 @@ const RegisterPageView = ({
                         name="password"
                         type="password"
                         onChange={handleRegistrationDetails}
+                        required
                         labelWidth={120}
                         endAdornment={
                           <InputAdornment position="end">
@@ -144,6 +152,9 @@ const RegisterPageView = ({
                           </InputAdornment>
                         }
                       />
+                      <FormHelperText>
+                        {registerdetailsErrors.password}
+                      </FormHelperText>
                     </FormControl>
                   </Box>
                   <Box my={2}>
@@ -159,6 +170,7 @@ const RegisterPageView = ({
                         name="confirmPassword"
                         type="password"
                         onChange={handleRegistrationDetails}
+                        required
                         labelWidth={140}
                         endAdornment={
                           <InputAdornment position="end">
@@ -166,6 +178,9 @@ const RegisterPageView = ({
                           </InputAdornment>
                         }
                       />
+                      <FormHelperText>
+                        {registerdetailsErrors.confirmPassword}
+                      </FormHelperText>
                     </FormControl>
                   </Box>
 

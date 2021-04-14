@@ -9,6 +9,7 @@ import {
   Button,
   Typography,
   InputAdornment,
+  FormHelperText,
 } from "@material-ui/core";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
@@ -22,6 +23,7 @@ import background from "../../../../utils/images/croplogin.jpg";
 
 const LoginPageView = ({
   loginDetails,
+  loginDetailsErrors,
   setLoginDetils,
   handleLoginDetails,
   handleSubmit,
@@ -77,6 +79,7 @@ const LoginPageView = ({
                       </InputAdornment>
                     }
                   />
+                  <FormHelperText>{loginDetailsErrors.username}</FormHelperText>
                 </FormControl>
               </Box>
               <Box my={2}>
@@ -99,6 +102,7 @@ const LoginPageView = ({
                       </InputAdornment>
                     }
                   />
+                  <FormHelperText>{loginDetailsErrors.password}</FormHelperText>
                 </FormControl>
               </Box>
 
