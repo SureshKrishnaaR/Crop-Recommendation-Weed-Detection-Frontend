@@ -6,6 +6,8 @@ import Typography from "@material-ui/core/Typography";
 import PersonIcon from "@material-ui/icons/Person";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
 import { useHistory, NavLink } from "react-router-dom";
+import { useSelector, shallowEqual } from "react-redux";
+
 import {
   Popper,
   Paper,
@@ -99,6 +101,10 @@ const NavbarView = ({
   handleLogout,
 }) => {
   //constants
+  const userDetails = useSelector(
+    ({ userDetails }) => userDetails.userDetails,
+    shallowEqual
+  );
   const history = useHistory();
   const classes = useStyles();
   const [arrowRef, setArrowRef] = useState(null);
@@ -125,7 +131,7 @@ const NavbarView = ({
               >
                 <Avatar
                   variant="rounded"
-                  src={localStorage.getItem("accountpicturesrc")}
+                  src={userDetails && userDetails.profileUrl}
                 />
               </Button>
               <Popper
@@ -150,7 +156,9 @@ const NavbarView = ({
               >
                 <span className={classes.arrow} ref={setArrowRef} />
                 <Paper className={classes.paper}>
-                  <DialogTitle>{"Anonymous"}</DialogTitle>
+                  <DialogTitle>
+                    {userDetails ? userDetails.username : "Anonymous"}
+                  </DialogTitle>
                   <List>
                     <ListItem
                       dense
