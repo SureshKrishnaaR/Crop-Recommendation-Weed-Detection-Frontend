@@ -1,8 +1,10 @@
 import React from "react";
 
 import FertilizerQuestion from "./components/FertilizerQuestion";
-import PredictCrop from "./components/FertilizerQuestion/components/PredictCropApproach1";
-import NpkPrediction from "./components/FertilizerQuestion/components/PredictCropApproach1/components/NPKPrediction";
+import ChooseLocation from "./components/FertilizerQuestion/components/ChooseLocation";
+import PredictCrop from "./components/FertilizerQuestion/components/ChooseLocation/components/PredictCropApproach1";
+import NpkPrediction from "./components/FertilizerQuestion/components/ChooseLocation/components/PredictCropApproach1/components/NPKPrediction";
+import PredictFertilizer from "./components/FertilizerQuestion/components/ChooseLocation/components/PredictCropApproach1/components/NPKPrediction/components/PredictFertilizer";
 
 const CropRecommendationView = ({
   page,
@@ -15,6 +17,8 @@ const CropRecommendationView = ({
   handleLocationChange,
   npkValues,
   handleNpkChange,
+  fertilizer,
+  handleFertilizerChange,
 }) => {
   return (
     <>
@@ -28,6 +32,17 @@ const CropRecommendationView = ({
         {page === 1 ? (
           <FertilizerQuestion page={page} handlePageChange={handlePageChange} />
         ) : page === 2 ? (
+          <ChooseLocation
+            page={page}
+            handlePageChange={handlePageChange}
+            envfactors={envfactors}
+            location={location}
+            crop={crop}
+            handleCropChange={handleCropChange}
+            handleEnvFactorsChange={handleEnvFactorsChange}
+            handleLocationChange={handleLocationChange}
+          />
+        ) : page === 3 ? (
           <PredictCrop
             page={page}
             handlePageChange={handlePageChange}
@@ -38,15 +53,25 @@ const CropRecommendationView = ({
             handleEnvFactorsChange={handleEnvFactorsChange}
             handleLocationChange={handleLocationChange}
           />
+        ) : page === 4 ? (
+          <NpkPrediction
+            page={page}
+            handlePageChange={handlePageChange}
+            envfactors={envfactors}
+            crop={crop}
+            npkValues={npkValues}
+            handleNpkChange={handleNpkChange}
+          />
         ) : (
-          page === 3 && (
-            <NpkPrediction
+          page === 5 && (
+            <PredictFertilizer
               page={page}
               handlePageChange={handlePageChange}
               envfactors={envfactors}
               crop={crop}
               npkValues={npkValues}
-              handleNpkChange={handleNpkChange}
+              fertilizer={fertilizer}
+              handleFertilizerChange={handleFertilizerChange}
             />
           )
         )}

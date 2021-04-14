@@ -15,9 +15,11 @@ const CropRecommendation = () => {
     potassium: 48.3,
   });
 
-  const [location, setLocation] = useState(null);
+  const [location, setLocation] = useState(-1);
 
   const [crop, setCrop] = useState(null);
+
+  const [fertilizer, setFertilizer] = useState(null);
 
   const handleEnvFactorsChange = (newenvfactors) => {
     setEnvFactors(newenvfactors);
@@ -27,14 +29,18 @@ const CropRecommendation = () => {
     setCrop(predictedCrop);
   };
 
-  const handleLocationChange = () => {
+  const handleFertilizerChange = (predictedFertilizer) => {
+    setFertilizer(predictedFertilizer);
+  };
+
+  const handleLocationChange = (val) => {
     let newenvfactors = {
       rainfall: 103.38,
       temperature: 200.94,
       humidity: 67.15,
     };
     handleEnvFactorsChange(newenvfactors);
-    setLocation("CHENNAI");
+    setLocation(val);
   };
 
   const handleNpkChange = (newNpkvalues) => {
@@ -58,6 +64,8 @@ const CropRecommendation = () => {
         handleLocationChange={handleLocationChange}
         npkValues={npkValues}
         handleNpkChange={handleNpkChange}
+        fertilizer={fertilizer}
+        handleFertilizerChange={handleFertilizerChange}
       />
     </>
   );
