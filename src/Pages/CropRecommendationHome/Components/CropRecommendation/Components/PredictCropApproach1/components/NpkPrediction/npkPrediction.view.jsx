@@ -76,9 +76,9 @@ const NpkPredictionView = ({
                 justifyContent: "space-between",
               }}
             >
-              <Typography> PHOSPOROUS - P </Typography>
+              <Typography> PHOSPHORUS - P </Typography>
               <Typography style={{ textAlign: "right" }}>
-                <CountUp end={npkValues.phosporous} duration={5} decimals={3} />
+                <CountUp end={npkValues.phosphorus} duration={5} decimals={3} />
               </Typography>
             </Typography>
           </motion.div>
@@ -110,9 +110,32 @@ const NpkPredictionView = ({
           </motion.div>
         </div>
         <Box mt={3}>
-          <Button color="primary" variant="contained">
-            CHOOSE FERTILIZER
-          </Button>
+          <motion.div
+            initial={{ opacity: 0, x: "-100vw" }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{
+              delay: 5.4,
+              duration: 0.6,
+              type: "spring",
+              stiffness: 100,
+            }}
+            whileHover={{
+              scale: 1.1,
+              transition: {
+                yoyo: Infinity,
+              },
+            }}
+          >
+            <Button
+              color="primary"
+              variant="contained"
+              onClick={() => {
+                handlePageChange(5);
+              }}
+            >
+              CHOOSE FERTILIZER
+            </Button>
+          </motion.div>
         </Box>
       </div>
     </>

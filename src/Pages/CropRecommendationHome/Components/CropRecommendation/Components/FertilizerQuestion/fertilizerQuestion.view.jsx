@@ -34,7 +34,7 @@ const FertilizerQuestionView = ({ handleYes, handleNo }) => {
           <Grid item>
             <motion.div
               initial={{ x: "-100vw" }}
-              animate={{ x: 0 }}
+              animate={{ x: 0, scale: 1.5 }}
               transition={{ duration: 0.9, delay: 0.4 }}
             >
               <IconButton color="primary" onClick={handleYes}>
@@ -45,7 +45,7 @@ const FertilizerQuestionView = ({ handleYes, handleNo }) => {
           <Grid item>
             <motion.div
               initial={{ x: "100vw" }}
-              animate={{ x: 0 }}
+              animate={{ x: 0, scale: 1.5 }}
               transition={{ duration: 0.9, delay: 0.4 }}
             >
               <IconButton style={{ color: "red" }} onClick={handleNo}>
