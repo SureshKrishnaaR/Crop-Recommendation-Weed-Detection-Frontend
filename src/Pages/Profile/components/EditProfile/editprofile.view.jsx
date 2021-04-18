@@ -49,7 +49,7 @@ const EditProfileView = ({
         </Box>
       </Box>
       <Box p={2}>
-        <Grid container spacing={2} justify="center">
+        <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
             <FormControl
               style={{ width: "100%" }}
@@ -110,28 +110,6 @@ const EditProfileView = ({
                     endAdornment={
                       <InputAdornment position="end">
                         <AccountCircleIcon style={{ color: "#777" }} />
-                      </InputAdornment>
-                    }
-                  />
-                </FormControl>
-              </Grid>
-              <Grid item xs={12} md={6}>
-                <FormControl
-                  style={{ width: "100%" }}
-                  variant="outlined"
-                  size="small"
-                >
-                  <InputLabel>Password</InputLabel>
-                  <OutlinedInput
-                    id="password"
-                    name="password"
-                    type="password"
-                    value={profiledetails["password"]}
-                    onChange={handleChange}
-                    labelWidth={75}
-                    endAdornment={
-                      <InputAdornment position="end">
-                        <VpnKeyIcon style={{ color: "#777" }} />
                       </InputAdornment>
                     }
                   />
