@@ -36,6 +36,7 @@ const Navbar = () => {
   };
   const handleLogout = () => {
     localStorage.clear();
+    dispatch(addUserDetails(null));
     history.push("/");
     handleProfileOpen();
   };

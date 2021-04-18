@@ -31,7 +31,9 @@ const LoginPageView = ({
 }) => {
   //google oauth response handler
   const responseGoogle = (response) => {
-    localStorage.setItem("accountpicturesrc", response.profileObj.imageUrl);
+    if (response.profileObj) {
+      localStorage.setItem("accountpicturesrc", response.profileObj.imageUrl);
+    }
     handleGoogleSignin(response.profileObj.email, response.googleId);
   };
   return (
