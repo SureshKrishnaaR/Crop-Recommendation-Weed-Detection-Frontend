@@ -14,8 +14,10 @@ import { useSelector, shallowEqual } from "react-redux";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import PhoneAndroidIcon from "@material-ui/icons/PhoneAndroid";
 import PersonIcon from "@material-ui/icons/Person";
-import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import LandscapeIcon from "@material-ui/icons/Landscape";
+import LocationOnIcon from "@material-ui/icons/LocationOn";
+import LocationCityIcon from "@material-ui/icons/LocationCity";
+import LocalFloristIcon from "@material-ui/icons/LocalFlorist";
 
 //component imports
 import EditProfile from "./components/EditProfile";
@@ -62,7 +64,7 @@ const ProfileView = ({
               />
             </Box>
             <Box p={1}>
-              <Grid container spacing={2} justify="center">
+              <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
                   <FormControl style={{ width: "100%" }}>
                     <InputLabel>Full Name</InputLabel>
@@ -116,24 +118,6 @@ const ProfileView = ({
                         />
                       </FormControl>
                     </Grid>
-                    <Grid item xs={12} md={6}>
-                      <FormControl style={{ width: "100%" }}>
-                        <InputLabel>Password</InputLabel>
-                        <Input
-                          id="password"
-                          name="password"
-                          type="password"
-                          disabled
-                          value={profiledetails["password"]}
-                          onChange={handleChange}
-                          endAdornment={
-                            <InputAdornment position="end">
-                              <VpnKeyIcon style={{ color: "#777" }} />
-                            </InputAdornment>
-                          }
-                        />
-                      </FormControl>
-                    </Grid>
                   </>
                 )}
                 <Grid item xs={12} md={6}>
@@ -147,7 +131,7 @@ const ProfileView = ({
                       onChange={handleChange}
                       endAdornment={
                         <InputAdornment position="end">
-                          <PersonIcon style={{ color: "#777" }} />
+                          <LocationOnIcon style={{ color: "#777" }} />
                         </InputAdornment>
                       }
                     />
@@ -164,7 +148,7 @@ const ProfileView = ({
                       onChange={handleChange}
                       endAdornment={
                         <InputAdornment position="end">
-                          <PersonIcon style={{ color: "#777" }} />
+                          <LocationCityIcon style={{ color: "#777" }} />
                         </InputAdornment>
                       }
                     />
@@ -199,7 +183,7 @@ const ProfileView = ({
                       onChange={handleChange}
                       endAdornment={
                         <InputAdornment position="end">
-                          <PersonIcon style={{ color: "#777" }} />
+                          <LocalFloristIcon style={{ color: "#777" }} />
                         </InputAdornment>
                       }
                     />

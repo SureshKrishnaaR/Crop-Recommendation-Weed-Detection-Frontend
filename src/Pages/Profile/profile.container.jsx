@@ -7,7 +7,6 @@ const Profile = () => {
   const [profiledetails, setProfileDetails] = useState({
     full_name: "",
     username: "",
-    password: "",
     mobile: "",
     state_name: "",
     district_name: "",
