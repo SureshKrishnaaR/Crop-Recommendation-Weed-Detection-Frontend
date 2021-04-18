@@ -18,6 +18,10 @@ const PredictFertilizer = ({
   handleSoilTypeAPI,
   locationval,
 }) => {
+  const handleCropYieldPage = () => {
+    handlePageChange(7);
+  };
+
   const handlePredictFertilizer = () => {
     predictFertilizer(
       {
@@ -55,6 +59,7 @@ const PredictFertilizer = ({
         allsoiltypes={allsoiltypes}
         handleSoilTypeAPI={handleSoilTypeAPI}
         handlePredictFertilizer={handlePredictFertilizer}
+        handleCropYieldPage={handleCropYieldPage}
       />
     </>
   );

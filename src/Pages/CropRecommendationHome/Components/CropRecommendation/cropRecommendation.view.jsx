@@ -6,6 +6,7 @@ import PredictCrop from "./components/PredictCropApproach1";
 import NpkPrediction from "./components/PredictCropApproach1/components/NpkPrediction";
 import PredictFertilizer from "./components/PredictCropApproach1/components/PredictFertilizer";
 import PredictCropApproach2 from "./components/PredictCropApproach2";
+import PredictCropYield from "./components/PredictCropYield";
 
 const CropRecommendationView = ({
   page,
@@ -118,20 +119,28 @@ const CropRecommendationView = ({
             handleSoilTypeAPI={handleSoilTypeAPI}
             locationval={locationval}
           />
+        ) : page === 6 ? (
+          <PredictCropApproach2
+            page={page}
+            handlePageChange={handlePageChange}
+            envfactors={envfactors}
+            location={location}
+            locationval={locationval}
+            handleLocationChange={handleLocationChange}
+            handleLocationvalChange={handleLocationvalChange}
+            npkValues={npkValues}
+            handleNpkChange={handleNpkChange}
+            crop={crop}
+            handleCropChange={handleCropChange}
+          />
         ) : (
-          page === 6 && (
-            <PredictCropApproach2
+          page === 7 && (
+            <PredictCropYield
               page={page}
               handlePageChange={handlePageChange}
-              envfactors={envfactors}
-              location={location}
+              chosenstate={chosenstate}
               locationval={locationval}
-              handleLocationChange={handleLocationChange}
-              handleLocationvalChange={handleLocationvalChange}
-              npkValues={npkValues}
-              handleNpkChange={handleNpkChange}
               crop={crop}
-              handleCropChange={handleCropChange}
             />
           )
         )}

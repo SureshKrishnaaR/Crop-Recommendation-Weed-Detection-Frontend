@@ -159,6 +159,7 @@ const CropRecommendation = () => {
   };
 
   const handleSoilTypeValChange = (event) => {
+    setFertilizer(null);
     setSoilTypeVal(event.target.value);
   };
 
