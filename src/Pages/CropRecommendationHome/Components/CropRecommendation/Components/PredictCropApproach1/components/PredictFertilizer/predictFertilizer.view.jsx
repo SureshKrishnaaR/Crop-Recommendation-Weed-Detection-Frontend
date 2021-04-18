@@ -124,7 +124,12 @@ const PredictFertilizerView = ({
                     </motion.div>
                   ) : (
                     <>
-                      <div style={{ marginBottom: "40px" }}>
+                      <motion.div
+                        initial={{ opacity: 0, scale: 0 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.5 }}
+                        style={{ marginBottom: "40px" }}
+                      >
                         <Typography
                           style={{
                             boxShadow:
@@ -141,7 +146,7 @@ const PredictFertilizerView = ({
                             {fertilizer.toUpperCase()}
                           </Typography>
                         </Typography>
-                      </div>
+                      </motion.div>
                       <motion.div
                         initial={{ opacity: 0, x: "-100vw" }}
                         animate={{ opacity: 1, x: 0 }}

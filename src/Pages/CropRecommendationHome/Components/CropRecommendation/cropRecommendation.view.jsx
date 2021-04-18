@@ -130,6 +130,8 @@ const CropRecommendationView = ({
               handleLocationvalChange={handleLocationvalChange}
               npkValues={npkValues}
               handleNpkChange={handleNpkChange}
+              crop={crop}
+              handleCropChange={handleCropChange}
             />
           )
         )}

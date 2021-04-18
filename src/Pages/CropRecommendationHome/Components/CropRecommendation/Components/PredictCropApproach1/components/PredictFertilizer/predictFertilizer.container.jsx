@@ -20,7 +20,13 @@ const PredictFertilizer = ({
 }) => {
   const handlePredictFertilizer = () => {
     predictFertilizer(
-      { soil: soiltypeval, crop: "Maize", ...npkValues },
+      {
+        soil:
+          soiltypeval[0].toUpperCase() +
+          soiltypeval.slice(1, soiltypeval.length).toLowerCase(),
+        crop: crop[0].toUpperCase() + crop.slice(1, crop.length).toLowerCase(),
+        ...npkValues,
+      },
       locationval
     )
       .then((res) => {

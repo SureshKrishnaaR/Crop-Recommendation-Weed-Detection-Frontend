@@ -23,6 +23,8 @@ const PredictCropApproach2View = ({
   handleLocationvalChange,
   npkValues,
   handleNpkChange,
+  crop,
+  handlePredictCropApproach2,
 }) => {
   return (
     <>
@@ -129,27 +131,83 @@ const PredictCropApproach2View = ({
             }
           ></OutlinedInput>
         </FormControl>
-        {npkValues.nitrogen && npkValues.phosphorus && npkValues.potassium && (
-          <motion.div
-            initial={{ opacity: 0, x: "-100vw" }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{
-              duration: 0.6,
-              type: "spring",
-              stiffness: 100,
-            }}
-            whileHover={{
-              scale: 1.1,
-              transition: {
-                yoyo: Infinity,
-              },
-            }}
-          >
-            <Button color="primary" variant="contained">
-              PREDICT CROP
-            </Button>
-          </motion.div>
-        )}
+        {npkValues.nitrogen &&
+          npkValues.phosphorus &&
+          npkValues.potassium &&
+          (crop ? (
+            <>
+              <motion.div
+                initial={{ opacity: 0, scale: 0 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{
+                  duration: 0.7,
+                }}
+              >
+                <Typography
+                  style={{
+                    boxShadow:
+                      "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px",
+                    margin: "10px",
+                    padding: "15px",
+                    width: "300px",
+                    display: "flex",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <Typography> CROP </Typography>
+                  <Typography style={{ textAlign: "right" }}>
+                    {crop.toUpperCase()}
+                  </Typography>
+                </Typography>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: "-100vw" }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{
+                  duration: 0.7,
+                  delay: 1,
+                  type: "spring",
+                  stiffness: 150,
+                }}
+                whileHover={{
+                  scale: 1.1,
+                  transition: {
+                    yoyo: Infinity,
+                  },
+                }}
+              >
+                <Button color="primary" variant="contained">
+                  PREDICT CROP YIELD
+                </Button>
+              </motion.div>
+            </>
+          ) : (
+            <motion.div
+              initial={{ opacity: 0, x: "-100vw" }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{
+                duration: 0.6,
+                type: "spring",
+                stiffness: 100,
+              }}
+              whileHover={{
+                scale: 1.1,
+                transition: {
+                  yoyo: Infinity,
+                },
+              }}
+            >
+              <Button
+                color="primary"
+                variant="contained"
+                onClick={() => {
+                  handlePredictCropApproach2();
+                }}
+              >
+                PREDICT CROP
+              </Button>
+            </motion.div>
+          ))}
       </div>
     </>
   );

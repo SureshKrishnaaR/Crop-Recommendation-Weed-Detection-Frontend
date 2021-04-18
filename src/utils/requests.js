@@ -108,3 +108,16 @@ export const predictFertilizer = async (reqdetails, district) => {
   );
   return response.data;
 };
+
+export const predictCropApp2 = async (npkValues, district) => {
+  let response = await axios.post(
+    baseUrl + `/A2/recommendCrop?district=${district}`,
+    npkValues,
+    {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    }
+  );
+  return response.data;
+};

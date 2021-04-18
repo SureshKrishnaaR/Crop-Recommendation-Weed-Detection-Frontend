@@ -1,5 +1,6 @@
 import React from "react";
 import PredictCropApproach2View from "./predictCropApproach2.view";
+import { predictCropApp2 } from "../../../../../../utils/requests";
 
 const PredictCropApproach2 = ({
   page,
@@ -11,7 +12,19 @@ const PredictCropApproach2 = ({
   handleLocationvalChange,
   npkValues,
   handleNpkChange,
+  crop,
+  handleCropChange,
 }) => {
+  const handlePredictCropApproach2 = () => {
+    predictCropApp2({ ...npkValues }, locationval)
+      .then((response) => {
+        handleCropChange(response["crop"]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <>
       <PredictCropApproach2View
@@ -24,6 +37,8 @@ const PredictCropApproach2 = ({
         handleLocationvalChange={handleLocationvalChange}
         npkValues={npkValues}
         handleNpkChange={handleNpkChange}
+        handlePredictCropApproach2={handlePredictCropApproach2}
+        crop={crop}
       />
     </>
   );
