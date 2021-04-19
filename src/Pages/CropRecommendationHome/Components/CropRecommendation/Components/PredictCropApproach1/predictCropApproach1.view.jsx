@@ -1,7 +1,14 @@
 import React from "react";
-import { Typography, Button, Box, CircularProgress } from "@material-ui/core";
 import CountUp from "react-countup";
+import {
+  Typography,
+  Button,
+  Box,
+  CircularProgress,
+  useMediaQuery,
+} from "@material-ui/core";
 import { motion } from "framer-motion";
+import { useTheme } from "@material-ui/core/styles";
 
 const PredictCropView = ({
   page,
@@ -18,6 +25,8 @@ const PredictCropView = ({
   setShowSpinner,
   handlePredictCrop,
 }) => {
+  const mediatheme2 = useTheme();
+  const matches = useMediaQuery(mediatheme2.breakpoints.up("sm"));
   return (
     <>
       <div
@@ -25,7 +34,7 @@ const PredictCropView = ({
           display: "flex",
           justifyContent: "flex-end",
           padding: "30px",
-          overflow: "hidden",
+          marginTop: !matches && "60px",
         }}
       >
         <div
@@ -71,8 +80,7 @@ const PredictCropView = ({
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          height: "70%",
-          overflow: "hidden",
+          height: "56%",
         }}
       >
         <>

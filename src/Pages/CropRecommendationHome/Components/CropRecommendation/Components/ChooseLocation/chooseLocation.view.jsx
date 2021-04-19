@@ -8,7 +8,9 @@ import {
   FormGroup,
   FormControl,
   Box,
+  useMediaQuery,
 } from "@material-ui/core";
+import { useTheme } from "@material-ui/core/styles";
 
 import Dropdown from "../../../../../../components/Dropdown";
 
@@ -34,6 +36,8 @@ const ChooseLocationView = ({
   approach,
   handleWeatherUpdate,
 }) => {
+  const mediatheme2 = useTheme();
+  const matches = useMediaQuery(mediatheme2.breakpoints.up("sm"));
   return (
     <>
       <div
@@ -99,7 +103,7 @@ const ChooseLocationView = ({
             {location === 2 && (
               <Box mt={4}>
                 <FormControl
-                  style={{ width: "700px" }}
+                  style={{ width: matches ? "700px" : "300px" }}
                   variant="outlined"
                   size="small"
                 >
@@ -107,6 +111,8 @@ const ChooseLocationView = ({
                     <Box
                       style={{
                         display: "flex",
+                        flexDirection: !matches && "column",
+                        gap: !matches && "20px",
                         justifyContent: "space-between",
                       }}
                     >

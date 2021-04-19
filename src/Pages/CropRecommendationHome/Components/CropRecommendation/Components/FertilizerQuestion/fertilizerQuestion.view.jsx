@@ -29,27 +29,27 @@ const FertilizerQuestionView = ({ handleYes, handleNo }) => {
           direction="row"
           justify="space-around"
           alignItems="center"
-          style={{ width: "300px", marginTop: "10px", overflow: "hidden" }}
+          style={{ width: "400px", marginTop: "30px", overflow: "hidden" }}
         >
           <Grid item>
             <motion.div
-              initial={{ x: "-100vw" }}
-              animate={{ x: 0, scale: 1.5 }}
+              initial={{ opacity: 0, x: "-100vw" }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.9, delay: 0.4 }}
             >
               <IconButton color="primary" onClick={handleYes}>
-                <DoneIcon />
+                <DoneIcon style={{ fontSize: "1.4em" }} />
               </IconButton>
             </motion.div>
           </Grid>
           <Grid item>
             <motion.div
-              initial={{ x: "100vw" }}
-              animate={{ x: 0, scale: 1.5 }}
-              transition={{ duration: 0.9, delay: 0.4 }}
+              initial={{ opacity: 0, x: "100vw" }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.9, delay: 0.4 }}    
             >
               <IconButton style={{ color: "red" }} onClick={handleNo}>
-                <ClearIcon />
+                <ClearIcon style={{ fontSize: "1.4em" }} />
               </IconButton>
             </motion.div>
           </Grid>
