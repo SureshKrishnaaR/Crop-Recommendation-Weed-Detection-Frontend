@@ -44,6 +44,10 @@ const CropRecommendationView = ({
   handleSoilTypeAPI,
   approach,
   handleApproachChange,
+  area,
+  handleAreaChange,
+  areaval,
+  handleAreaValChange,
 }) => {
   const mediatheme2 = useTheme();
   const matches = useMediaQuery(mediatheme2.breakpoints.up("sm"));
@@ -71,31 +75,19 @@ const CropRecommendationView = ({
               left: matches ? "50px" : "40vw",
             }}
           >
-            {matches ? (
-              <IconButton
-                color="primary"
-                style={{
-                  boxShadow:
-                    "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset",
-                }}
-              >
-                <KeyboardBackspaceIcon
-                  onClick={() => {
-                    handlePageChange(page - 1);
-                  }}
-                />
-              </IconButton>
-            ) : (
-              <Button
-                color="primary"
-                variant="outlined"
+            <IconButton
+              color="primary"
+              style={{
+                boxShadow:
+                  "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset",
+              }}
+            >
+              <KeyboardBackspaceIcon
                 onClick={() => {
                   handlePageChange(page - 1);
                 }}
-              >
-                BACK
-              </Button>
-            )}
+              />
+            </IconButton>
           </motion.div>
         )}
         {page === 1 ? (
@@ -189,8 +181,19 @@ const CropRecommendationView = ({
               chosenstate={chosenstate}
               locationval={locationval}
               crop={crop}
+              area={area}
+              handleAreaChange={handleAreaChange}
+              areaval={areaval}
+              handleAreaValChange={handleAreaValChange}
             />
           )
+        )}
+        {page !== 1 && matches && (
+          <div style={{ position: "absolute", bottom: "20px", right: "20px" }}>
+            <Button color="primary" variant="outlined">
+              VIEW ALL DETAILS
+            </Button>
+          </div>
         )}
       </div>
     </>

@@ -42,6 +42,12 @@ const CropRecommendation = () => {
   const [soiltype, setSoilType] = useState(-1);
   const [soiltypeval, setSoilTypeVal] = useState("");
 
+  //states for crop production
+  const [area, setArea] = useState(-1);
+  const [areaval, setAreaVal] = useState(null);
+  const [season, setSeason] = useState(-1);
+  const [seasonval, setSeasonVal] = useState(null);
+
   /*
     Handlers
   */
@@ -179,6 +185,20 @@ const CropRecommendation = () => {
       });
   };
 
+  //hanlders for Crop Production
+
+  const handleAreaChange = (newareaval) => {
+    setAreaVal(null);
+    if (newareaval === 0) {
+      setAreaVal(388.48);
+    }
+    setArea(newareaval);
+  };
+
+  const handleAreaValChange = (event) => {
+    setAreaVal(event.target.value);
+  };
+
   return (
     <>
       <CropRecommendationView
@@ -213,6 +233,10 @@ const CropRecommendation = () => {
         handleSoilTypeAPI={handleSoilTypeAPI}
         approach={approach}
         handleApproachChange={handleApproachChange}
+        area={area}
+        handleAreaChange={handleAreaChange}
+        areaval={areaval}
+        handleAreaValChange={handleAreaValChange}
       />
     </>
   );
