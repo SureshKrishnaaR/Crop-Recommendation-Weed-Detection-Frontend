@@ -24,6 +24,9 @@ const GetAreaView = ({
 }) => {
   return (
     <>
+      <Typography variant="h6" style={{ marginBottom: "30px" }}>
+        ENTER AREA
+      </Typography>
       <FormControl style={{ width: "300px" }}>
         <FormGroup>
           <FormControlLabel
@@ -70,6 +73,7 @@ const GetAreaView = ({
                 type="number"
                 id="area"
                 name="area"
+                value={areaval}
                 endAdornment={
                   <InputAdornment position="end">
                     <LandscapeIcon style={{ color: "#777" }} />
@@ -108,6 +112,7 @@ const GetAreaView = ({
                   color="primary"
                   variant="contained"
                   onClick={() => {
+                    console.log(handlePageChange);
                     handlePageChange(8);
                   }}
                 >

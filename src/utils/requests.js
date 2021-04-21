@@ -57,18 +57,6 @@ export const updateProfile = async (profileDetails) => {
   return response.data;
 };
 
-export const getWeatherDetails = async (district) => {
-  let response = await axios.get(
-    baseUrl + `/weather?district_name=${district}`,
-    {
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    }
-  );
-  return response.data;
-};
-
 export const predictCrop = async (district) => {
   let response = await axios.get(
     baseUrl + `/A1/recommendCrop?district=${district}`,
@@ -119,5 +107,26 @@ export const predictCropApp2 = async (npkValues, district) => {
       },
     }
   );
+  return response.data;
+};
+
+export const getWeatherDetails = async (district) => {
+  let response = await axios.get(
+    baseUrl + `/weather?district_name=${district}`,
+    {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    }
+  );
+  return response.data;
+};
+
+export const getSeasons = async () => {
+  let response = await axios.get(baseUrl + `/seasons`, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  });
   return response.data;
 };
