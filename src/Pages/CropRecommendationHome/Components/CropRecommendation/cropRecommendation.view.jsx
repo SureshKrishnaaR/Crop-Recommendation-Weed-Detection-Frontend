@@ -48,6 +48,10 @@ const CropRecommendationView = ({
   handleAreaChange,
   areaval,
   handleAreaValChange,
+  season,
+  seasonval,
+  handleSeasonChange,
+  handleSeasonValChange,
 }) => {
   const mediatheme2 = useTheme();
   const matches = useMediaQuery(mediatheme2.breakpoints.up("sm"));
@@ -69,7 +73,7 @@ const CropRecommendationView = ({
             initial={{ opacity: 0, scale: 0 }}
             animate={{ opacity: 1, scale: 1 }}
             style={{
-              marginTop: "20px",
+              marginTop: "0px",
               position: "absolute",
               top: "20px",
               left: matches ? "50px" : "40vw",
@@ -174,7 +178,7 @@ const CropRecommendationView = ({
             handleCropChange={handleCropChange}
           />
         ) : (
-          page === 7 && (
+          page >= 7 && (
             <PredictCropYield
               page={page}
               handlePageChange={handlePageChange}
@@ -185,6 +189,10 @@ const CropRecommendationView = ({
               handleAreaChange={handleAreaChange}
               areaval={areaval}
               handleAreaValChange={handleAreaValChange}
+              season={season}
+              seasonval={seasonval}
+              handleSeasonChange={handleSeasonChange}
+              handleSeasonValChange={handleSeasonValChange}
             />
           )
         )}

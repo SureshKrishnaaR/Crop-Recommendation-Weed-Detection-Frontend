@@ -1,5 +1,6 @@
 import React from "react";
 import GetArea from "./components/getArea";
+import GetSeason from "./components/getSeason";
 
 const PredictCropYieldView = ({
   page,
@@ -11,6 +12,10 @@ const PredictCropYieldView = ({
   handleAreaChange,
   areaval,
   handleAreaValChange,
+  season,
+  seasonval,
+  handleSeasonChange,
+  handleSeasonValChange,
 }) => {
   return (
     <>
@@ -24,7 +29,7 @@ const PredictCropYieldView = ({
           overflow: "hidden",
         }}
       >
-        {page === 7 && (
+        {page === 7 ? (
           <GetArea
             page={page}
             handlePageChange={handlePageChange}
@@ -33,6 +38,19 @@ const PredictCropYieldView = ({
             areaval={areaval}
             handleAreaValChange={handleAreaValChange}
           />
+        ) : (
+          page === 8 && (
+            <>
+              <GetSeason
+                page={page}
+                handlePageChange={handlePageChange}
+                season={season}
+                seasonval={seasonval}
+                handleSeasonChange={handleSeasonChange}
+                handleSeasonValChange={handleSeasonValChange}
+              />
+            </>
+          )
         )}
       </div>
     </>

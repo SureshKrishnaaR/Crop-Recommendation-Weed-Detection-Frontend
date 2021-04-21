@@ -54,6 +54,7 @@ const CropRecommendation = () => {
 
   //page handlers
   const handlePageChange = (page) => {
+    console.log(page);
     setPage(page);
   };
 
@@ -98,9 +99,11 @@ const CropRecommendation = () => {
             }
           );
         });
+        //districts API
         handleLocationvalChangeType2("Mumbai");
       }
     } else if (val === 1) {
+      //Redux - from profile
       handleLocationvalChangeType2("Chennai");
     }
   };
@@ -160,7 +163,10 @@ const CropRecommendation = () => {
   const handleSoilTypeChange = (soiltypetobeset) => {
     setSoilTypeVal("");
     setFertilizer(null);
-    if (soiltypetobeset === 0) setSoilTypeVal("Red");
+    if (soiltypetobeset === 0) {
+      //Redux - from profile
+      setSoilTypeVal("Red");
+    }
     setSoilType(soiltypetobeset);
   };
 
@@ -197,6 +203,19 @@ const CropRecommendation = () => {
 
   const handleAreaValChange = (event) => {
     setAreaVal(event.target.value);
+  };
+
+  const handleSeasonChange = (seasonvalue) => {
+    console.log(seasonvalue);
+    if (seasonvalue === 0) {
+      //Redux - from profile
+      setSeasonVal("Winter");
+    }
+    setSeason(seasonvalue);
+  };
+
+  const handleSeasonValChange = (event) => {
+    setSeasonVal(event.target.value);
   };
 
   return (
@@ -237,6 +256,10 @@ const CropRecommendation = () => {
         handleAreaChange={handleAreaChange}
         areaval={areaval}
         handleAreaValChange={handleAreaValChange}
+        season={season}
+        seasonval={seasonval}
+        handleSeasonChange={handleSeasonChange}
+        handleSeasonValChange={handleSeasonValChange}
       />
     </>
   );
