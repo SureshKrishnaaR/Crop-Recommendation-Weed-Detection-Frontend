@@ -7,6 +7,8 @@ const PredictCropYield = ({
   chosenstate,
   locationval,
   crop,
+  fertilizer,
+  npkValues,
   area,
   handleAreaChange,
   areaval,
@@ -17,6 +19,8 @@ const PredictCropYield = ({
   handleSeasonValChange,
   allseasons,
   handleSeasonAPI,
+  cropyield,
+  handleCropYield,
 }) => {
   return (
     <>
@@ -26,6 +30,8 @@ const PredictCropYield = ({
         chosenstate={chosenstate}
         locationval={locationval}
         crop={crop}
+        fertilizer={fertilizer}
+        npkValues={npkValues}
         area={area}
         handleAreaChange={handleAreaChange}
         areaval={areaval}
@@ -36,6 +42,8 @@ const PredictCropYield = ({
         handleSeasonValChange={handleSeasonValChange}
         allseasons={allseasons}
         handleSeasonAPI={handleSeasonAPI}
+        cropyield={cropyield}
+        handleCropYield={handleCropYield}
       />
     </>
   );
