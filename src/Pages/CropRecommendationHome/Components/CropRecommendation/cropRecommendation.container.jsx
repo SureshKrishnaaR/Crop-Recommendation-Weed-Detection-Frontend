@@ -54,6 +54,7 @@ const CropRecommendation = () => {
   const [seasonval, setSeasonVal] = useState(null);
   const [allseasons, setAllSeasons] = useState([]);
   const [allsoiltypes, setAllSoilTypes] = useState([]);
+  const [cropyield, setCropYield] = useState(null);
 
   /*
     Handlers
@@ -67,6 +68,27 @@ const CropRecommendation = () => {
 
   //approach handlers
   const handleApproachChange = (appval) => {
+    setArea(null);
+    setAreaVal(null);
+    setChosenState(null);
+    setCrop(null);
+    setEnvFactors({
+      rainfall: null,
+      temperature: null,
+      humidity: null,
+    });
+    setFertilizer(null);
+    setLocation(null);
+    setLocationval(null);
+    setNpkValues({
+      nitrogen: null,
+      phosphorus: null,
+      potassium: null,
+    });
+    setSeason(null);
+    setSeasonVal(null);
+    setSoilType(null);
+    setSoilTypeVal(null);
     setApproach(appval);
   };
 
@@ -212,6 +234,7 @@ const CropRecommendation = () => {
 
   const handleSeasonChange = (seasonvalue) => {
     setSeasonVal("");
+    setCropYield(null);
     if (seasonvalue === 0) {
       //Redux - from profile
       setSeasonVal("Winter");
@@ -220,6 +243,7 @@ const CropRecommendation = () => {
   };
 
   const handleSeasonValChange = (event) => {
+    setCropYield(null);
     setSeasonVal(event.target.value);
   };
 
@@ -235,6 +259,10 @@ const CropRecommendation = () => {
       .catch((err) => {
         console.log(err);
       });
+  };
+
+  const handleCropYield = (yieldval) => {
+    setCropYield(yieldval);
   };
 
   return (
@@ -281,6 +309,8 @@ const CropRecommendation = () => {
         handleSeasonValChange={handleSeasonValChange}
         allseasons={allseasons}
         handleSeasonAPI={handleSeasonAPI}
+        cropyield={cropyield}
+        handleCropYield={handleCropYield}
       />
     </>
   );

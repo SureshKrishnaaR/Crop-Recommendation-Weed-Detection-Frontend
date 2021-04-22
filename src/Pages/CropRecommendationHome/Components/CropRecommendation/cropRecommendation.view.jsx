@@ -54,6 +54,8 @@ const CropRecommendationView = ({
   handleSeasonValChange,
   allseasons,
   handleSeasonAPI,
+  cropyield,
+  handleCropYield,
 }) => {
   const mediatheme2 = useTheme();
   const matches = useMediaQuery(mediatheme2.breakpoints.up("sm"));
@@ -87,15 +89,21 @@ const CropRecommendationView = ({
                 boxShadow:
                   "rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset",
               }}
-            >
-              <KeyboardBackspaceIcon
-                onClick={() => {
-                  if(page===7){
-                    handlePageChange()
+              onClick={() => {
+                if (page === 6) {
+                  handlePageChange(2);
+                } else if (page === 7) {
+                  if (approach === 1) {
+                    handlePageChange(5);
+                  } else if (approach === 2) {
+                    handlePageChange(6);
                   }
+                } else {
                   handlePageChange(page - 1);
-                }}
-              />
+                }
+              }}
+            >
+              <KeyboardBackspaceIcon />
             </IconButton>
           </motion.div>
         )}
@@ -190,6 +198,8 @@ const CropRecommendationView = ({
               chosenstate={chosenstate}
               locationval={locationval}
               crop={crop}
+              fertilizer={fertilizer}
+              npkValues={npkValues}
               area={area}
               handleAreaChange={handleAreaChange}
               areaval={areaval}
@@ -200,6 +210,8 @@ const CropRecommendationView = ({
               handleSeasonValChange={handleSeasonValChange}
               allseasons={allseasons}
               handleSeasonAPI={handleSeasonAPI}
+              cropyield={cropyield}
+              handleCropYield={handleCropYield}
             />
           )
         )}
