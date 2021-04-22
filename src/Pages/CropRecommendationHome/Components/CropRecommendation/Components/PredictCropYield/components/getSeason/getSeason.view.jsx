@@ -10,6 +10,7 @@ import {
 } from "@material-ui/core";
 import { motion } from "framer-motion";
 import Dropdown from "../../../../../../../../components/Dropdown";
+import CountUp from "react-countup";
 
 const GetSeasonView = ({
   page,
@@ -20,6 +21,8 @@ const GetSeasonView = ({
   handleSeasonValChange,
   handleSeasonAPI,
   allseasons,
+  cropyield,
+  handlePredictCropYield,
 }) => {
   return (
     <>
@@ -80,33 +83,98 @@ const GetSeasonView = ({
                   <Typography>SEASON - {seasonval.toUpperCase()}</Typography>
                 </motion.div>
               </Box>
-              <motion.div
-                style={{ textAlign: "center", marginTop: "20px" }}
-                initial={{ opacity: 0, x: "-100vw" }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{
-                  duration: 0.7,
-                  delay: 1,
-                  type: "spring",
-                  stiffness: 150,
-                }}
-                whileHover={{
-                  scale: 1.1,
-                  transition: {
-                    yoyo: Infinity,
-                  },
-                }}
-              >
-                <Button
-                  color="primary"
-                  variant="contained"
-                  onClick={() => {
-                    handlePageChange(9);
-                  }}
-                >
-                  PREDICT CROP YIELD
-                </Button>
-              </motion.div>
+              {!cropyield ? (
+                <>
+                  <motion.div
+                    style={{ textAlign: "center", marginTop: "20px" }}
+                    initial={{ opacity: 0, x: "-100vw" }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{
+                      duration: 0.7,
+                      delay: 1,
+                      type: "spring",
+                      stiffness: 150,
+                    }}
+                    whileHover={{
+                      scale: 1.1,
+                      transition: {
+                        yoyo: Infinity,
+                      },
+                    }}
+                  >
+                    <Button
+                      color="primary"
+                      variant="contained"
+                      onClick={() => {
+                        handlePredictCropYield();
+                      }}
+                    >
+                      PREDICT CROP YIELD
+                    </Button>
+                  </motion.div>
+                </>
+              ) : (
+                <>
+                  <Box>
+                    <motion.div
+                      initial={{
+                        opacity: 0,
+                        scale: 0,
+                      }}
+                      animate={{
+                        opacity: 1,
+                        scale: 1,
+                      }}
+                      transition={{ duration: 0.6 }}
+                      style={{ marginBottom: "20px" }}
+                    >
+                      <Typography
+                        style={{
+                          boxShadow:
+                            "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px",
+                          margin: "10px",
+                          padding: "15px",
+                          width: "300px",
+                          display: "flex",
+                          justifyContent: "space-between",
+                        }}
+                      >
+                        <Typography> CROP YIELD </Typography>
+                        <Typography style={{ textAlign: "right" }}>
+                          <CountUp end={cropyield} duration={5} decimals={4} />
+                        </Typography>
+                      </Typography>
+                    </motion.div>
+                    <motion.div
+                      initial={{ opacity: 0, x: "-100vw" }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{
+                        duration: 0.7,
+                        delay: 5,
+                        type: "spring",
+                        stiffness: 150,
+                      }}
+                      whileHover={{
+                        scale: 1.1,
+                        transition: {
+                          yoyo: Infinity,
+                        },
+                      }}
+                      style={{ textAlign: "center" }}
+                    >
+                      <Button
+                        color="primary"
+                        variant="contained"
+                        onClick={() => {
+                          handlePageChange(9);
+                        }}
+                      >
+                        DONE
+                      </Button>
+                    </motion.div>
+                  </Box>
+                </>
+              )}
             </>
           )}
         </FormGroup>

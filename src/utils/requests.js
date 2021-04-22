@@ -123,6 +123,30 @@ export const getWeatherDetails = async (district) => {
 };
 
 export const getSeasons = async () => {
-  let response = await axios.get(baseUrl + `/seasons`);
+  let response = await axios.get(baseUrl + `/seasons`, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  });
+  return response.data;
+};
+
+export const predictCropYield = async ({
+  state,
+  district,
+  crop,
+  season,
+  area,
+}) => {
+  let response = await axios.post(
+    baseUrl +
+      `/recommendCropYield?state=${state}&district=${district}&season=${season}`,
+    { crop: crop[0].toUpperCase() + crop.slice(1), area: area },
+    {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    }
+  );
   return response.data;
 };

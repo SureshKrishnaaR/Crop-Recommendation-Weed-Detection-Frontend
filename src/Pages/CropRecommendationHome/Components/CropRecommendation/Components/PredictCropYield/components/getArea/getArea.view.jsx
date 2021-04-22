@@ -27,7 +27,12 @@ const GetAreaView = ({
       <Typography variant="h6" style={{ marginBottom: "30px" }}>
         ENTER AREA
       </Typography>
-      <FormControl style={{ width: "300px" }}>
+      <FormControl
+        style={{
+          width: "300px",
+          alignItems: "center",
+        }}
+      >
         <FormGroup>
           <FormControlLabel
             control={
@@ -53,7 +58,7 @@ const GetAreaView = ({
                 }}
               />
             }
-            label="Enter area manually"
+            label="Enter Area manually"
           />
           {area === 1 && (
             <FormControl
