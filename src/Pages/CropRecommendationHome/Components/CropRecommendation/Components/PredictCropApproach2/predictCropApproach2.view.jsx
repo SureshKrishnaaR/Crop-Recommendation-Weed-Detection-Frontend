@@ -8,6 +8,7 @@ import {
   Box,
   Button,
   useMediaQuery,
+  CircularProgress,
 } from "@material-ui/core";
 import NatureIcon from "@material-ui/icons/Nature";
 import NaturePeopleIcon from "@material-ui/icons/NaturePeople";
@@ -27,6 +28,8 @@ const PredictCropApproach2View = ({
   handleNpkChange,
   crop,
   handlePredictCropApproach2,
+  spin,
+  setSpin,
 }) => {
   const mediatheme2 = useTheme();
   const matches = useMediaQuery(mediatheme2.breakpoints.up("sm"));
@@ -198,6 +201,10 @@ const PredictCropApproach2View = ({
                 </Button>
               </motion.div>
             </>
+          ) : spin ? (
+            <Typography style={{ marginTop: "20px" }}>
+              <CircularProgress />
+            </Typography>
           ) : (
             <motion.div
               initial={{ opacity: 0, x: "-100vw" }}
@@ -218,7 +225,8 @@ const PredictCropApproach2View = ({
                 color="primary"
                 variant="contained"
                 onClick={() => {
-                  handlePredictCropApproach2();
+                  setSpin(true);
+                  setTimeout(handlePredictCropApproach2, 2000);
                 }}
               >
                 PREDICT CROP

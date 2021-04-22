@@ -88,8 +88,8 @@ const PredictCropView = ({
             initial={{ opacity: 0, x: "-100vw" }}
             animate={{ opacity: 1, x: 0 }}
             transition={{
-              delay: 0.1,
-              duration: 0.5,
+              delay: 0.4,
+              duration: 1,
               type: "spring",
               stiffness: 100,
             }}
@@ -115,8 +115,8 @@ const PredictCropView = ({
             initial={{ opacity: 0, x: "100vw" }}
             animate={{ opacity: 1, x: 0 }}
             transition={{
-              delay: 0.1,
-              duration: 0.5,
+              delay: 0.4,
+              duration: 1,
               type: "spring",
               stiffness: 100,
             }}
@@ -146,8 +146,8 @@ const PredictCropView = ({
             initial={{ opacity: 0, x: "-100vw" }}
             animate={{ opacity: 1, x: 0 }}
             transition={{
-              delay: 0.1,
-              duration: 0.5,
+              delay: 0.4,
+              duration: 1,
               type: "spring",
               stiffness: 100,
             }}

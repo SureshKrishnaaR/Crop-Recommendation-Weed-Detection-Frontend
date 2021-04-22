@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PredictCropApproach2View from "./predictCropApproach2.view";
 import { predictCropApp2 } from "../../../../../../utils/requests";
 
@@ -15,6 +15,8 @@ const PredictCropApproach2 = ({
   crop,
   handleCropChange,
 }) => {
+  const [spin, setSpin] = useState(false);
+
   const handlePredictCropApproach2 = () => {
     predictCropApp2({ ...npkValues }, locationval)
       .then((response) => {
@@ -39,6 +41,8 @@ const PredictCropApproach2 = ({
         handleNpkChange={handleNpkChange}
         handlePredictCropApproach2={handlePredictCropApproach2}
         crop={crop}
+        spin={spin}
+        setSpin={setSpin}
       />
     </>
   );
