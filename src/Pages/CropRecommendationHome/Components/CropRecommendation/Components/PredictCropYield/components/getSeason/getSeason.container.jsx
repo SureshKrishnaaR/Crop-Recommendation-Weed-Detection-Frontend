@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import GetSeasonView from "./getSeason.view";
-import { getSeasons } from "../../../../../../../../utils/requests";
 
 const GetSeason = ({
   page,
@@ -9,23 +8,9 @@ const GetSeason = ({
   seasonval,
   handleSeasonChange,
   handleSeasonValChange,
+  allseasons,
+  handleSeasonAPI,
 }) => {
-  const [allseasons, setAllSeasons] = useState([]);
-
-  const handleSeasonAPI = () => {
-    getSeasons()
-      .then((res) => {
-        let seasonsapi = [];
-        for (let i in res) {
-          seasonsapi.push(res[i].trim());
-        }
-        setAllSeasons(seasonsapi);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
-
   return (
     <>
       <GetSeasonView

@@ -16,6 +16,8 @@ const PredictCropYieldView = ({
   seasonval,
   handleSeasonChange,
   handleSeasonValChange,
+  allseasons,
+  handleSeasonAPI,
 }) => {
   return (
     <>
@@ -48,6 +50,8 @@ const PredictCropYieldView = ({
                 seasonval={seasonval}
                 handleSeasonChange={handleSeasonChange}
                 handleSeasonValChange={handleSeasonValChange}
+                allseasons={allseasons}
+                handleSeasonAPI={handleSeasonAPI}
               />
             </>
           )

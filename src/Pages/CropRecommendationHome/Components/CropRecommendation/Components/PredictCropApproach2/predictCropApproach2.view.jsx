@@ -7,11 +7,13 @@ import {
   Typography,
   Box,
   Button,
+  useMediaQuery,
 } from "@material-ui/core";
 import NatureIcon from "@material-ui/icons/Nature";
 import NaturePeopleIcon from "@material-ui/icons/NaturePeople";
 import EmojiNatureIcon from "@material-ui/icons/EmojiNature";
 import { motion } from "framer-motion";
+import { useTheme } from "@material-ui/core/styles";
 
 const PredictCropApproach2View = ({
   page,
@@ -26,9 +28,18 @@ const PredictCropApproach2View = ({
   crop,
   handlePredictCropApproach2,
 }) => {
+  const mediatheme2 = useTheme();
+  const matches = useMediaQuery(mediatheme2.breakpoints.up("sm"));
   return (
     <>
-      <Box p={3} style={{ display: "flex", justifyContent: "flex-end" }}>
+      <Box
+        p={3}
+        style={{
+          display: "flex",
+          justifyContent: "flex-end",
+          marginTop: !matches && "60px",
+        }}
+      >
         <div
           style={{
             boxShadow:
@@ -147,7 +158,7 @@ const PredictCropApproach2View = ({
                   style={{
                     boxShadow:
                       "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px",
-                    margin: "10px",
+                    margin: "5px",
                     padding: "15px",
                     width: "300px",
                     display: "flex",
@@ -176,7 +187,13 @@ const PredictCropApproach2View = ({
                   },
                 }}
               >
-                <Button color="primary" variant="contained">
+                <Button
+                  color="primary"
+                  variant="contained"
+                  onClick={() => {
+                    handlePageChange(7);
+                  }}
+                >
                   PREDICT CROP YIELD
                 </Button>
               </motion.div>

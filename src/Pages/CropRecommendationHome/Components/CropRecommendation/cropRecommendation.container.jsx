@@ -2,7 +2,12 @@ import axios from "axios";
 import React, { useState } from "react";
 
 import CropRecommendationView from "./cropRecommendation.view";
-import { getStates, getDistricts, getSoil } from "../../../../utils/requests";
+import {
+  getStates,
+  getDistricts,
+  getSoil,
+  getSeasons,
+} from "../../../../utils/requests";
 
 const CropRecommendation = () => {
   /*
@@ -47,6 +52,8 @@ const CropRecommendation = () => {
   const [areaval, setAreaVal] = useState(null);
   const [season, setSeason] = useState(-1);
   const [seasonval, setSeasonVal] = useState(null);
+  const [allseasons, setAllSeasons] = useState([]);
+  const [allsoiltypes, setAllSoilTypes] = useState([]);
 
   /*
     Handlers
@@ -175,8 +182,6 @@ const CropRecommendation = () => {
     setSoilTypeVal(event.target.value);
   };
 
-  const [allsoiltypes, setAllSoilTypes] = useState([]);
-
   const handleSoilTypeAPI = () => {
     getSoil()
       .then((res) => {
@@ -206,7 +211,7 @@ const CropRecommendation = () => {
   };
 
   const handleSeasonChange = (seasonvalue) => {
-    console.log(seasonvalue);
+    setSeasonVal("");
     if (seasonvalue === 0) {
       //Redux - from profile
       setSeasonVal("Winter");
@@ -216,6 +221,20 @@ const CropRecommendation = () => {
 
   const handleSeasonValChange = (event) => {
     setSeasonVal(event.target.value);
+  };
+
+  const handleSeasonAPI = () => {
+    getSeasons()
+      .then((res) => {
+        let seasonsapi = [];
+        for (let i in res) {
+          seasonsapi.push(res[i].trim());
+        }
+        setAllSeasons(seasonsapi);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -260,6 +279,8 @@ const CropRecommendation = () => {
         seasonval={seasonval}
         handleSeasonChange={handleSeasonChange}
         handleSeasonValChange={handleSeasonValChange}
+        allseasons={allseasons}
+        handleSeasonAPI={handleSeasonAPI}
       />
     </>
   );

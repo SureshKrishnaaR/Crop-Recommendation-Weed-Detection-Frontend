@@ -15,6 +15,8 @@ const PredictCropYield = ({
   seasonval,
   handleSeasonChange,
   handleSeasonValChange,
+  allseasons,
+  handleSeasonAPI,
 }) => {
   return (
     <>
@@ -32,6 +34,8 @@ const PredictCropYield = ({
         seasonval={seasonval}
         handleSeasonChange={handleSeasonChange}
         handleSeasonValChange={handleSeasonValChange}
+        allseasons={allseasons}
+        handleSeasonAPI={handleSeasonAPI}
       />
     </>
   );

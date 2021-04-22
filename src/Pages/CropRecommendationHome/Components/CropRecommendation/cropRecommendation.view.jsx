@@ -52,6 +52,8 @@ const CropRecommendationView = ({
   seasonval,
   handleSeasonChange,
   handleSeasonValChange,
+  allseasons,
+  handleSeasonAPI,
 }) => {
   const mediatheme2 = useTheme();
   const matches = useMediaQuery(mediatheme2.breakpoints.up("sm"));
@@ -88,6 +90,9 @@ const CropRecommendationView = ({
             >
               <KeyboardBackspaceIcon
                 onClick={() => {
+                  if(page===7){
+                    handlePageChange()
+                  }
                   handlePageChange(page - 1);
                 }}
               />
@@ -193,6 +198,8 @@ const CropRecommendationView = ({
               seasonval={seasonval}
               handleSeasonChange={handleSeasonChange}
               handleSeasonValChange={handleSeasonValChange}
+              allseasons={allseasons}
+              handleSeasonAPI={handleSeasonAPI}
             />
           )
         )}

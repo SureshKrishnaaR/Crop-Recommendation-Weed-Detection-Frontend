@@ -123,10 +123,6 @@ export const getWeatherDetails = async (district) => {
 };
 
 export const getSeasons = async () => {
-  let response = await axios.get(baseUrl + `/seasons`, {
-    headers: {
-      Authorization: `Bearer ${localStorage.getItem("token")}`,
-    },
-  });
+  let response = await axios.get(baseUrl + `/seasons`);
   return response.data;
 };

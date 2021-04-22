@@ -39,7 +39,7 @@ const GetSeasonView = ({
                 }}
               />
             }
-            label="Choose Soil Type from Profile"
+            label="Choose Season from Profile"
           />
           <FormControlLabel
             control={
@@ -53,13 +53,13 @@ const GetSeasonView = ({
                 }}
               />
             }
-            label="Enter Soil Type manually"
+            label="Enter Season manually"
           />
           {season === 1 && (
             <>
               <Box py={2}>
                 <Dropdown
-                  label="Soil Type"
+                  label="Season"
                   value={seasonval}
                   options={allseasons}
                   handleChange={handleSeasonValChange}
