@@ -1,9 +1,13 @@
 import React from "react";
 import CaptureImageView from "./captureimage.view.jsx";
-const CaptureImage = () => {
+const CaptureImage = ({ image, handleImage, handleStep }) => {
   return (
     <>
-      <CaptureImageView />
+      <CaptureImageView
+        image={image}
+        handleImage={handleImage}
+        handleStep={handleStep}
+      />
     </>
   );
 };

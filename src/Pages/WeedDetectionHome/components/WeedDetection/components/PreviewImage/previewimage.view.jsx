@@ -1,8 +1,8 @@
 import React from "react";
-const PreviewImageView = () => {
+const PreviewImageView = ({ handleStep, image, handleImage }) => {
   return (
     <>
-      <h1>Hello Preview Image</h1>
+      <img src={image} alt="Preview" />
     </>
   );
 };

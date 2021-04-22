@@ -6,7 +6,7 @@ import PredictOutput from "./components/PredictionOutput";
 
 const WeedDetectionView = ({ step, image, handleStep, handleImage }) => {
   return (
-    <Grid container>
+    <Grid container style={{ height: "100%" }}>
       {step === 0 ? (
         <CaptureImage
           handleStep={handleStep}

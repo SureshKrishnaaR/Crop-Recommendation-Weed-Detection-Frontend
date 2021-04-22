@@ -1,6 +1,8 @@
 import React, { useRef, useCallback } from "react";
 import Webcam from "react-webcam";
-import { Grid } from "@material-ui/core";
+import { Grid, Button } from "@material-ui/core";
+import CameraAltIcon from "@material-ui/icons/CameraAlt";
+
 const CaptureImageView = ({ image, handleImage, handleStep }) => {
   const videoConstraints = {
     width: 1280,
@@ -16,16 +18,29 @@ const CaptureImageView = ({ image, handleImage, handleStep }) => {
 
   return (
     <>
-      <Grid container item>
+      <Grid
+        container
+        item
+        justify="center"
+        alignItems="center"
+        style={{ height: "100%" }}
+      >
         <Webcam
+          style={{ width: "100vw", height: "70vh" }}
           audio={false}
-          height={720}
           ref={webcamRef}
           screenshotFormat="image/jpeg"
-          width={1280}
           videoConstraints={videoConstraints}
         />
-        <button onClick={capture}>Capture photo</button>
+        <Button
+          onClick={capture}
+          style={{ textTransform: "none" }}
+          variant="contained"
+          color="primary"
+          startIcon={<CameraAltIcon />}
+        >
+          Capture Image
+        </Button>
       </Grid>
     </>
   );

@@ -1,9 +1,13 @@
 import React from "react";
 import PreviewImageView from "./previewimage.view.jsx";
-const PreviewImage = () => {
+const PreviewImage = ({ handleStep, image, handleImage }) => {
   return (
     <>
-      <PreviewImageView />
+      <PreviewImageView
+        handleStep={handleStep}
+        image={image}
+        handleImage={handleImage}
+      />
     </>
   );
 };

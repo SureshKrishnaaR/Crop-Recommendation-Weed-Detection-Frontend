@@ -7,6 +7,7 @@ const WeedDetection = () => {
     setStep(val);
   };
   const handleImage = (img) => {
+    handleStep(step + 1);
     setImage(img);
   };
   return (
