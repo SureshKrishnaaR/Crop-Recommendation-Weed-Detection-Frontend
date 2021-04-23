@@ -4,7 +4,14 @@ import CaptureImage from "./components/CaptureImage";
 import PreviewImage from "./components/PreviewImage";
 import PredictOutput from "./components/PredictionOutput";
 
-const WeedDetectionView = ({ step, image, handleStep, handleImage }) => {
+const WeedDetectionView = ({
+  step,
+  image,
+  handleStep,
+  handleImage,
+  cameravision,
+  handleCameraVision,
+}) => {
   return (
     <Grid container style={{ height: "100%" }}>
       {step === 0 ? (
@@ -12,6 +19,8 @@ const WeedDetectionView = ({ step, image, handleStep, handleImage }) => {
           handleStep={handleStep}
           image={image}
           handleImage={handleImage}
+          cameravision={cameravision}
+          handleCameraVision={handleCameraVision}
         />
       ) : step === 1 ? (
         <PreviewImage
