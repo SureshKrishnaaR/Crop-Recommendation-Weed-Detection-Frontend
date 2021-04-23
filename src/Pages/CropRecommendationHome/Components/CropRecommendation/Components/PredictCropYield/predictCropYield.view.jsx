@@ -1,7 +1,11 @@
 import React from "react";
-import { Typography, Grid } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
+import { Typography, Grid, Button, useMediaQuery } from "@material-ui/core";
+import { useTheme } from "@material-ui/core/styles";
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
+import HomeIcon from "@material-ui/icons/Home";
+import ReplayIcon from "@material-ui/icons/Replay";
 
 import GetArea from "./components/getArea";
 import GetSeason from "./components/getSeason";
@@ -9,6 +13,7 @@ import GetSeason from "./components/getSeason";
 const PredictCropYieldView = ({
   page,
   handlePageChange,
+  approach,
   chosenstate,
   locationval,
   crop,
@@ -27,6 +32,10 @@ const PredictCropYieldView = ({
   cropyield,
   handleCropYield,
 }) => {
+  const history = useHistory();
+  const themealldata = useTheme();
+  const matches = useMediaQuery(themealldata.breakpoints.up("md"));
+
   return (
     <>
       <div
@@ -34,6 +43,7 @@ const PredictCropYieldView = ({
           display: "flex",
           flexDirection: "column",
           height: "100%",
+          width: "100vw",
           alignItems: "center",
           justifyContent: "center",
           overflow: "hidden",
@@ -73,9 +83,15 @@ const PredictCropYieldView = ({
               <Grid
                 container
                 justify="center"
-                style={{ width: "90vw", marginTop: "10px" }}
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  marginTop: !matches && "60px",
+                  flexDirection: approach === 2 && "column",
+                }}
               >
-                <Grid item xs={12} md={6} lg={4}>
+                <Grid item xs={12} md={6} lg={4} style={{ width: "100%" }}>
                   <motion.div
                     initial={{ x: "-100vw", y: "-100vh", opacity: 0 }}
                     animate={{ x: 0, y: 0, opacity: 1 }}
@@ -100,7 +116,7 @@ const PredictCropYieldView = ({
                     </Typography>
                   </motion.div>
                 </Grid>
-                <Grid item xs={12} md={6} lg={4}>
+                <Grid item xs={12} md={6} lg={4} style={{ width: "100%" }}>
                   <motion.div
                     initial={{ y: "-100vw", opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
@@ -125,7 +141,7 @@ const PredictCropYieldView = ({
                     </Typography>
                   </motion.div>
                 </Grid>
-                <Grid item xs={12} md={6} lg={4}>
+                <Grid item xs={12} md={6} lg={4} style={{ width: "100%" }}>
                   <motion.div
                     initial={{ x: "100vw", y: "-100vh", opacity: 0 }}
                     animate={{ x: 0, y: 0, opacity: 1 }}
@@ -150,7 +166,7 @@ const PredictCropYieldView = ({
                     </Typography>
                   </motion.div>
                 </Grid>
-                <Grid item xs={12} md={6} lg={4}>
+                <Grid item xs={12} md={6} lg={4} style={{ width: "100%" }}>
                   <motion.div
                     initial={{ x: "-100vw", y: "100vh", opacity: 0 }}
                     animate={{ x: 0, y: 0, opacity: 1 }}
@@ -172,7 +188,7 @@ const PredictCropYieldView = ({
                   </motion.div>
                 </Grid>
                 {fertilizer && (
-                  <Grid item xs={12} md={6} lg={4}>
+                  <Grid item xs={12} md={6} lg={4} style={{ width: "100%" }}>
                     <motion.div
                       initial={{ y: "100vh", opacity: 0 }}
                       animate={{ y: 0, opacity: 1 }}
@@ -195,7 +211,7 @@ const PredictCropYieldView = ({
                   </Grid>
                 )}
 
-                <Grid item xs={12} md={6} lg={4}>
+                <Grid item xs={12} md={6} lg={4} style={{ width: "100%" }}>
                   <motion.div
                     initial={{ x: "100vw", y: "100vh", opacity: 0 }}
                     animate={{ x: 0, y: 0, opacity: 1 }}
@@ -214,6 +230,49 @@ const PredictCropYieldView = ({
                       <Typography> CROP YIELD </Typography>
                       <CountUp end={cropyield} duration={5} decimals={4} />
                     </Typography>
+                  </motion.div>
+                </Grid>
+                <Grid container item xs={12} justify="center">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1, delay: 5 }}
+                    whileHover={{ scale: 1.1, transition: { yoyo: Infinity } }}
+                  >
+                    <Button
+                      color="primary"
+                      variant="contained"
+                      style={{ margin: "10px" }}
+                      startIcon={<HomeIcon />}
+                      onClick={() => {
+                        history.push("/home");
+                      }}
+                    >
+                      BACK TO HOME
+                    </Button>
+                  </motion.div>
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1, delay: 5 }}
+                    whileHover={{
+                      scale: 1.1,
+                      transition: {
+                        yoyo: Infinity,
+                      },
+                    }}
+                  >
+                    <Button
+                      color="primary"
+                      variant="contained"
+                      style={{ margin: "10px" }}
+                      endIcon={<ReplayIcon />}
+                      onClick={() => {
+                        handlePageChange(1);
+                      }}
+                    >
+                      RESTART
+                    </Button>
                   </motion.div>
                 </Grid>
               </Grid>

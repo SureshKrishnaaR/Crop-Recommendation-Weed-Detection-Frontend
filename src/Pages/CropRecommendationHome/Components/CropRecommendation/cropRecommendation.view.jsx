@@ -195,6 +195,7 @@ const CropRecommendationView = ({
             <PredictCropYield
               page={page}
               handlePageChange={handlePageChange}
+              approach={approach}
               chosenstate={chosenstate}
               locationval={locationval}
               crop={crop}
