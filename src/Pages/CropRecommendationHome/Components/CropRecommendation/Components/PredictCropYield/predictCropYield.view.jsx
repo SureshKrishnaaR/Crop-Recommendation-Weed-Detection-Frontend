@@ -1,6 +1,7 @@
 import React from "react";
 import { Typography, Grid } from "@material-ui/core";
 import CountUp from "react-countup";
+import { motion } from "framer-motion";
 
 import GetArea from "./components/getArea";
 import GetSeason from "./components/getSeason";
@@ -75,79 +76,11 @@ const PredictCropYieldView = ({
                 style={{ width: "90vw", marginTop: "10px" }}
               >
                 <Grid item xs={12} md={6} lg={4}>
-                  <Typography
-                    style={{
-                      boxShadow:
-                        "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px",
-                      margin: "10px",
-                      padding: "15px",
-                      display: "flex",
-                      justifyContent: "space-between",
-                    }}
+                  <motion.div
+                    initial={{ x: "-100vw", y: "-100vh", opacity: 0 }}
+                    animate={{ x: 0, y: 0, opacity: 1 }}
+                    transition={{ duration: 1.2 }}
                   >
-                    <Typography> NITROGEN </Typography>
-                    <CountUp
-                      end={npkValues.nitrogen}
-                      duration={5}
-                      decimals={4}
-                    />
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} md={6} lg={4}>
-                  <Typography
-                    style={{
-                      boxShadow:
-                        "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px",
-                      margin: "10px",
-                      padding: "15px",
-                      display: "flex",
-                      justifyContent: "space-between",
-                    }}
-                  >
-                    <Typography> PHOSPHORUS </Typography>
-                    <CountUp
-                      end={npkValues.phosphorus}
-                      duration={5}
-                      decimals={4}
-                    />
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} md={6} lg={4}>
-                  <Typography
-                    style={{
-                      boxShadow:
-                        "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px",
-                      margin: "10px",
-                      padding: "15px",
-                      display: "flex",
-                      justifyContent: "space-between",
-                    }}
-                  >
-                    <Typography> POTASSIUM </Typography>
-                    <CountUp
-                      end={npkValues.potassium}
-                      duration={5}
-                      decimals={4}
-                    />
-                  </Typography>
-                </Grid>
-                <Grid item xs={12} md={6} lg={4}>
-                  <Typography
-                    style={{
-                      boxShadow:
-                        "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px",
-                      margin: "10px",
-                      padding: "15px",
-                      display: "flex",
-                      justifyContent: "space-between",
-                    }}
-                  >
-                    <Typography> CROP </Typography>
-                    <Typography> {crop.toUpperCase()} </Typography>
-                  </Typography>
-                </Grid>
-                {fertilizer && (
-                  <Grid item xs={12} md={6} lg={4}>
                     <Typography
                       style={{
                         boxShadow:
@@ -158,26 +91,130 @@ const PredictCropYieldView = ({
                         justifyContent: "space-between",
                       }}
                     >
-                      <Typography> FERTILIZER </Typography>
-                      <Typography> {fertilizer} </Typography>
+                      <Typography> NITROGEN </Typography>
+                      <CountUp
+                        end={npkValues.nitrogen}
+                        duration={5}
+                        decimals={4}
+                      />
                     </Typography>
+                  </motion.div>
+                </Grid>
+                <Grid item xs={12} md={6} lg={4}>
+                  <motion.div
+                    initial={{ y: "-100vw", opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 1.2 }}
+                  >
+                    <Typography
+                      style={{
+                        boxShadow:
+                          "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px",
+                        margin: "10px",
+                        padding: "15px",
+                        display: "flex",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <Typography> PHOSPHORUS </Typography>
+                      <CountUp
+                        end={npkValues.phosphorus}
+                        duration={5}
+                        decimals={4}
+                      />
+                    </Typography>
+                  </motion.div>
+                </Grid>
+                <Grid item xs={12} md={6} lg={4}>
+                  <motion.div
+                    initial={{ x: "100vw", y: "-100vh", opacity: 0 }}
+                    animate={{ x: 0, y: 0, opacity: 1 }}
+                    transition={{ duration: 1.2 }}
+                  >
+                    <Typography
+                      style={{
+                        boxShadow:
+                          "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px",
+                        margin: "10px",
+                        padding: "15px",
+                        display: "flex",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <Typography> POTASSIUM </Typography>
+                      <CountUp
+                        end={npkValues.potassium}
+                        duration={5}
+                        decimals={4}
+                      />
+                    </Typography>
+                  </motion.div>
+                </Grid>
+                <Grid item xs={12} md={6} lg={4}>
+                  <motion.div
+                    initial={{ x: "-100vw", y: "100vh", opacity: 0 }}
+                    animate={{ x: 0, y: 0, opacity: 1 }}
+                    transition={{ duration: 1.2 }}
+                  >
+                    <Typography
+                      style={{
+                        boxShadow:
+                          "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px",
+                        margin: "10px",
+                        padding: "15px",
+                        display: "flex",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <Typography> CROP </Typography>
+                      <Typography> {crop.toUpperCase()} </Typography>
+                    </Typography>
+                  </motion.div>
+                </Grid>
+                {fertilizer && (
+                  <Grid item xs={12} md={6} lg={4}>
+                    <motion.div
+                      initial={{ y: "100vh", opacity: 0 }}
+                      animate={{ y: 0, opacity: 1 }}
+                      transition={{ duration: 1.2 }}
+                    >
+                      <Typography
+                        style={{
+                          boxShadow:
+                            "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px",
+                          margin: "10px",
+                          padding: "15px",
+                          display: "flex",
+                          justifyContent: "space-between",
+                        }}
+                      >
+                        <Typography> FERTILIZER </Typography>
+                        <Typography> {fertilizer} </Typography>
+                      </Typography>
+                    </motion.div>
                   </Grid>
                 )}
 
                 <Grid item xs={12} md={6} lg={4}>
-                  <Typography
-                    style={{
-                      boxShadow:
-                        "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px",
-                      margin: "10px",
-                      padding: "15px",
-                      display: "flex",
-                      justifyContent: "space-between",
-                    }}
+                  <motion.div
+                    initial={{ x: "100vw", y: "100vh", opacity: 0 }}
+                    animate={{ x: 0, y: 0, opacity: 1 }}
+                    transition={{ duration: 1.2 }}
                   >
-                    <Typography> CROP YIELD </Typography>
-                    <CountUp end={cropyield} duration={5} decimals={4} />
-                  </Typography>
+                    <Typography
+                      style={{
+                        boxShadow:
+                          "rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px",
+                        margin: "10px",
+                        padding: "15px",
+                        display: "flex",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <Typography> CROP YIELD </Typography>
+                      <CountUp end={cropyield} duration={5} decimals={4} />
+                    </Typography>
+                  </motion.div>
                 </Grid>
               </Grid>
             </>

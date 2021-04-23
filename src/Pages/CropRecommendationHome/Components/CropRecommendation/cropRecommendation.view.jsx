@@ -215,13 +215,6 @@ const CropRecommendationView = ({
             />
           )
         )}
-        {page !== 1 && matches && (
-          <div style={{ position: "absolute", bottom: "20px", right: "20px" }}>
-            <Button color="primary" variant="outlined">
-              VIEW ALL DETAILS
-            </Button>
-          </div>
-        )}
       </div>
     </>
   );
