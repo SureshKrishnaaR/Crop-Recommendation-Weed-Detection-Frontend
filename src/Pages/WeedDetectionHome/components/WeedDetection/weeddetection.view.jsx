@@ -7,6 +7,7 @@ import PredictOutput from "./components/PredictionOutput";
 const WeedDetectionView = ({
   step,
   image,
+  outputMatrix,
   handleStep,
   handleImage,
   cameravision,
@@ -32,6 +33,7 @@ const WeedDetectionView = ({
         <PredictOutput
           handleStep={handleStep}
           image={image}
+          outputMatrix={outputMatrix}
           handleImage={handleImage}
         />
       )}

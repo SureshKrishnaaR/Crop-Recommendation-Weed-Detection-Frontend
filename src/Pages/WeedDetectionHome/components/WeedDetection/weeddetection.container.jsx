@@ -6,12 +6,16 @@ import {
   showBackDrop,
   hideBackDrop,
 } from "../../../../redux/ActionCreators/backdrop.action";
+import output from "../../output.png";
 
 const WeedDetection = () => {
   const dispatch = useDispatch();
 
-  const [image, setImage] = useState(null);
-  const [step, setStep] = useState(0);
+  const [image, setImage] = useState(() => output);
+  const [step, setStep] = useState(2);
+  const [outputMatrix, setOutputMatrix] = useState([
+    [[0, 0, 224, 224], 0.9999970643373448, "weed"],
+  ]);
 
   const [cameravision, setCameraVision] = useState(false);
 
@@ -21,6 +25,7 @@ const WeedDetection = () => {
     }
     setStep(val);
   };
+
   const handleImage = (img) => {
     handleStep(step + 1);
     setImage(img);
@@ -35,14 +40,17 @@ const WeedDetection = () => {
   };
 
   useEffect(() => {
-    dispatch(showBackDrop());
-  }, []);
+    if (!step) {
+      dispatch(showBackDrop());
+    }
+  }, [dispatch, step]);
 
   return (
     <>
       <WeedDetectionView
         step={step}
         image={image}
+        outputMatrix={outputMatrix}
         handleStep={handleStep}
         handleImage={handleImage}
         cameravision={cameravision}

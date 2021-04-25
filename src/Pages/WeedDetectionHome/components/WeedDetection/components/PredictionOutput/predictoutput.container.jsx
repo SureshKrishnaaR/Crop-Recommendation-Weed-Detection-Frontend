@@ -1,9 +1,9 @@
 import React from "react";
 import PredictOutputView from "./predictoutput.view.jsx";
-const PredictOutput = () => {
+const PredictOutput = ({ image, outputMatrix }) => {
   return (
     <>
-      <PredictOutputView />
+      <PredictOutputView image={image} outputMatrix={outputMatrix} />
     </>
   );
 };
