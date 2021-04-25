@@ -12,6 +12,7 @@ const WeedDetectionView = ({
   handleImage,
   cameravision,
   handleCameraVision,
+  handleWeedDetection,
 }) => {
   return (
     <Grid container style={{ height: "100%" }}>
@@ -28,6 +29,7 @@ const WeedDetectionView = ({
           handleStep={handleStep}
           image={image}
           handleImage={handleImage}
+          handleWeedDetection={handleWeedDetection}
         />
       ) : (
         <PredictOutput

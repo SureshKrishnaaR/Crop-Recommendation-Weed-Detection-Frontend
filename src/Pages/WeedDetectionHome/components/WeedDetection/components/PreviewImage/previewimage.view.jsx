@@ -5,7 +5,12 @@ import { useTheme } from "@material-ui/core/styles";
 import FlipCameraIosIcon from "@material-ui/icons/FlipCameraIos";
 import NatureIcon from "@material-ui/icons/Nature";
 
-const PreviewImageView = ({ handleStep, image, handleImage }) => {
+const PreviewImageView = ({
+  handleStep,
+  image,
+  handleImage,
+  handleWeedDetection,
+}) => {
   const themecam = useTheme();
   const matches = useMediaQuery(themecam.breakpoints.up("sm"));
 
@@ -58,7 +63,7 @@ const PreviewImageView = ({ handleStep, image, handleImage }) => {
               style={{ textTransform: "none", margin: "10px" }}
               variant="contained"
               onClick={() => {
-                handleStep(2);
+                handleWeedDetection();
               }}
               color="primary"
               endIcon={<NatureIcon />}
