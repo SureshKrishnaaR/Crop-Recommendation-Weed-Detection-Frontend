@@ -71,7 +71,7 @@ const ProfileView = ({
                     <Input
                       id="full_name"
                       name="full_name"
-                      disabled
+                      readOnly
                       value={profiledetails["full_name"]}
                       onChange={handleChange}
                       endAdornment={
@@ -88,7 +88,7 @@ const ProfileView = ({
                     <Input
                       id="mobile"
                       name="mobile"
-                      disabled
+                      readOnly
                       value={profiledetails["mobile"]}
                       onChange={handleChange}
                       endAdornment={
@@ -107,7 +107,7 @@ const ProfileView = ({
                         <Input
                           id="username"
                           name="username"
-                          disabled
+                          readOnly
                           value={profiledetails["username"]}
                           onChange={handleChange}
                           endAdornment={
@@ -126,7 +126,7 @@ const ProfileView = ({
                     <Input
                       id="state_name"
                       name="state_name"
-                      disabled
+                      readOnly
                       value={profiledetails["state_name"]}
                       onChange={handleChange}
                       endAdornment={
@@ -143,7 +143,7 @@ const ProfileView = ({
                     <Input
                       id="district_name"
                       name="district_name"
-                      disabled
+                      readOnly
                       value={profiledetails["district_name"]}
                       onChange={handleChange}
                       endAdornment={
@@ -160,9 +160,10 @@ const ProfileView = ({
                     <Input
                       id="area"
                       name="area"
-                      type="number"
-                      disabled
-                      value={profiledetails["area"]}
+                      readOnly
+                      value={
+                        profiledetails["area"] ? profiledetails["area"] : ""
+                      }
                       onChange={handleChange}
                       endAdornment={
                         <InputAdornment position="end">
@@ -178,7 +179,7 @@ const ProfileView = ({
                     <Input
                       id="soil_type"
                       name="soil_type"
-                      disabled
+                      readOnly
                       value={profiledetails["soil_type"]}
                       onChange={handleChange}
                       endAdornment={

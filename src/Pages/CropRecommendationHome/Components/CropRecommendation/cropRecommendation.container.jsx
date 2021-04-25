@@ -116,6 +116,7 @@ const CropRecommendation = () => {
   };
 
   const handleLocationChange = (val) => {
+    console.log(userDetails);
     setAllDistricts([]);
     setLocationval("");
     setLocation(val);
