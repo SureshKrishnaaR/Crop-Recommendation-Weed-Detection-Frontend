@@ -11,6 +11,8 @@ import {
   useMediaQuery,
 } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
+import { useSelector, shallowEqual } from "react-redux";
+import { Link } from "react-router-dom";
 
 import Dropdown from "../../../../../../components/Dropdown";
 
@@ -38,6 +40,11 @@ const ChooseLocationView = ({
 }) => {
   const mediatheme2 = useTheme();
   const matches = useMediaQuery(mediatheme2.breakpoints.up("sm"));
+
+  const userDetails = useSelector(
+    ({ userDetails }) => userDetails.userDetails,
+    shallowEqual
+  );
   return (
     <>
       <div
@@ -77,6 +84,11 @@ const ChooseLocationView = ({
                   color="primary"
                   name="location"
                   checked={location === 1}
+                  disabled={
+                    !userDetails["state_name"] &&
+                    !userDetails["district_name"] &&
+                    true
+                  }
                   onChange={() => {
                     setChosenState("");
                     handleLocationChange(1);
@@ -85,6 +97,9 @@ const ChooseLocationView = ({
               }
               label="Use Location in Profile"
             />
+            {!userDetails["state_name"] && !userDetails["district_name"] && (
+              <Link to="/profile">Update profile to enable this option</Link>
+            )}
             <FormControlLabel
               control={
                 <Checkbox

@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { useSelector, shallowEqual } from "react-redux";
 
 import CropRecommendationView from "./cropRecommendation.view";
 import {
@@ -14,6 +15,10 @@ const CropRecommendation = () => {
     States
   */
 
+  const userDetails = useSelector(
+    ({ userDetails }) => userDetails.userDetails,
+    shallowEqual
+  );
   //page state
   const [page, setPage] = useState(1);
 
@@ -68,28 +73,30 @@ const CropRecommendation = () => {
 
   //approach handlers
   const handleApproachChange = (appval) => {
-    setArea(null);
-    setAreaVal(null);
-    setChosenState(null);
-    setCrop(null);
-    setEnvFactors({
-      rainfall: null,
-      temperature: null,
-      humidity: null,
-    });
-    setFertilizer(null);
-    setLocation(null);
-    setLocationval(null);
-    setNpkValues({
-      nitrogen: null,
-      phosphorus: null,
-      potassium: null,
-    });
-    setSeason(null);
-    setSeasonVal(null);
-    setSoilType(null);
-    setSoilTypeVal(null);
-    setApproach(appval);
+    if (appval !== approach) {
+      setArea(null);
+      setAreaVal(null);
+      setChosenState(null);
+      setCrop(null);
+      setEnvFactors({
+        rainfall: null,
+        temperature: null,
+        humidity: null,
+      });
+      setFertilizer(null);
+      setLocation(null);
+      setLocationval(null);
+      setNpkValues({
+        nitrogen: null,
+        phosphorus: null,
+        potassium: null,
+      });
+      setSeason(null);
+      setSeasonVal(null);
+      setSoilType(null);
+      setSoilTypeVal(null);
+      setApproach(appval);
+    }
   };
 
   //handlers for choose location
@@ -109,6 +116,7 @@ const CropRecommendation = () => {
   };
 
   const handleLocationChange = (val) => {
+    console.log(userDetails);
     setAllDistricts([]);
     setLocationval("");
     setLocation(val);
@@ -133,7 +141,8 @@ const CropRecommendation = () => {
       }
     } else if (val === 1) {
       //Redux - from profile
-      handleLocationvalChangeType2("Chennai");
+      setChosenState(userDetails["state_name"]);
+      handleLocationvalChangeType2(userDetails["district_name"]);
     }
   };
 
@@ -194,7 +203,7 @@ const CropRecommendation = () => {
     setFertilizer(null);
     if (soiltypetobeset === 0) {
       //Redux - from profile
-      setSoilTypeVal("Red");
+      setSoilTypeVal(userDetails["soil_type"]);
     }
     setSoilType(soiltypetobeset);
   };
@@ -223,7 +232,8 @@ const CropRecommendation = () => {
   const handleAreaChange = (newareaval) => {
     setAreaVal(null);
     if (newareaval === 0) {
-      setAreaVal(388.48);
+      //Redux - from profile
+      setAreaVal(userDetails["area"]);
     }
     setArea(newareaval);
   };
@@ -237,7 +247,7 @@ const CropRecommendation = () => {
     setCropYield(null);
     if (seasonvalue === 0) {
       //Redux - from profile
-      setSeasonVal("Winter");
+      setSeasonVal("Summer");
     }
     setSeason(seasonvalue);
   };

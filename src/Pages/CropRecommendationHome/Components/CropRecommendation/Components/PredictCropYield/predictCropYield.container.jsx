@@ -4,6 +4,7 @@ import PredictCropYieldView from "./predictCropYield.view";
 const PredictCropYield = ({
   page,
   handlePageChange,
+  approach,
   chosenstate,
   locationval,
   crop,
@@ -27,6 +28,7 @@ const PredictCropYield = ({
       <PredictCropYieldView
         page={page}
         handlePageChange={handlePageChange}
+        approach={approach}
         chosenstate={chosenstate}
         locationval={locationval}
         crop={crop}

@@ -23,6 +23,7 @@ const GetSeasonView = ({
   allseasons,
   cropyield,
   handlePredictCropYield,
+  handleSeasonAutopredict,
 }) => {
   return (
     <>
@@ -39,10 +40,11 @@ const GetSeasonView = ({
                 checked={season === 0}
                 onChange={() => {
                   handleSeasonChange(0);
+                  handleSeasonAutopredict();
                 }}
               />
             }
-            label="Choose Season from Profile"
+            label="Predict Season automatically"
           />
           <FormControlLabel
             control={

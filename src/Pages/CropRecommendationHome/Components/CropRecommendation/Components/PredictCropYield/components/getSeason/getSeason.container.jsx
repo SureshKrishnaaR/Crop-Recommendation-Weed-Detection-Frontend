@@ -1,6 +1,9 @@
 import React from "react";
 import GetSeasonView from "./getSeason.view";
-import { predictCropYield } from "../../../../../../../../utils/requests";
+import {
+  predictCropYield,
+  getSeasonbyMonth,
+} from "../../../../../../../../utils/requests";
 
 const GetSeason = ({
   page,
@@ -34,6 +37,16 @@ const GetSeason = ({
       });
   };
 
+  const handleSeasonAutopredict = () => {
+    getSeasonbyMonth()
+      .then((res) => {
+        handleSeasonValChange(res.trim());
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   return (
     <>
       <GetSeasonView
@@ -48,6 +61,7 @@ const GetSeason = ({
         cropyield={cropyield}
         handleCropYield={handleCropYield}
         handlePredictCropYield={handlePredictCropYield}
+        handleSeasonAutopredict={handleSeasonAutopredict}
       />
     </>
   );
