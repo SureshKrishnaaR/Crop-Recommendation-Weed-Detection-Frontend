@@ -150,3 +150,12 @@ export const predictCropYield = async ({
   );
   return response.data;
 };
+
+export const getSeasonbyMonth = async () => {
+  let response = await axios.get(baseUrl + `/getSeasonbyMonth`, {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("token")}`,
+    },
+  });
+  return response.data;
+};
