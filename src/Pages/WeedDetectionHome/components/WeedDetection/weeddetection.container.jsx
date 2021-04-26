@@ -19,7 +19,7 @@ const WeedDetection = () => {
 
   const handleStep = (val) => {
     if (val === 0) {
-      dispatch(showBackDrop());
+      // dispatch(showBackDrop());
     }
     setStep(val);
   };
@@ -50,7 +50,7 @@ const WeedDetection = () => {
 
   useEffect(() => {
     if (!step) {
-      dispatch(showBackDrop());
+      // dispatch(showBackDrop());
     }
   }, [dispatch, step]);
 

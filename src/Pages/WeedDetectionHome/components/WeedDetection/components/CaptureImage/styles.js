@@ -31,6 +31,7 @@ export const Root = styled.main`
   overflow-x: hidden;
   overflow-y: auto;
   padding: 50px 0 100px;
+  width: 100%;
 `;
 
 export const Preview = styled.img`
