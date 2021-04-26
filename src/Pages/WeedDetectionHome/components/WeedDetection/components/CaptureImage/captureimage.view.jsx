@@ -1,8 +1,53 @@
-import React, { useRef, useCallback } from "react";
+import React, { useRef, useCallback, useState } from "react";
 import { motion } from "framer-motion";
 import Webcam from "react-webcam";
 import { Grid, Button } from "@material-ui/core";
 import CameraAltIcon from "@material-ui/icons/CameraAlt";
+import { Camera } from "../../../../../../Components/camera";
+import {
+  Root,
+  Preview,
+  Footer,
+  GlobalStyle,
+} from "../../../../../../Components/hooks";
+
+function Video() {
+  const [isCameraOpen, setIsCameraOpen] = useState(false);
+  const [cardImage, setCardImage] = useState();
+
+  return (
+    <>
+      <Root>
+        {isCameraOpen && (
+          <Camera
+            onCapture={(blob) => setCardImage(blob)}
+            onClear={() => setCardImage(undefined)}
+          />
+        )}
+
+        {cardImage && (
+          <div>
+            <h2>Preview</h2>
+            <Preview src={cardImage && URL.createObjectURL(cardImage)} />
+          </div>
+        )}
+
+        <Footer>
+          <button onClick={() => setIsCameraOpen(true)}>Open Camera</button>
+          <button
+            onClick={() => {
+              setIsCameraOpen(false);
+              setCardImage(undefined);
+            }}
+          >
+            Close Camera
+          </button>
+        </Footer>
+      </Root>
+      <GlobalStyle />
+    </>
+  );
+}
 
 const CaptureImageView = ({
   image,
@@ -68,6 +113,7 @@ const CaptureImageView = ({
           </motion.div>
         )}
       </Grid>
+      <Video />
     </>
   );
 };
