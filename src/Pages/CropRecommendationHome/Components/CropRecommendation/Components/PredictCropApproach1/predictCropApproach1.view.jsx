@@ -32,7 +32,7 @@ const PredictCropView = ({
       <div
         style={{
           display: "flex",
-          justifyContent: "flex-end",
+          justifyContent: matches ? "flex-end" : "center",
           padding: "30px",
           marginTop: !matches && "60px",
         }}

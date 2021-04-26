@@ -13,6 +13,8 @@ import {
   Button,
 } from "@material-ui/core";
 import LandscapeIcon from "@material-ui/icons/Landscape";
+import { useSelector, shallowEqual } from "react-redux";
+import { Link } from "react-router-dom";
 
 const GetAreaView = ({
   page,
@@ -22,6 +24,11 @@ const GetAreaView = ({
   areaval,
   handleAreaValChange,
 }) => {
+  const userDetails = useSelector(
+    ({ userDetails }) => userDetails.userDetails,
+    shallowEqual
+  );
+
   return (
     <>
       <Typography variant="h6" style={{ marginBottom: "30px" }}>
@@ -39,6 +46,7 @@ const GetAreaView = ({
               <Checkbox
                 color="primary"
                 name="area"
+                disabled={!userDetails["area"] && true}
                 checked={area === 0}
                 onChange={() => {
                   handleAreaChange(0);
@@ -47,6 +55,9 @@ const GetAreaView = ({
             }
             label="Use Area in Profile"
           />
+          {!userDetails["area"] && (
+            <Link to="/profile">Update profile to enable this option</Link>
+          )}
           <FormControlLabel
             control={
               <Checkbox
