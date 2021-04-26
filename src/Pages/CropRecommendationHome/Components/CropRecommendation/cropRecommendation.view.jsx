@@ -4,13 +4,13 @@ import { motion } from "framer-motion";
 import { useTheme } from "@material-ui/core/styles";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
 
-import FertilizerQuestion from "./components/FertilizerQuestion";
-import ChooseLocation from "./components/ChooseLocation";
-import PredictCrop from "./components/PredictCropApproach1";
-import NpkPrediction from "./components/PredictCropApproach1/components/NpkPrediction";
-import PredictFertilizer from "./components/PredictCropApproach1/components/PredictFertilizer";
-import PredictCropApproach2 from "./components/PredictCropApproach2";
-import PredictCropYield from "./components/PredictCropYield";
+import FertilizerQuestion from "./Components/FertilizerQuestion";
+import ChooseLocation from "./Components/ChooseLocation";
+import PredictCrop from "./Components/PredictCropApproach1";
+import NpkPrediction from "./Components/PredictCropApproach1/components/NpkPrediction";
+import PredictFertilizer from "./Components/PredictCropApproach1/components/PredictFertilizer";
+import PredictCropApproach2 from "./Components/PredictCropApproach2";
+import PredictCropYield from "./Components/PredictCropYield";
 
 const CropRecommendationView = ({
   page,

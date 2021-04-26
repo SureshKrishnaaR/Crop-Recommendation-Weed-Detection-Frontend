@@ -1,5 +1,5 @@
 import React from "react";
-import LiquidSwipe from "../../components/LiquidSwipe";
+import LiquidSwipe from "../../Components/LiquidSwipe";
 import About from "../About";
 import WeedDetectionHome from "../WeedDetectionHome";
 import CropRecommendationHome from "../CropRecommendationHome";

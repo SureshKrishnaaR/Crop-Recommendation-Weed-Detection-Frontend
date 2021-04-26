@@ -10,7 +10,7 @@ import {
   Button,
 } from "@material-ui/core";
 
-import Dropdown from "../../../../../../../../components/Dropdown";
+import Dropdown from "../../../../../../../../Components/Dropdown";
 
 const PredictFertilizerView = ({
   page,

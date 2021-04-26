@@ -14,7 +14,7 @@ import { useTheme } from "@material-ui/core/styles";
 import { useSelector, shallowEqual } from "react-redux";
 import { Link } from "react-router-dom";
 
-import Dropdown from "../../../../../../components/Dropdown";
+import Dropdown from "../../../../../../Components/Dropdown";
 
 const ChooseLocationView = ({
   page,

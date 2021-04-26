@@ -1,5 +1,5 @@
 import React from "react";
-import Dropdown from "../../../../../../components/Dropdown";
+import Dropdown from "../../../../../../Components/Dropdown";
 
 const StateView = ({ profiledetails, handleChange, states }) => {
   return (

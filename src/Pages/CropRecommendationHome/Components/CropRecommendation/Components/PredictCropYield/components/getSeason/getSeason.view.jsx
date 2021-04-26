@@ -9,7 +9,7 @@ import {
   Box,
 } from "@material-ui/core";
 import { motion } from "framer-motion";
-import Dropdown from "../../../../../../../../components/Dropdown";
+import Dropdown from "../../../../../../../../Components/Dropdown";
 import CountUp from "react-countup";
 
 const GetSeasonView = ({
