@@ -116,7 +116,6 @@ const CropRecommendation = () => {
   };
 
   const handleLocationChange = (val) => {
-    console.log(userDetails);
     setAllDistricts([]);
     setLocationval("");
     setLocation(val);
@@ -125,19 +124,26 @@ const CropRecommendation = () => {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {
           console.log(position);
-          axios.get(
-            "http://maps.googleapis.com/maps/api/geocode/json?latlng=" +
-              position.coords.latitude +
-              "," +
-              position.coords.longitude +
-              "&sensor=false",
-            function (data) {
-              console.log(data);
-            }
-          );
+          axios
+            .get(
+              `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}&localityLanguage=en`
+            )
+            .then((res) => {
+              let district =
+                res["data"]["localityInfo"]["administrative"][2]["name"];
+              let state =
+                res["data"]["localityInfo"]["administrative"][1]["name"];
+              handleLocationvalChangeType2(
+                district.slice(0, district.length - 9)
+              );
+              setChosenState(state);
+            })
+            .catch((err) => {
+              alert("Error...!");
+              setLocation(null);
+            });
         });
         //districts API
-        handleLocationvalChangeType2("Mumbai");
       }
     } else if (val === 1) {
       //Redux - from profile

@@ -9,6 +9,8 @@ import {
   Box,
   Button,
 } from "@material-ui/core";
+import { useSelector, shallowEqual } from "react-redux";
+import { Link } from "react-router-dom";
 
 import Dropdown from "../../../../../../../../Components/Dropdown";
 
@@ -29,6 +31,11 @@ const PredictFertilizerView = ({
   handlePredictFertilizer,
   handleCropYieldPage,
 }) => {
+  const userDetails = useSelector(
+    ({ userDetails }) => userDetails.userDetails,
+    shallowEqual
+  );
+
   return (
     <>
       <div
@@ -52,6 +59,7 @@ const PredictFertilizerView = ({
                   color="primary"
                   name="soil_type"
                   checked={soiltype === 0}
+                  disabled={!userDetails["soil_type"]}
                   onChange={() => {
                     handleSoilTypeChange(0);
                   }}
@@ -59,6 +67,9 @@ const PredictFertilizerView = ({
               }
               label="Choose Soil Type from Profile"
             />
+            {!userDetails["soil_type"] && (
+              <Link to="/profile">Update profile to enable this option</Link>
+            )}
             <FormControlLabel
               control={
                 <Checkbox
