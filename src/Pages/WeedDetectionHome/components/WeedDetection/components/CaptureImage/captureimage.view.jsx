@@ -3,45 +3,70 @@ import { motion } from "framer-motion";
 import { Grid, Button } from "@material-ui/core";
 import { Camera } from "../../../../../../Components/camera";
 import { Root, Preview, Footer, GlobalStyle } from "./styles";
+import FlipCameraIosIcon from "@material-ui/icons/FlipCameraIos";
+import NatureIcon from "@material-ui/icons/Nature";
 
-const CaptureImageView = ({
-  image,
-  handleImage,
-  handleStep,
-  cameravision,
-  handleCameraVision,
-}) => {
-  const [isCameraOpen, setIsCameraOpen] = useState(false);
+const CaptureImageView = ({ image, handleImage, handleWeedDetection }) => {
   const [cardImage, setCardImage] = useState();
-
   return (
     <>
       <Root>
-        {isCameraOpen && (
+        {cardImage ? (
+          <>
+            <Preview src={cardImage} />
+            <Footer>
+              <motion.div
+                initial={{ opacity: 0, x: "-100vw" }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                whileHover={{ scale: 1.1, transition: { yoyo: Infinity } }}
+              >
+                <Button
+                  style={{ textTransform: "none", margin: "10px" }}
+                  variant="contained"
+                  color="primary"
+                  onClick={() => {
+                    setCardImage(undefined);
+                  }}
+                  startIcon={<FlipCameraIosIcon />}
+                >
+                  Retake Image
+                </Button>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, x: "100vw" }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                whileHover={{ scale: 1.1, transition: { yoyo: Infinity } }}
+              >
+                <Button
+                  style={{ textTransform: "none", margin: "10px" }}
+                  variant="contained"
+                  onClick={() => {
+                    handleWeedDetection();
+                  }}
+                  color="primary"
+                  endIcon={<NatureIcon />}
+                >
+                  Detect Weed
+                </Button>
+              </motion.div>
+            </Footer>
+          </>
+        ) : (
           <Camera
-            onCapture={(blob) => setCardImage(blob)}
+            onCapture={(blob) => {
+              var reader = new FileReader();
+              reader.readAsDataURL(blob);
+              reader.onloadend = function () {
+                var base64data = reader.result;
+                setCardImage(base64data);
+                handleImage(base64data);
+              };
+            }}
             onClear={() => setCardImage(undefined)}
           />
         )}
-
-        {cardImage && (
-          <div>
-            <h2>Preview</h2>
-            <Preview src={cardImage && URL.createObjectURL(cardImage)} />
-          </div>
-        )}
-
-        <Footer>
-          <button onClick={() => setIsCameraOpen(true)}>Open Camera</button>
-          <button
-            onClick={() => {
-              setIsCameraOpen(false);
-              setCardImage(undefined);
-            }}
-          >
-            Close Camera
-          </button>
-        </Footer>
       </Root>
       <GlobalStyle />
     </>

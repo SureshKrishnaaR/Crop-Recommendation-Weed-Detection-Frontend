@@ -1,26 +1,18 @@
-import React, { useEffect } from "react";
+import React from "react";
 import CaptureImageView from "./captureimage.view.jsx";
 const CaptureImage = ({
   image,
   handleImage,
   handleStep,
-  cameravision,
-  handleCameraVision,
+  handleWeedDetection,
 }) => {
-  useEffect(() => {
-    return () => {
-      handleCameraVision(false);
-    };
-  }, []);
-
   return (
     <>
       <CaptureImageView
         image={image}
         handleImage={handleImage}
         handleStep={handleStep}
-        cameravision={cameravision}
-        handleCameraVision={handleCameraVision}
+        handleWeedDetection={handleWeedDetection}
       />
     </>
   );

@@ -3,15 +3,8 @@ import Measure from "react-measure";
 import { useUserMedia } from "../hooks/use-user-media";
 import { useCardRatio } from "../hooks/use-card-ratio";
 import { useOffsets } from "../hooks/use-offsets";
-import {
-  Video,
-  Canvas,
-  Wrapper,
-  Container,
-  Flash,
-  Overlay,
-  Button,
-} from "./styles";
+import { Video, Canvas, Wrapper, Container, Flash, Overlay } from "./styles";
+import { Button } from "@material-ui/core";
 
 const CAPTURE_OPTIONS = {
   audio: false,
@@ -124,8 +117,13 @@ export function Camera({ onCapture, onClear }) {
           </Container>
 
           {isVideoPlaying && (
-            <Button onClick={isCanvasEmpty ? handleCapture : handleClear}>
-              {isCanvasEmpty ? "Take a picture" : "Take another picture"}
+            <Button
+              variant="contained"
+              color="primary"
+              style={{ marginTop: "50px", textTransform: "none" }}
+              onClick={isCanvasEmpty ? handleCapture : handleClear}
+            >
+              {isCanvasEmpty ? "Capture Photo" : "Capture Photo"}
             </Button>
           )}
         </Wrapper>
