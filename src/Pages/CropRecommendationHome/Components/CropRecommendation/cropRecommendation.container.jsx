@@ -119,19 +119,21 @@ const CropRecommendation = () => {
     setCrop(null);
   };
 
-  const handleCheckValidity = (stateval, dis) => {
-    getDistricts(stateval)
+  const handleCheckValidity = (state, district) => {
+    getDistricts(state)
       .then((res) => {
         var t = 0;
         for (let i in res.data) {
-          if (res.data[i] === dis.toUpperCase()) {
+          if (res.data[i] === district.toUpperCase()) {
             t = 1;
             break;
           }
         }
+        setChosenState(state);
+        handleLocationvalChangeType2(district);
         if (t === 0) {
-          dispatch(addFailureAlert("You cannot choose this district"));
           setDisableButton(true);
+          dispatch(addFailureAlert("You cannot choose this district"));
         }
       })
       .catch((err) => {
@@ -159,10 +161,6 @@ const CropRecommendation = () => {
                 res["data"]["localityInfo"]["administrative"][1]["name"];
               handleCheckValidity(
                 state,
-                district.slice(0, district.length - 9)
-              );
-              setChosenState(state);
-              handleLocationvalChangeType2(
                 district.slice(0, district.length - 9)
               );
             })

@@ -1,7 +1,15 @@
 import React, { useEffect, useRef } from "react";
-import { Grid } from "@material-ui/core";
+import { Grid, useMediaQuery, Button } from "@material-ui/core";
+import { useTheme } from "@material-ui/core/styles";
+import { motion } from "framer-motion";
+import { useHistory } from "react-router-dom";
+import HomeIcon from "@material-ui/icons/Home";
+import ReplayIcon from "@material-ui/icons/Replay";
 
-const PredictOutputView = ({ image, outputMatrix }) => {
+const PredictOutputView = ({ image, outputMatrix, handleStep }) => {
+  const cammediatheme = useTheme();
+  const history = useHistory();
+  const matches = useMediaQuery(cammediatheme.breakpoints.up("sm"));
   const canvas = useRef();
   let ctx = null;
   useEffect(() => {
@@ -22,17 +30,62 @@ const PredictOutputView = ({ image, outputMatrix }) => {
   }, []);
   return (
     <>
-      <Grid
-        container
-        item
-        justify="center"
-        alignItems="center"
-        style={{ height: "100%", overflow: "hidden" }}
-      >
-        <Grid item container xs={12} justify="center" alignItems="center">
-          <canvas ref={canvas} width="500px" height="500px"></canvas>
+      <div style={{ justifyContent: "center" }}>
+        <Grid item xs={12}>
+          <motion.div
+            initial={{ opacity: 0, scale: 0 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1 }}
+          >
+            <canvas ref={canvas} width="640px" height="410px"></canvas>
+          </motion.div>
         </Grid>
-      </Grid>
+        <Grid item xs={12}>
+          <Grid container justify="center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 3 }}
+              whileHover={{ scale: 1.1, transition: { yoyo: Infinity } }}
+            >
+              <Button
+                color="primary"
+                variant="contained"
+                style={{ margin: "10px" }}
+                startIcon={<HomeIcon />}
+                onClick={() => {
+                  history.push("/home");
+                }}
+              >
+                BACK TO HOME
+              </Button>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, delay: 3 }}
+              whileHover={{
+                scale: 1.1,
+                transition: {
+                  yoyo: Infinity,
+                },
+              }}
+            >
+              <Button
+                color="primary"
+                variant="contained"
+                style={{ margin: "10px" }}
+                endIcon={<ReplayIcon />}
+                onClick={() => {
+                  handleStep(0);
+                }}
+              >
+                RESTART
+              </Button>
+            </motion.div>
+          </Grid>
+        </Grid>
+      </div>
     </>
   );
 };

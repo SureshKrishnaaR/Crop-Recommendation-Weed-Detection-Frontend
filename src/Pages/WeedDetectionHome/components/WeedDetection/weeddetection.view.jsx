@@ -12,7 +12,12 @@ const WeedDetectionView = ({
   handleWeedDetection,
 }) => {
   return (
-    <Grid container style={{ height: "100%" }}>
+    <Grid
+      container
+      style={{ height: "100%" }}
+      justify="center"
+      alignItems="center"
+    >
       {step === 0 ? (
         <CaptureImage
           handleStep={handleStep}
@@ -26,6 +31,7 @@ const WeedDetectionView = ({
           image={image}
           outputMatrix={outputMatrix}
           handleImage={handleImage}
+          handleStep={handleStep}
         />
       )}
     </Grid>
