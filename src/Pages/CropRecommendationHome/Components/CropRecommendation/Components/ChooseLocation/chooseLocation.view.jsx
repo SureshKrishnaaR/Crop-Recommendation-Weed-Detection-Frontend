@@ -20,6 +20,7 @@ const ChooseLocationView = ({
   page,
   location,
   locationval,
+  disablebutton,
   handlePageChange,
   envfactors,
   handleCropChange,
@@ -158,7 +159,7 @@ const ChooseLocationView = ({
             )}
           </FormGroup>
         </FormControl>
-        {(location === 0 ||
+        {((location === 0 && locationval) ||
           location === 1 ||
           (location === 2 && locationval)) && (
           <Box pt={4}>
@@ -193,6 +194,7 @@ const ChooseLocationView = ({
                 }}
                 color="primary"
                 variant="contained"
+                disabled={disablebutton}
               >
                 NEXT
               </Button>

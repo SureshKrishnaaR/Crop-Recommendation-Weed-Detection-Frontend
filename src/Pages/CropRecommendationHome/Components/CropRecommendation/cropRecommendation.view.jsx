@@ -18,6 +18,7 @@ const CropRecommendationView = ({
   envfactors,
   location,
   locationval,
+  disablebutton,
   soiltype,
   soiltypeval,
   crop,
@@ -121,6 +122,7 @@ const CropRecommendationView = ({
             envfactors={envfactors}
             location={location}
             locationval={locationval}
+            disablebutton={disablebutton}
             crop={crop}
             handleCropChange={handleCropChange}
             handleEnvFactorsChange={handleEnvFactorsChange}

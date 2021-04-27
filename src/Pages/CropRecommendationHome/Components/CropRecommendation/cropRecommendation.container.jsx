@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useSelector, shallowEqual } from "react-redux";
+import { useSelector, shallowEqual, useDispatch } from "react-redux";
+import { addFailureAlert } from "../../../../redux/ActionCreators/alert.action";
 
 import CropRecommendationView from "./cropRecommendation.view";
 import {
@@ -11,6 +12,8 @@ import {
 } from "../../../../utils/requests";
 
 const CropRecommendation = () => {
+  const dispatch = useDispatch();
+
   /*
     States
   */
@@ -28,6 +31,7 @@ const CropRecommendation = () => {
   //states for choose location
   const [location, setLocation] = useState(-1);
   const [locationval, setLocationval] = useState("");
+  const [disablebutton, setDisableButton] = useState(false);
   const [allstates, setAllStates] = useState([]);
   const [alldistricts, setAllDistricts] = useState([]);
   const [chosenstate, setChosenState] = useState(null);
@@ -115,11 +119,31 @@ const CropRecommendation = () => {
     setCrop(null);
   };
 
+  const handleCheckValidity = (stateval, dis) => {
+    getDistricts(stateval)
+      .then((res) => {
+        var t = 0;
+        for (let i in res.data) {
+          if (res.data[i] === dis.toUpperCase()) {
+            t = 1;
+            break;
+          }
+        }
+        if (t === 0) {
+          dispatch(addFailureAlert("You cannot choose this district"));
+          setDisableButton(true);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+        return false;
+      });
+  };
+
   const handleLocationChange = (val) => {
     setAllDistricts([]);
+    setDisableButton(false);
     setLocationval("");
-    setLocation(val);
-    console.log("hello", val);
     if (val === 0) {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {
@@ -133,10 +157,14 @@ const CropRecommendation = () => {
                 res["data"]["localityInfo"]["administrative"][2]["name"];
               let state =
                 res["data"]["localityInfo"]["administrative"][1]["name"];
-              handleLocationvalChangeType2(
+              handleCheckValidity(
+                state,
                 district.slice(0, district.length - 9)
               );
               setChosenState(state);
+              handleLocationvalChangeType2(
+                district.slice(0, district.length - 9)
+              );
             })
             .catch((err) => {
               alert("Error...!");
@@ -150,6 +178,7 @@ const CropRecommendation = () => {
       setChosenState(userDetails["state_name"]);
       handleLocationvalChangeType2(userDetails["district_name"]);
     }
+    setLocation(val);
   };
 
   const handleStatesAPI = () => {
@@ -289,6 +318,7 @@ const CropRecommendation = () => {
         envfactors={envfactors}
         location={location}
         locationval={locationval}
+        disablebutton={disablebutton}
         soiltype={soiltype}
         soiltypeval={soiltypeval}
         crop={crop}

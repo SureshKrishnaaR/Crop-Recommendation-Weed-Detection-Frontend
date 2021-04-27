@@ -7,6 +7,7 @@ const ChooseLocation = ({
   page,
   location,
   locationval,
+  disablebutton,
   handlePageChange,
   envfactors,
   handleCropChange,
@@ -44,6 +45,7 @@ const ChooseLocation = ({
         envfactors={envfactors}
         location={location}
         locationval={locationval}
+        disablebutton={disablebutton}
         crop={crop}
         handleCropChange={handleCropChange}
         handleEnvFactorsChange={handleEnvFactorsChange}

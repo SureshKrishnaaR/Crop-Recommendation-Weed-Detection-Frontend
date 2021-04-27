@@ -11,9 +11,9 @@ const PredictOutputView = ({ image, outputMatrix }) => {
     imageObj.onload = function () {
       ctx.drawImage(imageObj, 0, 0);
       ctx.beginPath();
-      ctx.strokeStyle = "black";
       ctx.lineWidth = 5;
       outputMatrix.map((output) => {
+        ctx.strokeStyle = output[2] === "crop" ? "green" : "yellow";
         ctx.rect(...output[0]);
       });
       ctx.stroke();
