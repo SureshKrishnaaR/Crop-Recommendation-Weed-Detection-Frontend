@@ -2,9 +2,9 @@
 
 ## Objective
 
-❖ It is very essential for the farmers to choose a crop that best suits the land being used for cultivation. Farmers should get benefited by cultivating the **best fitting crops** rather than cultivating the unsuitable crops.
+❖ It is very essential for the farmers to choose a crop that best suits the land being used for cultivation. Farmers should get benefited by cultivating the **best fitting crops** rather than cultivating unsuitable crops.
 
-❖ The objective of this project is to develop a system which would be useful for farmers in order to **predict the suitable crop, fertilizer and the crop yield**.
+❖ The objective of this project is to develop a system that would be useful for farmers in order to **predict the suitable crop, fertilizer, and crop yield**.
 
 ❖ **Weeds** results in **yield reduction**. We are using **Image processing** and **Deep learning** techniques which would extract the features that can distinguish between crop leaves and weed leaves.
 
@@ -12,15 +12,15 @@
 
 ❖ The common difficulty present among the Indian farmers is, they don’t opt for the **proper crop** based on their soil requirements. Due to this, they face a serious **setback in productivity**.
 
-❖ Choosing **incorrect decisions** would lead to crop failure, and this would result in complete loss to farmers.
+❖ Choosing **incorrect decisions** would lead to crop failure, and this would result in a complete loss to farmers.
 
-❖ **Weeds** are the plants growing in a wrong place which compete with crop for water, light, nutrients and space, causing **reduction in yield**. And in order to **remove weeds**, farmers started using **deadly poisons** as herbicides. By doing so they had success in increasing the productivity but they’ve forgotten the **damage done to the environment**.
+❖ **Weeds** are the plants growing in the wrong place which competes with crops for water, light, nutrients, and space, causing **reduction in yield**. And in order to **remove weeds**, farmers started using **deadly poisons** as herbicides. By doing so they had success in increasing productivity but they’ve forgotten the **damage done to the environment**.
 
 ## Why do we need this system?
 
 ❖ A single **misguided or incorrect decision** taken by a novice farmer can have undesirable consequences contributing to the **countless suicide cases** of farmers that we hear from media on a daily basis.
 
-❖ A right decision in the **selection of crops** to be grown, will ultimately result in **successful farming** venture.
+❖ A right decision in the **selection of crops** to be grown will ultimately result in a **successful farming** venture.
 Total **economic loss** of about USD 11 billion was estimated **due to weeds** alone in 10 major field crops in 18 states of India. So, the control of weeds is of vital importance in agriculture.
 
 ## Literature Survey
