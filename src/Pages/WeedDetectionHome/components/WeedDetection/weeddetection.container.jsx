@@ -15,10 +15,10 @@ const WeedDetection = () => {
     setImage(img);
   };
   const handleWeedDetection = () => {
+    handleStep(2);
     weedDetection(image.slice(23, image.length))
       .then((res) => {
         setOutputMatrix(res);
-        handleStep(2);
       })
       .catch((err) => {
         console.log(err);
