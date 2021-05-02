@@ -11,6 +11,8 @@ import {
   Grid,
   Typography,
   FormHelperText,
+  useMediaQuery,
+  useTheme,
 } from "@material-ui/core";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import VpnKeyIcon from "@material-ui/icons/VpnKey";
@@ -32,6 +34,8 @@ const RegisterPageView = ({
   handleSubmit,
   handleGoogleSignin,
 }) => {
+  const themesignup = useTheme();
+  const matches = useMediaQuery(themesignup.breakpoints.up("sm"));
   //google-oauth-response-handler
   const responseGoogle = (response) => {
     handleGoogleSignin(
@@ -41,30 +45,47 @@ const RegisterPageView = ({
     );
   };
   return (
-    <Grid container>
-      <Grid item xs={12} sm={6}>
-        <img
-          src={background}
-          alt="crops"
-          style={{
-            height: "calc(100vh - 70px)",
-            width: "100%",
-            objectFit: "cover",
-          }}
-        />
-      </Grid>
+    <Grid
+      container
+      justify="center"
+      alignItems="center"
+      style={
+        !matches
+          ? {
+              background: `url(${background})`,
+              backgroundRepeat: "no-repeat",
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              height: "100%",
+            }
+          : {}
+      }
+    >
+      {matches && (
+        <Grid item xs={12} sm={6}>
+          <img
+            src={background}
+            alt="crops"
+            style={{
+              height: "calc(100vh - 70px)",
+              width: "100%",
+              objectFit: "cover",
+            }}
+          />
+        </Grid>
+      )}
       <Grid
         container
         item
         xs={12}
         sm={6}
-        alignItems="center"
         direction="column"
+        alignItems="center"
         justify="center"
       >
         <Grid container justify="center">
           <Box
-            mt={3}
+            m={5}
             style={{
               width: "100%",
               height: "100%",

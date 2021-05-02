@@ -35,8 +35,12 @@ export const Root = styled.main`
 `;
 
 export const Preview = styled.img`
-  width: 100%;
-  height: auto;
+  width: 50vw;
+  height: 60vh;
+  @media (max-width: 768px) {
+    width: 100vw;
+    height: 30vh;
+  }
 `;
 
 export const Footer = styled.footer`
