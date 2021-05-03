@@ -24,6 +24,7 @@ const PredictCropView = ({
   showspinner,
   setShowSpinner,
   handlePredictCrop,
+  handleProgressChange,
 }) => {
   const mediatheme2 = useTheme();
   const matches = useMediaQuery(mediatheme2.breakpoints.up("sm"));
@@ -50,6 +51,7 @@ const PredictCropView = ({
               justifyContent: "space-between",
               height: "10%",
               padding: "20px",
+              marginTop: matches && !matchesforxl && "40px",
             }}
           >
             <div
@@ -69,6 +71,7 @@ const PredictCropView = ({
                 color="primary"
                 onClick={() => {
                   handlePageChange(2);
+                  handleProgressChange(0);
                 }}
               >
                 CHANGE LOCATION

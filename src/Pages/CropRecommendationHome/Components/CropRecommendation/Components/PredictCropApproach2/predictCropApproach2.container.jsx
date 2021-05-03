@@ -14,6 +14,7 @@ const PredictCropApproach2 = ({
   handleNpkChange,
   crop,
   handleCropChange,
+  handleProgressChange,
 }) => {
   const [spin, setSpin] = useState(false);
 
@@ -43,6 +44,7 @@ const PredictCropApproach2 = ({
         crop={crop}
         spin={spin}
         setSpin={setSpin}
+        handleProgressChange={handleProgressChange}
       />
     </>
   );

@@ -30,6 +30,7 @@ const PredictCropApproach2View = ({
   handlePredictCropApproach2,
   spin,
   setSpin,
+  handleProgressChange,
 }) => {
   const mediatheme2 = useTheme();
   const matches = useMediaQuery(mediatheme2.breakpoints.up("sm"));
@@ -73,6 +74,7 @@ const PredictCropApproach2View = ({
               color="primary"
               onClick={() => {
                 handlePageChange(2);
+                handleProgressChange(0);
               }}
             >
               CHANGE LOCATION
