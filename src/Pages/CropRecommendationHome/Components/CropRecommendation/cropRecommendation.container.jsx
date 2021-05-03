@@ -25,6 +25,12 @@ const CropRecommendation = () => {
   //page state
   const [page, setPage] = useState(1);
 
+  //progress
+  const [progress, setProgress] = useState(-1);
+
+  //modal states
+  const [openGuideMapModal, setOpenGuideMapModal] = useState(false);
+
   //crop recommendation approach
   const [approach, setApproach] = useState(-1);
 
@@ -70,9 +76,26 @@ const CropRecommendation = () => {
   */
 
   //page handlers
-  const handlePageChange = (page) => {
-    console.log(page);
-    setPage(page);
+  const handlePageChange = (pg) => {
+    console.log(pg);
+    if (pg > page) {
+      handleProgressChange(progress + 1);
+    }
+    setPage(pg);
+  };
+
+  //progress handlers
+  const handleProgressChange = (prog) => {
+    setProgress(prog);
+  };
+
+  //modal handlers
+  const handleOpenGuideMapModal = () => {
+    setOpenGuideMapModal(true);
+  };
+
+  const handleCloseGuideMapModal = () => {
+    setOpenGuideMapModal(false);
   };
 
   //approach handlers
@@ -355,6 +378,11 @@ const CropRecommendation = () => {
         handleSeasonAPI={handleSeasonAPI}
         cropyield={cropyield}
         handleCropYield={handleCropYield}
+        progress={progress}
+        handleProgressChange={handleProgressChange}
+        openGuideMapModal={openGuideMapModal}
+        handleOpenGuideMapModal={handleOpenGuideMapModal}
+        handleCloseGuideMapModal={handleCloseGuideMapModal}
       />
     </>
   );

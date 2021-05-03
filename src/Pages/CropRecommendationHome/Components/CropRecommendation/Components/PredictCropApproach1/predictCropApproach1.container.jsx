@@ -14,6 +14,7 @@ const PredictCrop = ({
   handleLocationChange,
   handleLocationvalChange,
   setNpkValues,
+  handleProgressChange,
 }) => {
   const [showspinner, setShowSpinner] = useState(false);
 
@@ -56,6 +57,7 @@ const PredictCrop = ({
         showspinner={showspinner}
         setShowSpinner={setShowSpinner}
         handlePredictCrop={handlePredictCrop}
+        handleProgressChange={handleProgressChange}
       />
     </>
   );
