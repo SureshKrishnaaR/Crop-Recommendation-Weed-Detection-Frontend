@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Button,
-  Box,
-  IconButton,
-  useMediaQuery,
-  Stepper,
-  Step,
-  StepLabel,
-} from "@material-ui/core";
+import { Button, IconButton, useMediaQuery } from "@material-ui/core";
 import { motion } from "framer-motion";
 import { useTheme } from "@material-ui/core/styles";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
@@ -20,6 +12,7 @@ import PredictFertilizer from "./Components/PredictCropApproach1/components/Pred
 import PredictCropApproach2 from "./Components/PredictCropApproach2";
 import PredictCropYield from "./Components/PredictCropYield";
 import GuideMap from "./Components/GuideMap";
+import GuideMapModal from "./Components/GuideMapModal";
 
 const CropRecommendationView = ({
   page,
@@ -68,23 +61,12 @@ const CropRecommendationView = ({
   handleCropYield,
   progress,
   handleProgressChange,
+  openGuideMapModal,
+  handleOpenGuideMapModal,
+  handleCloseGuideMapModal,
 }) => {
   const mediatheme2 = useTheme();
   const matchforxl = useMediaQuery(mediatheme2.breakpoints.up("lg"));
-  const stepsapp1 = [
-    "Choose Location",
-    "Predict Crop",
-    "Get NPK values",
-    "Predict Fertilizer",
-    "Choose Area",
-    "Predict Crop Yield",
-  ];
-  const stepsapp2 = [
-    "Choose Location",
-    "Predict Crop",
-    "Choose Area",
-    "Predict Crop Yield",
-  ];
 
   return (
     <>
@@ -101,6 +83,37 @@ const CropRecommendationView = ({
       >
         {page !== 1 && (
           <>
+            {matchforxl ? (
+              <GuideMap progress={progress} approach={approach} />
+            ) : (
+              <>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  style={{
+                    marginTop: "0px",
+                    position: "absolute",
+                    top: "20px",
+                    right: "30px",
+                  }}
+                >
+                  <Button
+                    color="primary"
+                    variant="contained"
+                    onClick={handleOpenGuideMapModal}
+                  >
+                    GUIDE MAP
+                  </Button>
+                </motion.div>
+                <GuideMapModal
+                  openGuideMapModal={openGuideMapModal}
+                  handleOpenGuideMapModal={handleOpenGuideMapModal}
+                  handleCloseGuideMapModal={handleCloseGuideMapModal}
+                  progress={progress}
+                  approach={approach}
+                ></GuideMapModal>
+              </>
+            )}
             <motion.div
               initial={{ opacity: 0, scale: 0 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -108,7 +121,7 @@ const CropRecommendationView = ({
                 marginTop: "0px",
                 position: "absolute",
                 top: "20px",
-                left: "15px",
+                left: "20px",
               }}
             >
               <IconButton
@@ -138,26 +151,6 @@ const CropRecommendationView = ({
                 <KeyboardBackspaceIcon />
               </IconButton>
             </motion.div>
-            {matchforxl ? (
-              <GuideMap progress={progress} approach={approach} />
-            ) : (
-              <>
-                <motion.div
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  style={{
-                    marginTop: "0px",
-                    position: "absolute",
-                    top: "20px",
-                    right: "15px",
-                  }}
-                >
-                  <Button color="primary" variant="contained">
-                    GUIDE MAP
-                  </Button>
-                </motion.div>
-              </>
-            )}
           </>
         )}
 
@@ -204,6 +197,7 @@ const CropRecommendationView = ({
             handleLocationChange={handleLocationChange}
             handleLocationvalChange={handleLocationvalChange}
             setNpkValues={setNpkValues}
+            handleProgressChange={handleProgressChange}
           />
         ) : page === 4 ? (
           <NpkPrediction
@@ -244,6 +238,7 @@ const CropRecommendationView = ({
             handleNpkChange={handleNpkChange}
             crop={crop}
             handleCropChange={handleCropChange}
+            handleProgressChange={handleProgressChange}
           />
         ) : (
           page >= 7 && (
