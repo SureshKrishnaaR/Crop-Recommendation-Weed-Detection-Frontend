@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Typography, Box, Button } from "@material-ui/core";
+import { Typography, Box, Button, useMediaQuery } from "@material-ui/core";
 import CountUp from "react-countup";
+import { useTheme } from "@material-ui/core/styles";
 
 const NpkPredictionView = ({
   page,
@@ -11,13 +12,16 @@ const NpkPredictionView = ({
   npkValues,
   handleNpkChange,
 }) => {
+  const mediatheme2 = useTheme();
+  const matchesforxl = useMediaQuery(mediatheme2.breakpoints.up("lg"));
+
   return (
     <>
       <div
         style={{
           display: "flex",
           flexDirection: "column",
-          height: "100%",
+          height: matchesforxl ? "80%" : "100%",
           alignItems: "center",
           justifyContent: "center",
         }}

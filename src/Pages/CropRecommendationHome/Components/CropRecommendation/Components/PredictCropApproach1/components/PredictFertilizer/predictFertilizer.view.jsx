@@ -8,9 +8,11 @@ import {
   Typography,
   Box,
   Button,
+  useMediaQuery,
 } from "@material-ui/core";
 import { useSelector, shallowEqual } from "react-redux";
 import { Link } from "react-router-dom";
+import { useTheme } from "@material-ui/core/styles";
 
 import Dropdown from "../../../../../../../../Components/Dropdown";
 
@@ -31,6 +33,8 @@ const PredictFertilizerView = ({
   handlePredictFertilizer,
   handleCropYieldPage,
 }) => {
+  const mediatheme2 = useTheme();
+  const matchesforxl = useMediaQuery(mediatheme2.breakpoints.up("lg"));
   const userDetails = useSelector(
     ({ userDetails }) => userDetails.userDetails,
     shallowEqual
@@ -42,7 +46,7 @@ const PredictFertilizerView = ({
         style={{
           display: "flex",
           flexDirection: "column",
-          height: "100%",
+          height: matchesforxl ? "80%" : "100%",
           alignItems: "center",
           justifyContent: "center",
         }}

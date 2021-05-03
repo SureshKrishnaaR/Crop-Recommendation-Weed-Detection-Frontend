@@ -35,6 +35,7 @@ const PredictCropYieldView = ({
   const history = useHistory();
   const themealldata = useTheme();
   const matches = useMediaQuery(themealldata.breakpoints.up("md"));
+  const matchesforlg = useMediaQuery(themealldata.breakpoints.up("lg"));
 
   return (
     <>
@@ -42,7 +43,7 @@ const PredictCropYieldView = ({
         style={{
           display: "flex",
           flexDirection: "column",
-          height: "100%",
+          height: matchesforlg ? "80%" : "100%",
           width: "100vw",
           alignItems: "center",
           justifyContent: "center",

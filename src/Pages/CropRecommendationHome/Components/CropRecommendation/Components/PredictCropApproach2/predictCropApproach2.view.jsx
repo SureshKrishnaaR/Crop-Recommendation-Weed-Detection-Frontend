@@ -33,6 +33,7 @@ const PredictCropApproach2View = ({
 }) => {
   const mediatheme2 = useTheme();
   const matches = useMediaQuery(mediatheme2.breakpoints.up("sm"));
+
   return (
     <>
       <Box

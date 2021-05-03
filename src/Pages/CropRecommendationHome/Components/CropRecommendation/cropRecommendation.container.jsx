@@ -24,6 +24,7 @@ const CropRecommendation = () => {
   );
   //page state
   const [page, setPage] = useState(1);
+  const [progress, setProgress] = useState(-1);
 
   //crop recommendation approach
   const [approach, setApproach] = useState(-1);
@@ -70,9 +71,16 @@ const CropRecommendation = () => {
   */
 
   //page handlers
-  const handlePageChange = (page) => {
-    console.log(page);
-    setPage(page);
+  const handlePageChange = (pg) => {
+    console.log(pg);
+    if (pg > page) {
+      handleProgressChange(progress + 1);
+    }
+    setPage(pg);
+  };
+
+  const handleProgressChange = (prog) => {
+    setProgress(prog);
   };
 
   //approach handlers
@@ -355,6 +363,8 @@ const CropRecommendation = () => {
         handleSeasonAPI={handleSeasonAPI}
         cropyield={cropyield}
         handleCropYield={handleCropYield}
+        progress={progress}
+        handleProgressChange={handleProgressChange}
       />
     </>
   );

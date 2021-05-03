@@ -1,5 +1,13 @@
 import React from "react";
-import { Button, IconButton, useMediaQuery } from "@material-ui/core";
+import {
+  Button,
+  Box,
+  IconButton,
+  useMediaQuery,
+  Stepper,
+  Step,
+  StepLabel,
+} from "@material-ui/core";
 import { motion } from "framer-motion";
 import { useTheme } from "@material-ui/core/styles";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
@@ -57,9 +65,27 @@ const CropRecommendationView = ({
   handleSeasonAPI,
   cropyield,
   handleCropYield,
+  progress,
+  handleProgressChange,
 }) => {
   const mediatheme2 = useTheme();
   const matches = useMediaQuery(mediatheme2.breakpoints.up("sm"));
+  const matchforxl = useMediaQuery(mediatheme2.breakpoints.up("lg"));
+  const stepsapp1 = [
+    "Choose Location",
+    "Predict Crop",
+    "Get NPK values",
+    "Predict Fertilizer",
+    "Choose Area",
+    "Predict Crop Yield",
+  ];
+  const stepsapp2 = [
+    "Choose Location",
+    "Predict Crop",
+    "Choose Area",
+    "Predict Crop Yield",
+  ];
+
   return (
     <>
       <div
@@ -73,6 +99,23 @@ const CropRecommendationView = ({
           position: "relative",
         }}
       >
+        <Box>
+          {matchforxl && page !== 1 && (
+            <Stepper activeStep={progress} alternativeLabel>
+              {approach === 1
+                ? stepsapp1.map((label) => (
+                    <Step key={label}>
+                      <StepLabel>{label}</StepLabel>
+                    </Step>
+                  ))
+                : stepsapp2.map((label) => (
+                    <Step key={label}>
+                      <StepLabel>{label}</StepLabel>
+                    </Step>
+                  ))}
+            </Stepper>
+          )}
+        </Box>
         {page !== 1 && (
           <motion.div
             initial={{ opacity: 0, scale: 0 }}
@@ -81,7 +124,7 @@ const CropRecommendationView = ({
               marginTop: "0px",
               position: "absolute",
               top: "20px",
-              left: matches ? "50px" : "40vw",
+              left: matches ? "15px" : "40vw",
             }}
           >
             <IconButton
@@ -93,14 +136,18 @@ const CropRecommendationView = ({
               onClick={() => {
                 if (page === 6) {
                   handlePageChange(2);
+                  handleProgressChange(0);
                 } else if (page === 7) {
                   if (approach === 1) {
                     handlePageChange(5);
+                    handleProgressChange(3);
                   } else if (approach === 2) {
                     handlePageChange(6);
+                    handleProgressChange(1);
                   }
                 } else {
                   handlePageChange(page - 1);
+                  handleProgressChange(progress - 1);
                 }
               }}
             >

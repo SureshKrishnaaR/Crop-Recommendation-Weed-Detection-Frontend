@@ -41,6 +41,7 @@ const ChooseLocationView = ({
 }) => {
   const mediatheme2 = useTheme();
   const matches = useMediaQuery(mediatheme2.breakpoints.up("sm"));
+  const matchesforxl = useMediaQuery(mediatheme2.breakpoints.up("lg"));
 
   const userDetails = useSelector(
     ({ userDetails }) => userDetails.userDetails,
@@ -52,7 +53,7 @@ const ChooseLocationView = ({
         style={{
           display: "flex",
           flexDirection: "column",
-          height: "100%",
+          height: matchesforxl ? "80%" : "100%",
           alignItems: "center",
           justifyContent: "center",
           overflow: "hidden",
