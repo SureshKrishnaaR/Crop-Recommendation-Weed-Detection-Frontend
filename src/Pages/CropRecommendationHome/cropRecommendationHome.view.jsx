@@ -82,21 +82,20 @@ const CropRecommendationHomeView = () => {
                       textAlign: "justify",
                     }}
                   >
-                    Recommend crop using machine learning techniques recommend
-                    crop using machine learning techniques recommend crop using
-                    machine learning techniques Recommend crop using machine
-                    learning techniques recommend crop using machine learning
-                    techniques recommend crop using machine learning techniques
-                    Recommend crop using machine learning techniques recommend
-                    crop using machine learning techniques recommend crop using
-                    machine learning techniques Recommend crop using machine
-                    learning techniques recommend crop using machine learning
-                    techniques recommend crop using machine learning techniques
-                    Recommend crop using machine learning techniques recommend
-                    crop using machine learning techniques recommend crop using
-                    machine learning techniques Recommend crop using machine
-                    learning techniques recommend crop using machine learning
-                    techniques recommend crop using machine learning techniques.
+                    Agriculture in India plays a major role in the economy and
+                    employment. 70% of Indian population directly relies on
+                    agriculture. This project focuses on solving multiple
+                    problems which the farmers would face. The common difficulty
+                    present among the Indian farmers is, they don’t opt for the
+                    proper crop based on their soil requirements. Due to this,
+                    they face a serious setback in productivity. This problem of
+                    the farmers has been solved through precision agriculture.
+                    In this project, we propose a system which would suggest
+                    crops based on the results obtained using a machine learning
+                    approach. The system maps the soil and crop data to predict
+                    the list of suitable crops for the soil. Hence it leaves
+                    upon the user to decide on the crop to be sown. Thus, the
+                    system helps to provide knowledge to the dilettante farmers.
                   </Typography>
                 </Box>
 

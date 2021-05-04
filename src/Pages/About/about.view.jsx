@@ -77,21 +77,43 @@ const AboutView = () => {
                       textAlign: "justify",
                     }}
                   >
-                    Crop using machine learning techniques recommend crop using
-                    machine learning techniques recommend crop using machine
-                    learning techniques Recommend crop using machine learning
-                    techniques recommend crop using machine learning techniques
-                    recommend crop using machine learning techniques Recommend
-                    crop using machine learning techniques recommend crop using
-                    machine learning techniques recommend crop using machine
-                    learning techniques Recommend crop using machine learning
-                    techniques recommend crop using machine learning techniques
-                    recommend crop using machine learning techniques Recommend
-                    crop using machine learning techniques recommend crop using
-                    machine learning techniques recommend crop using machine
-                    learning techniques Recommend crop using machine learning
-                    techniques recommend crop using machine learning techniques
-                    recommend crop using machine learning techniques.
+                    <div style={{ display: "flex" }}>
+                      ❖
+                      <p style={{ marginTop: "0px", marginLeft: "16px" }}>
+                        It is very essential for the farmers to choose a crop
+                        that best suits the land being used for cultivation.
+                        Farmers should get benefited by cultivating the best
+                        fitting crops rather than cultivating unsuitable crops.
+                      </p>
+                    </div>
+                    <div style={{ display: "flex" }}>
+                      ❖
+                      <p style={{ marginTop: "0px", marginLeft: "16px" }}>
+                        The common difficulty present among the Indian farmers
+                        is, they don’t opt for the proper crop based on their
+                        soil requirements. Due to this, they face a serious
+                        setback in productivity.
+                      </p>
+                    </div>
+                    <div style={{ display: "flex" }}>
+                      ❖
+                      <p style={{ marginTop: "0px", marginLeft: "16px" }}>
+                        Choosing incorrect decisions would lead to crop failure,
+                        and this would result in a complete loss to farmers.
+                      </p>
+                    </div>
+                    <div style={{ display: "flex" }}>
+                      ❖
+                      <p style={{ marginTop: "0px", marginLeft: "16px" }}>
+                        Weeds are the plants growing in the wrong place which
+                        competes with crops for water, light, nutrients, and
+                        space, causing reduction in yield. And in order to
+                        remove weeds, farmers started using deadly poisons as
+                        herbicides. By doing so they had success in increasing
+                        productivity but they’ve forgotten the damage done to
+                        the environment.
+                      </p>
+                    </div>
                   </Typography>
                 </Box>
 
