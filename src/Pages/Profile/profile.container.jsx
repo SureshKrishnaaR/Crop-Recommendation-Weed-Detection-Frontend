@@ -1,5 +1,10 @@
+//built in modules
 import React, { useState, useEffect } from "react";
+
+//component files
 import ProfileView from "./profile.view";
+
+//request imports
 import { getProfileDetails } from "../../utils/requests";
 
 const Profile = () => {
@@ -15,7 +20,6 @@ const Profile = () => {
   });
   const [editprofile, setEditProfile] = useState(false);
 
-  //useeffect
   useEffect(() => {
     getProfileDetails()
       .then((res) => {

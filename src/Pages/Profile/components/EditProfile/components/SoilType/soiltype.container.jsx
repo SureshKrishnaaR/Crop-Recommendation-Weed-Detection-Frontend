@@ -1,5 +1,10 @@
+//built in modules
 import React, { useState, useEffect } from "react";
+
+//component files
 import SoilTypeView from "./soiltype.view";
+
+//import requests
 import { getSoil } from "../../../../../../utils/requests";
 
 const SoilType = ({ profiledetails, handleChange }) => {

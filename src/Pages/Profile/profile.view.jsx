@@ -1,5 +1,6 @@
+//built in modules
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+import { useSelector, shallowEqual } from "react-redux";
 import {
   Grid,
   FormControl,
@@ -10,7 +11,7 @@ import {
   Button,
   Avatar,
 } from "@material-ui/core";
-import { useSelector, shallowEqual } from "react-redux";
+import { makeStyles } from "@material-ui/core/styles";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import PhoneAndroidIcon from "@material-ui/icons/PhoneAndroid";
 import PersonIcon from "@material-ui/icons/Person";
@@ -19,7 +20,7 @@ import LocationOnIcon from "@material-ui/icons/LocationOn";
 import LocationCityIcon from "@material-ui/icons/LocationCity";
 import LocalFloristIcon from "@material-ui/icons/LocalFlorist";
 
-//component imports
+//component files
 import EditProfile from "./components/EditProfile";
 
 const useStyles = makeStyles((theme) => ({

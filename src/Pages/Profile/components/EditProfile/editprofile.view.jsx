@@ -1,4 +1,6 @@
+//built in modules
 import React from "react";
+import { useSelector, shallowEqual } from "react-redux";
 import {
   Grid,
   FormControl,
@@ -11,9 +13,7 @@ import {
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import PhoneAndroidIcon from "@material-ui/icons/PhoneAndroid";
 import PersonIcon from "@material-ui/icons/Person";
-import VpnKeyIcon from "@material-ui/icons/VpnKey";
 import LandscapeIcon from "@material-ui/icons/Landscape";
-import { useSelector, shallowEqual } from "react-redux";
 
 //component imports
 import AccountPicture from "./components/AccountPicture";
