@@ -31,6 +31,7 @@ const PredictCropYieldView = ({
   handleSeasonAPI,
   cropyield,
   handleCropYield,
+  handleProgressChange,
 }) => {
   const history = useHistory();
   const themealldata = useTheme();
@@ -270,6 +271,7 @@ const PredictCropYieldView = ({
                       endIcon={<ReplayIcon />}
                       onClick={() => {
                         handlePageChange(1);
+                        handleProgressChange(0);
                       }}
                     >
                       RESTART

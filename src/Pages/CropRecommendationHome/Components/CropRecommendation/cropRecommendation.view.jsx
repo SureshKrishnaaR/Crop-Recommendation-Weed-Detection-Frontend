@@ -263,6 +263,7 @@ const CropRecommendationView = ({
               handleSeasonAPI={handleSeasonAPI}
               cropyield={cropyield}
               handleCropYield={handleCropYield}
+              handleProgressChange={handleProgressChange}
             />
           )
         )}

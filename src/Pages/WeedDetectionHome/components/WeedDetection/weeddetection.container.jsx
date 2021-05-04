@@ -34,6 +34,7 @@ const WeedDetection = () => {
         handleStep={handleStep}
         handleImage={handleImage}
         handleWeedDetection={handleWeedDetection}
+        setOutputMatrix={setOutputMatrix}
       />
     </>
   );
