@@ -76,21 +76,22 @@ const CropRecommendationHomeView = () => {
                       textAlign: "justify",
                     }}
                   >
-                    Crop using machine learning techniques recommend crop using
-                    machine learning techniques recommend crop using machine
-                    learning techniques Recommend crop using machine learning
-                    techniques recommend crop using machine learning techniques
-                    recommend crop using machine learning techniques Recommend
-                    crop using machine learning techniques recommend crop using
-                    machine learning techniques recommend crop using machine
-                    learning techniques Recommend crop using machine learning
-                    techniques recommend crop using machine learning techniques
-                    recommend crop using machine learning techniques Recommend
-                    crop using machine learning techniques recommend crop using
-                    machine learning techniques recommend crop using machine
-                    learning techniques Recommend crop using machine learning
-                    techniques recommend crop using machine learning techniques
-                    recommend crop using machine learning techniques.
+                    Agriculture in India plays a major role in the economy and
+                    employment. 70% of Indian population directly relies on
+                    agriculture. This project focuses on solving multiple
+                    problems which the farmers would face. The common difficulty
+                    present among the Indian farmers is, they don’t opt for the
+                    proper crop based on their soil requirements. Due to this,
+                    they face a serious setback in productivity. This problem of
+                    the farmers has been solved through precision agriculture.
+                    Another problem which farmers while crop production is weed
+                    growth. Farmers are often concerned that weeds may reduce
+                    crop yields. Weeds use the same nutrients that crop plants
+                    use. This project would solve this problem by distinguishing
+                    between crops and weeds using machine learning
+                    classification techniques. So, this would be super helpful
+                    for farmers and would eventually increase crop
+                    yield/production.
                   </Typography>
                 </Box>
 
