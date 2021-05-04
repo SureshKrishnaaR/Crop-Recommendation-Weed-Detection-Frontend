@@ -1,8 +1,12 @@
+//built in modules
 import React, { useState } from "react";
-import RegisterPageView from "./register.view";
-import { signUp } from "../../../../utils/requests";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
+
+//component files
+import RegisterPageView from "./register.view";
+
+//redux imports
 import {
   addSuccessAlert,
   addFailureAlert,
@@ -11,6 +15,9 @@ import {
   showBackDrop,
   hideBackDrop,
 } from "../../../../redux/ActionCreators/backdrop.action";
+
+//requests
+import { signUp } from "../../../../utils/requests";
 
 const Register = () => {
   const history = useHistory();

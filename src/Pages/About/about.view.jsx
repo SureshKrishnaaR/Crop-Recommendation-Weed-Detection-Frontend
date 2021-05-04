@@ -1,4 +1,6 @@
+//built in modules
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   Grid,
@@ -7,7 +9,6 @@ import {
   useMediaQuery,
   Box,
 } from "@material-ui/core";
-import { useHistory } from "react-router-dom";
 import { useTheme } from "@material-ui/core/styles";
 
 const buttonVariants = {
