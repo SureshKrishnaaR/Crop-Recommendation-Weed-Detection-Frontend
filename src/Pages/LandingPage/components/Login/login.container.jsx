@@ -1,6 +1,12 @@
+//built in modules
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
+
+//component files
+import LoginPageView from "./login.view";
+
+//redux imports
 import { addUserToken } from "../../../../redux/ActionCreators/user.action";
 import {
   addSuccessAlert,
@@ -10,8 +16,8 @@ import {
   showBackDrop,
   hideBackDrop,
 } from "../../../../redux/ActionCreators/backdrop.action";
-import LoginPageView from "./login.view";
 
+//requests
 import { login } from "../../../../utils/requests";
 
 const Login = () => {

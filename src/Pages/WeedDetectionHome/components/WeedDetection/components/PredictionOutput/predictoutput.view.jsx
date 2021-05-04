@@ -51,7 +51,12 @@ CircularProgressWithLabel.propTypes = {
   value: PropTypes.number.isRequired,
 };
 
-const PredictOutputView = ({ image, outputMatrix, handleStep }) => {
+const PredictOutputView = ({
+  image,
+  outputMatrix,
+  handleStep,
+  setOutputMatrix,
+}) => {
   const [progress, setProgress] = useState(3.85);
 
   useEffect(() => {
@@ -191,6 +196,7 @@ const PredictOutputView = ({ image, outputMatrix, handleStep }) => {
                     endIcon={<ReplayIcon />}
                     onClick={() => {
                       handleStep(0);
+                      setOutputMatrix(null);
                     }}
                   >
                     RESTART

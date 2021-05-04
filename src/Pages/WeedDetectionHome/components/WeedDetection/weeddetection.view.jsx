@@ -10,6 +10,7 @@ const WeedDetectionView = ({
   handleStep,
   handleImage,
   handleWeedDetection,
+  setOutputMatrix,
 }) => {
   return (
     <Grid
@@ -31,7 +32,7 @@ const WeedDetectionView = ({
           image={image}
           outputMatrix={outputMatrix}
           handleImage={handleImage}
-          handleStep={handleStep}
+          setOutputMatrix={setOutputMatrix}
         />
       )}
     </Grid>

@@ -178,14 +178,16 @@ const CropRecommendation = () => {
               `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}&localityLanguage=en`
             )
             .then((res) => {
+              console.log(res);
               let district =
                 res["data"]["localityInfo"]["administrative"][2]["name"];
               let state =
                 res["data"]["localityInfo"]["administrative"][1]["name"];
-              handleCheckValidity(
-                state,
-                district.slice(0, district.length - 9)
-              );
+              console.log(district, state);
+              if (district.includes("district")) {
+                district = district.slice(0, district.length - 9);
+              }
+              handleCheckValidity(state, district);
             })
             .catch((err) => {
               alert("Error...!");

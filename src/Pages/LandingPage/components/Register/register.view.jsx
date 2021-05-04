@@ -1,3 +1,4 @@
+//built in modules
 import React from "react";
 import {
   form,
@@ -24,7 +25,6 @@ import GoogleLogin from "react-google-login";
 
 //background image and logo
 import background from "../../../../utils/images/cropregister.jpg";
-import logo from "../../../../utils/images/croplogo.jpg";
 
 const RegisterPageView = ({
   registerdetails,
