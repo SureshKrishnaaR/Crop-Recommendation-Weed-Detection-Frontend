@@ -1,9 +1,13 @@
+//built in modules
 import React from "react";
-import { Button, IconButton, useMediaQuery } from "@material-ui/core";
 import { motion } from "framer-motion";
+import { Button, IconButton, useMediaQuery } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
 
+//component files
+import GuideMap from "./Components/GuideMap";
+import GuideMapModal from "./Components/GuideMapModal";
 import FertilizerQuestion from "./Components/FertilizerQuestion";
 import ChooseLocation from "./Components/ChooseLocation";
 import PredictCrop from "./Components/PredictCropApproach1";
@@ -11,8 +15,6 @@ import NpkPrediction from "./Components/PredictCropApproach1/components/NpkPredi
 import PredictFertilizer from "./Components/PredictCropApproach1/components/PredictFertilizer";
 import PredictCropApproach2 from "./Components/PredictCropApproach2";
 import PredictCropYield from "./Components/PredictCropYield";
-import GuideMap from "./Components/GuideMap";
-import GuideMapModal from "./Components/GuideMapModal";
 
 const CropRecommendationView = ({
   page,
@@ -66,7 +68,7 @@ const CropRecommendationView = ({
   handleCloseGuideMapModal,
 }) => {
   const mediatheme2 = useTheme();
-  const matchforxl = useMediaQuery(mediatheme2.breakpoints.up("lg"));
+  const matchforsm = useMediaQuery(mediatheme2.breakpoints.down("md"));
 
   return (
     <>
@@ -83,9 +85,7 @@ const CropRecommendationView = ({
       >
         {page !== 1 && (
           <>
-            {matchforxl ? (
-              <GuideMap progress={progress} approach={approach} />
-            ) : (
+            {matchforsm ? (
               <>
                 <motion.div
                   initial={{ opacity: 0, scale: 0 }}
@@ -113,6 +113,8 @@ const CropRecommendationView = ({
                   approach={approach}
                 ></GuideMapModal>
               </>
+            ) : (
+              <GuideMap progress={progress} approach={approach} />
             )}
             <motion.div
               initial={{ opacity: 0, scale: 0 }}

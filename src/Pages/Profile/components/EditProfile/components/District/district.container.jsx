@@ -1,12 +1,15 @@
+//built in modules
 import React, { useState, useEffect } from "react";
+
+//component files
 import DistrictView from "./district.view";
+
+//import requests
 import { getDistricts } from "../../../../../../utils/requests";
 
 const District = ({ profiledetails, handleChange }) => {
   //states
   const [districts, setDistricts] = useState([]);
-
-  //handlers
 
   useEffect(() => {
     getDistricts(profiledetails.state_name)

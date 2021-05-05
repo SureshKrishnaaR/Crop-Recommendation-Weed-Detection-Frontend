@@ -1,13 +1,22 @@
+//built in modules
 import React from "react";
-import EditProfileView from "./editprofile.view";
-import { updateProfile } from "../../../../utils/requests";
 import { useDispatch } from "react-redux";
+
+//component files
+import EditProfileView from "./editprofile.view";
+
+//import requests
+import { updateProfile } from "../../../../utils/requests";
+
+//redux imports
 import {
   addSuccessAlert,
   addFailureAlert,
 } from "../../../../redux/ActionCreators/alert.action";
+
 const EditProfile = ({ profiledetails, handleChange, handleEditProfile }) => {
   const dispatch = useDispatch();
+
   //handlers
   const handleFormSubmit = () => {
     updateProfile(profiledetails)

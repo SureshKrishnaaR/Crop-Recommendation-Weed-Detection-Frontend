@@ -1,4 +1,7 @@
+//built in modules
 import React from "react";
+
+//component files
 import NpkPredictionView from "./npkPrediction.view";
 
 const NpkPrediction = ({

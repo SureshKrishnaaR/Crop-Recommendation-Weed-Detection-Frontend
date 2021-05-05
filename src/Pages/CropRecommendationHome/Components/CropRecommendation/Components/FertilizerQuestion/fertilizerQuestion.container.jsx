@@ -1,5 +1,7 @@
+//built in modules
 import React from "react";
 
+//component files
 import FertilizerQuestionView from "./fertilizerQuestion.view";
 
 const FertilizerQuestion = ({

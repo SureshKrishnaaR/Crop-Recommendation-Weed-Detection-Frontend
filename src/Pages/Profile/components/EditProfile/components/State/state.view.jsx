@@ -1,4 +1,7 @@
+//built in modules
 import React from "react";
+
+//common components
 import Dropdown from "../../../../../../Components/Dropdown";
 
 const StateView = ({ profiledetails, handleChange, states }) => {

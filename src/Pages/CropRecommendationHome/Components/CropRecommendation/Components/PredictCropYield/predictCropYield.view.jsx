@@ -1,12 +1,14 @@
+//built in modules
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { Typography, Grid, Button, useMediaQuery } from "@material-ui/core";
-import { useTheme } from "@material-ui/core/styles";
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
+import { Typography, Grid, Button, useMediaQuery } from "@material-ui/core";
+import { useTheme } from "@material-ui/core/styles";
 import HomeIcon from "@material-ui/icons/Home";
 import ReplayIcon from "@material-ui/icons/Replay";
 
+//component files
 import GetArea from "./components/getArea";
 import GetSeason from "./components/getSeason";
 
@@ -110,11 +112,14 @@ const PredictCropYieldView = ({
                       }}
                     >
                       <Typography> NITROGEN </Typography>
-                      <CountUp
-                        end={npkValues.nitrogen}
-                        duration={5}
-                        decimals={4}
-                      />
+                      <Typography>
+                        <CountUp
+                          end={npkValues.nitrogen}
+                          duration={5}
+                          decimals={4}
+                        />
+                        {" ppm"}
+                      </Typography>
                     </Typography>
                   </motion.div>
                 </Grid>
@@ -135,11 +140,14 @@ const PredictCropYieldView = ({
                       }}
                     >
                       <Typography> PHOSPHORUS </Typography>
-                      <CountUp
-                        end={npkValues.phosphorus}
-                        duration={5}
-                        decimals={4}
-                      />
+                      <Typography>
+                        <CountUp
+                          end={npkValues.phosphorus}
+                          duration={5}
+                          decimals={4}
+                        />
+                        {" ppm"}
+                      </Typography>
                     </Typography>
                   </motion.div>
                 </Grid>
@@ -160,11 +168,14 @@ const PredictCropYieldView = ({
                       }}
                     >
                       <Typography> POTASSIUM </Typography>
-                      <CountUp
-                        end={npkValues.potassium}
-                        duration={5}
-                        decimals={4}
-                      />
+                      <Typography>
+                        <CountUp
+                          end={npkValues.potassium}
+                          duration={5}
+                          decimals={4}
+                        />
+                        {" ppm"}
+                      </Typography>
                     </Typography>
                   </motion.div>
                 </Grid>
@@ -230,7 +241,10 @@ const PredictCropYieldView = ({
                       }}
                     >
                       <Typography> CROP YIELD </Typography>
-                      <CountUp end={cropyield} duration={5} decimals={4} />
+                      <Typography>
+                        <CountUp end={cropyield} duration={5} decimals={4} />
+                        {" kg"}
+                      </Typography>
                     </Typography>
                   </motion.div>
                 </Grid>
@@ -271,7 +285,7 @@ const PredictCropYieldView = ({
                       endIcon={<ReplayIcon />}
                       onClick={() => {
                         handlePageChange(1);
-                        handleProgressChange(0);
+                        handleProgressChange(-1);
                       }}
                     >
                       RESTART

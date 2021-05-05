@@ -1,4 +1,7 @@
+//built in modules
 import React from "react";
+import { Link } from "react-router-dom";
+import { useSelector, shallowEqual } from "react-redux";
 import { motion } from "framer-motion";
 import {
   Button,
@@ -11,9 +14,8 @@ import {
   useMediaQuery,
 } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
-import { useSelector, shallowEqual } from "react-redux";
-import { Link } from "react-router-dom";
 
+//common components
 import Dropdown from "../../../../../../Components/Dropdown";
 
 const ChooseLocationView = ({

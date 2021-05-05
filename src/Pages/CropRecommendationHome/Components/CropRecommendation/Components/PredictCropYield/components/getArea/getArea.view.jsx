@@ -1,4 +1,7 @@
+//built in modules
 import React from "react";
+import { useSelector, shallowEqual } from "react-redux";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   FormControl,
@@ -13,8 +16,6 @@ import {
   Button,
 } from "@material-ui/core";
 import LandscapeIcon from "@material-ui/icons/Landscape";
-import { useSelector, shallowEqual } from "react-redux";
-import { Link } from "react-router-dom";
 
 const GetAreaView = ({
   page,
@@ -105,7 +106,10 @@ const GetAreaView = ({
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6 }}
               >
-                <Typography>TOTAL LAND AREA - {areaval}</Typography>
+                <Typography>
+                  TOTAL LAND AREA - {areaval} {" m"}
+                  <sup>2</sup>
+                </Typography>
               </motion.div>
               <motion.div
                 style={{ marginTop: "30px" }}

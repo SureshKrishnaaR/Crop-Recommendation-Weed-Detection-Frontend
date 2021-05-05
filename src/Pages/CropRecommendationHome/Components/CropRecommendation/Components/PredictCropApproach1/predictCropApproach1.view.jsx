@@ -1,4 +1,6 @@
+//built in modules
 import React from "react";
+import { motion } from "framer-motion";
 import CountUp from "react-countup";
 import {
   Typography,
@@ -7,7 +9,6 @@ import {
   CircularProgress,
   useMediaQuery,
 } from "@material-ui/core";
-import { motion } from "framer-motion";
 import { useTheme } from "@material-ui/core/styles";
 
 const PredictCropView = ({
@@ -118,6 +119,7 @@ const PredictCropView = ({
                     duration={5}
                     decimals={3}
                   />
+                  {" cm"}
                 </Typography>
               </Typography>
             </motion.div>
@@ -149,6 +151,7 @@ const PredictCropView = ({
                     duration={5}
                     decimals={3}
                   />
+                  {" ºC"}
                 </Typography>
               </Typography>
             </motion.div>
@@ -179,7 +182,8 @@ const PredictCropView = ({
                     end={envfactors.humidity}
                     duration={5}
                     decimals={3}
-                  />
+                  />{" "}
+                  g.kg<sup>-1</sup>
                 </Typography>
               </Typography>
             </motion.div>

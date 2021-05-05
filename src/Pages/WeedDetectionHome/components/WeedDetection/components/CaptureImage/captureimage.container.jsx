@@ -1,5 +1,9 @@
+//built in modules
 import React from "react";
+
+//component files
 import CaptureImageView from "./captureimage.view.jsx";
+
 const CaptureImage = ({
   image,
   handleImage,

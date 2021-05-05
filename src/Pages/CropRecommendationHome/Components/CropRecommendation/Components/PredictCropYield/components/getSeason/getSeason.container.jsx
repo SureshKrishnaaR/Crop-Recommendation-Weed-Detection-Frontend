@@ -1,5 +1,10 @@
+//built in modules
 import React from "react";
+
+//components files
 import GetSeasonView from "./getSeason.view";
+
+//request imports
 import {
   predictCropYield,
   getSeasonbyMonth,

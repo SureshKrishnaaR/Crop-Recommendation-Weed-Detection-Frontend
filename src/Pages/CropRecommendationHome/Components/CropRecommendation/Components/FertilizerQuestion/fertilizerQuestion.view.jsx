@@ -1,3 +1,4 @@
+//built in modules
 import React from "react";
 import { motion } from "framer-motion";
 import { Typography, Grid, IconButton } from "@material-ui/core";
@@ -46,7 +47,7 @@ const FertilizerQuestionView = ({ handleYes, handleNo }) => {
             <motion.div
               initial={{ opacity: 0, x: "100vw" }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.9, delay: 0.4 }}    
+              transition={{ duration: 0.9, delay: 0.4 }}
             >
               <IconButton style={{ color: "red" }} onClick={handleNo}>
                 <ClearIcon style={{ fontSize: "1.4em" }} />

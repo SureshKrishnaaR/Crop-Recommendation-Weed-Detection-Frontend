@@ -1,5 +1,9 @@
+//built in modules
 import React from "react";
+
+//component files
 import PredictOutputView from "./predictoutput.view.jsx";
+
 const PredictOutput = ({
   image,
   outputMatrix,

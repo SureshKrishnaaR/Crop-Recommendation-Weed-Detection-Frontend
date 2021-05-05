@@ -1,9 +1,15 @@
-import axios from "axios";
+//built in modules
 import React, { useState } from "react";
+import axios from "axios";
 import { useSelector, shallowEqual, useDispatch } from "react-redux";
+
+//component files
+import CropRecommendationView from "./cropRecommendation.view";
+
+//redux imports
 import { addFailureAlert } from "../../../../redux/ActionCreators/alert.action";
 
-import CropRecommendationView from "./cropRecommendation.view";
+//requests imports
 import {
   getStates,
   getDistricts,
@@ -22,10 +28,10 @@ const CropRecommendation = () => {
     ({ userDetails }) => userDetails.userDetails,
     shallowEqual
   );
-  //page state
+  //page states
   const [page, setPage] = useState(1);
 
-  //progress
+  //progress states
   const [progress, setProgress] = useState(-1);
 
   //modal states
@@ -173,6 +179,7 @@ const CropRecommendation = () => {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition((position) => {
           console.log(position);
+          //districts API
           axios
             .get(
               `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}&localityLanguage=en`
@@ -194,7 +201,6 @@ const CropRecommendation = () => {
               setLocation(null);
             });
         });
-        //districts API
       }
     } else if (val === 1) {
       //Redux - from profile
@@ -285,7 +291,7 @@ const CropRecommendation = () => {
       });
   };
 
-  //hanlders for Crop Production
+  //handlers for Crop Production
 
   const handleAreaChange = (newareaval) => {
     setAreaVal(null);
@@ -338,6 +344,11 @@ const CropRecommendation = () => {
       <CropRecommendationView
         page={page}
         handlePageChange={handlePageChange}
+        progress={progress}
+        handleProgressChange={handleProgressChange}
+        openGuideMapModal={openGuideMapModal}
+        handleOpenGuideMapModal={handleOpenGuideMapModal}
+        handleCloseGuideMapModal={handleCloseGuideMapModal}
         envfactors={envfactors}
         location={location}
         locationval={locationval}
@@ -380,11 +391,6 @@ const CropRecommendation = () => {
         handleSeasonAPI={handleSeasonAPI}
         cropyield={cropyield}
         handleCropYield={handleCropYield}
-        progress={progress}
-        handleProgressChange={handleProgressChange}
-        openGuideMapModal={openGuideMapModal}
-        handleOpenGuideMapModal={handleOpenGuideMapModal}
-        handleCloseGuideMapModal={handleCloseGuideMapModal}
       />
     </>
   );

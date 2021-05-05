@@ -1,5 +1,10 @@
+//built in modules
 import React, { useState } from "react";
+
+//component files
 import PredictCropApproach2View from "./predictCropApproach2.view";
+
+//request imports
 import { predictCropApp2 } from "../../../../../../utils/requests";
 
 const PredictCropApproach2 = ({

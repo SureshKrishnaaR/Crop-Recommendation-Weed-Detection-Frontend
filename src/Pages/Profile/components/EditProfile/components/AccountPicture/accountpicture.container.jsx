@@ -1,4 +1,7 @@
+//built in modules
 import React from "react";
+
+//component files
 import AccountPictureView from "./accountpicture.view";
 
 const AccountPicture = ({ profiledetails, handleChange }) => {

@@ -1,10 +1,15 @@
+//built in modules
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Grid, Button } from "@material-ui/core";
-import { Camera } from "../../../../../../Components/camera";
-import { Root, Preview, Footer, GlobalStyle } from "./styles";
+import { Button } from "@material-ui/core";
 import FlipCameraIosIcon from "@material-ui/icons/FlipCameraIos";
 import NatureIcon from "@material-ui/icons/Nature";
+
+//component files
+import { Camera } from "../../../../../../Components/camera";
+
+//style imports
+import { Root, Preview, Footer, GlobalStyle } from "./styles";
 
 const CaptureImageView = ({ image, handleImage, handleWeedDetection }) => {
   const [cardImage, setCardImage] = useState();

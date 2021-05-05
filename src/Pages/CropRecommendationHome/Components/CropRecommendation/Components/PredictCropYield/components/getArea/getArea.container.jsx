@@ -1,4 +1,7 @@
+//built in modules
 import React from "react";
+
+//component files
 import GetAreaView from "./getArea.view";
 
 const GetArea = ({

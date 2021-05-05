@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import {
   Grid,
   useMediaQuery,
@@ -6,16 +6,10 @@ import {
   Chip,
   Avatar,
   Box,
-  LinearProgress,
   CircularProgress,
   Typography,
 } from "@material-ui/core";
-import {
-  SemipolarLoading,
-  CommonLoading,
-  WindMillLoading,
-} from "react-loadingg";
-import { PacmanLoader, GridLoader, HashLoader } from "react-spinners";
+import { SemipolarLoading } from "react-loadingg";
 import PropTypes from "prop-types";
 import { useTheme } from "@material-ui/core/styles";
 import { motion } from "framer-motion";
@@ -57,18 +51,6 @@ const PredictOutputView = ({
   handleStep,
   setOutputMatrix,
 }) => {
-  const [progress, setProgress] = useState(3.85);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress((prevProgress) =>
-        prevProgress >= 100 ? 0 : prevProgress + 3.85
-      );
-    }, 800);
-    return () => {
-      clearInterval(timer);
-    };
-  }, []);
   const cammediatheme = useTheme();
   const history = useHistory();
   const matches = useMediaQuery(cammediatheme.breakpoints.up("md"));
@@ -77,6 +59,7 @@ const PredictOutputView = ({
   useEffect(() => {
     if (outputMatrix) {
       const canvasEle = canvas.current;
+      // eslint-disable-next-line react-hooks/exhaustive-deps
       ctx = canvasEle.getContext("2d");
       var imageObj = new Image();
       imageObj.onload = function () {
@@ -86,6 +69,7 @@ const PredictOutputView = ({
         outputMatrix.map((output) => {
           ctx.strokeStyle = output[2] === "crop" ? "green" : "yellow";
           ctx.rect(...output[0]);
+          return null;
         });
         ctx.stroke();
       };
