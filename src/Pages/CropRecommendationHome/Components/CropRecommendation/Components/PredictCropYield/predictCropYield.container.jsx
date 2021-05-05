@@ -1,4 +1,7 @@
+//built in modules
 import React from "react";
+
+//component files
 import PredictCropYieldView from "./predictCropYield.view";
 
 const PredictCropYield = ({

@@ -1,6 +1,10 @@
+//built in modules
 import React from "react";
 
+//component files
 import ChooseLocationView from "./chooseLocation.view";
+
+//request imports
 import { getWeatherDetails } from "../../../../../../utils/requests";
 
 const ChooseLocation = ({

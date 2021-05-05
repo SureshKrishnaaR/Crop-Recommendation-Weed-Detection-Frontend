@@ -1,4 +1,7 @@
+//built in modules
 import React from "react";
+import CountUp from "react-countup";
+import { motion } from "framer-motion";
 import {
   Button,
   Typography,
@@ -8,9 +11,9 @@ import {
   Checkbox,
   Box,
 } from "@material-ui/core";
-import { motion } from "framer-motion";
+
+//common components
 import Dropdown from "../../../../../../../../Components/Dropdown";
-import CountUp from "react-countup";
 
 const GetSeasonView = ({
   page,

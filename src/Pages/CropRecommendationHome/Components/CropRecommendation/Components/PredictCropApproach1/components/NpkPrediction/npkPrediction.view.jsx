@@ -1,7 +1,8 @@
+//built in modules
 import React from "react";
+import CountUp from "react-countup";
 import { motion } from "framer-motion";
 import { Typography, Box, Button, useMediaQuery } from "@material-ui/core";
-import CountUp from "react-countup";
 import { useTheme } from "@material-ui/core/styles";
 
 const NpkPredictionView = ({

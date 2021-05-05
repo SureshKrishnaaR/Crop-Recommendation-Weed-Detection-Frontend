@@ -1,5 +1,10 @@
+//built in modules
 import React from "react";
+
+//component files
 import PredictFertilizerView from "./predictFertilizer.view";
+
+//request imports
 import { predictFertilizer } from "../../../../../../../../utils/requests";
 
 const PredictFertilizer = ({

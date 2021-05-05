@@ -1,4 +1,7 @@
+//built in modules
 import React from "react";
+
+//component files
 import GuideMapModalView from "./guideMapModal.view";
 
 const GuideMapModal = ({

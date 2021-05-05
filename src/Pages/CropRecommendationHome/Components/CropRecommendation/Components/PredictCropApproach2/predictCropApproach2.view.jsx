@@ -1,4 +1,6 @@
+//built in modules
 import React from "react";
+import { motion } from "framer-motion";
 import {
   FormControl,
   OutlinedInput,
@@ -10,11 +12,10 @@ import {
   useMediaQuery,
   CircularProgress,
 } from "@material-ui/core";
+import { useTheme } from "@material-ui/core/styles";
 import NatureIcon from "@material-ui/icons/Nature";
 import NaturePeopleIcon from "@material-ui/icons/NaturePeople";
 import EmojiNatureIcon from "@material-ui/icons/EmojiNature";
-import { motion } from "framer-motion";
-import { useTheme } from "@material-ui/core/styles";
 
 const PredictCropApproach2View = ({
   page,

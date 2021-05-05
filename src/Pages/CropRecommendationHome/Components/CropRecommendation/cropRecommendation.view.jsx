@@ -1,9 +1,13 @@
+//built in modules
 import React from "react";
-import { Button, IconButton, useMediaQuery } from "@material-ui/core";
 import { motion } from "framer-motion";
+import { Button, IconButton, useMediaQuery } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
 import KeyboardBackspaceIcon from "@material-ui/icons/KeyboardBackspace";
 
+//component files
+import GuideMap from "./Components/GuideMap";
+import GuideMapModal from "./Components/GuideMapModal";
 import FertilizerQuestion from "./Components/FertilizerQuestion";
 import ChooseLocation from "./Components/ChooseLocation";
 import PredictCrop from "./Components/PredictCropApproach1";
@@ -11,8 +15,6 @@ import NpkPrediction from "./Components/PredictCropApproach1/components/NpkPredi
 import PredictFertilizer from "./Components/PredictCropApproach1/components/PredictFertilizer";
 import PredictCropApproach2 from "./Components/PredictCropApproach2";
 import PredictCropYield from "./Components/PredictCropYield";
-import GuideMap from "./Components/GuideMap";
-import GuideMapModal from "./Components/GuideMapModal";
 
 const CropRecommendationView = ({
   page,

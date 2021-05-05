@@ -1,4 +1,7 @@
+//built in modules
 import React from "react";
+import { Link } from "react-router-dom";
+import { useSelector, shallowEqual } from "react-redux";
 import { motion } from "framer-motion";
 import {
   FormControlLabel,
@@ -10,10 +13,9 @@ import {
   Button,
   useMediaQuery,
 } from "@material-ui/core";
-import { useSelector, shallowEqual } from "react-redux";
-import { Link } from "react-router-dom";
 import { useTheme } from "@material-ui/core/styles";
 
+//common components
 import Dropdown from "../../../../../../../../Components/Dropdown";
 
 const PredictFertilizerView = ({

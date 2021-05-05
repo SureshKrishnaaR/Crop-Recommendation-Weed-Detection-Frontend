@@ -1,5 +1,7 @@
+//built in modules
 import React from "react";
 import { motion } from "framer-motion";
+import { useHistory } from "react-router-dom";
 import {
   Grid,
   Typography,
@@ -9,8 +11,8 @@ import {
 } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
 import { green } from "@material-ui/core/colors";
-import { useHistory } from "react-router-dom";
 
+//framer motion constants
 const buttonVariants = {
   hidden: {
     opacity: 0,

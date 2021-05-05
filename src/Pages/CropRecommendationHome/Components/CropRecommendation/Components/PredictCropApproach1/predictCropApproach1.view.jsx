@@ -1,4 +1,6 @@
+//built in modules
 import React from "react";
+import { motion } from "framer-motion";
 import CountUp from "react-countup";
 import {
   Typography,
@@ -7,7 +9,6 @@ import {
   CircularProgress,
   useMediaQuery,
 } from "@material-ui/core";
-import { motion } from "framer-motion";
 import { useTheme } from "@material-ui/core/styles";
 
 const PredictCropView = ({
