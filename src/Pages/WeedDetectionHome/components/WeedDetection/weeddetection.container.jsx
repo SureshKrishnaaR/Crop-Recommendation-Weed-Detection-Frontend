@@ -1,6 +1,10 @@
-import React, { useState, useEffect } from "react";
+//built in modules
+import React, { useState } from "react";
+
+//component files
 import WeedDetectionView from "./weeddetection.view";
 
+//request imports
 import { weedDetection } from "../../../../utils/requests";
 
 const WeedDetection = () => {

@@ -1,5 +1,8 @@
+//built in modules
 import React from "react";
 import { Grid } from "@material-ui/core";
+
+//component files
 import CaptureImage from "./components/CaptureImage";
 import PredictOutput from "./components/PredictionOutput";
 

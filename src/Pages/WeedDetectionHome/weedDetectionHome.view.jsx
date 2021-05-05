@@ -1,4 +1,6 @@
+//built in modules
 import React from "react";
+import { useHistory } from "react-router-dom";
 import { motion } from "framer-motion";
 import {
   Grid,
@@ -8,7 +10,6 @@ import {
   Box,
 } from "@material-ui/core";
 import { useTheme } from "@material-ui/core/styles";
-import { useHistory } from "react-router-dom";
 
 const buttonVariants = {
   hidden: {
@@ -55,7 +56,7 @@ const titleVariants = {
   },
 };
 
-const CropRecommendationHomeView = () => {
+const WeedDetectionHomeView = () => {
   const history = useHistory();
   const mediatheme2 = useTheme();
   const matches = useMediaQuery(mediatheme2.breakpoints.up("md"));
@@ -157,4 +158,4 @@ const CropRecommendationHomeView = () => {
   );
 };
 
-export default CropRecommendationHomeView;
+export default WeedDetectionHomeView;
