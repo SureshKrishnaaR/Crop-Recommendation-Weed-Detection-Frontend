@@ -147,6 +147,7 @@ const GetSeasonView = ({
                         <Typography> CROP YIELD </Typography>
                         <Typography style={{ textAlign: "right" }}>
                           <CountUp end={cropyield} duration={5} decimals={4} />
+                          {" kg"}
                         </Typography>
                       </Typography>
                     </motion.div>

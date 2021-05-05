@@ -58,6 +58,7 @@ const NpkPredictionView = ({
               <Typography> NITROGEN - N </Typography>
               <Typography style={{ textAlign: "right" }}>
                 <CountUp end={npkValues.nitrogen} duration={5} decimals={3} />
+                {" ppm"}
               </Typography>
             </Typography>
           </motion.div>
@@ -84,6 +85,7 @@ const NpkPredictionView = ({
               <Typography> PHOSPHORUS - P </Typography>
               <Typography style={{ textAlign: "right" }}>
                 <CountUp end={npkValues.phosphorus} duration={5} decimals={3} />
+                {" ppm"}
               </Typography>
             </Typography>
           </motion.div>
@@ -110,6 +112,7 @@ const NpkPredictionView = ({
               <Typography> POTASSIUM - K </Typography>
               <Typography style={{ textAlign: "right" }}>
                 <CountUp end={npkValues.potassium} duration={5} decimals={3} />
+                {" ppm"}
               </Typography>
             </Typography>
           </motion.div>

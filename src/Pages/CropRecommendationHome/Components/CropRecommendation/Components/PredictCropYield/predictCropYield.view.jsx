@@ -112,11 +112,14 @@ const PredictCropYieldView = ({
                       }}
                     >
                       <Typography> NITROGEN </Typography>
-                      <CountUp
-                        end={npkValues.nitrogen}
-                        duration={5}
-                        decimals={4}
-                      />
+                      <Typography>
+                        <CountUp
+                          end={npkValues.nitrogen}
+                          duration={5}
+                          decimals={4}
+                        />
+                        {" ppm"}
+                      </Typography>
                     </Typography>
                   </motion.div>
                 </Grid>
@@ -137,11 +140,14 @@ const PredictCropYieldView = ({
                       }}
                     >
                       <Typography> PHOSPHORUS </Typography>
-                      <CountUp
-                        end={npkValues.phosphorus}
-                        duration={5}
-                        decimals={4}
-                      />
+                      <Typography>
+                        <CountUp
+                          end={npkValues.phosphorus}
+                          duration={5}
+                          decimals={4}
+                        />
+                        {" ppm"}
+                      </Typography>
                     </Typography>
                   </motion.div>
                 </Grid>
@@ -162,11 +168,14 @@ const PredictCropYieldView = ({
                       }}
                     >
                       <Typography> POTASSIUM </Typography>
-                      <CountUp
-                        end={npkValues.potassium}
-                        duration={5}
-                        decimals={4}
-                      />
+                      <Typography>
+                        <CountUp
+                          end={npkValues.potassium}
+                          duration={5}
+                          decimals={4}
+                        />
+                        {" ppm"}
+                      </Typography>
                     </Typography>
                   </motion.div>
                 </Grid>
@@ -232,7 +241,10 @@ const PredictCropYieldView = ({
                       }}
                     >
                       <Typography> CROP YIELD </Typography>
-                      <CountUp end={cropyield} duration={5} decimals={4} />
+                      <Typography>
+                        <CountUp end={cropyield} duration={5} decimals={4} />
+                        {" kg"}
+                      </Typography>
                     </Typography>
                   </motion.div>
                 </Grid>

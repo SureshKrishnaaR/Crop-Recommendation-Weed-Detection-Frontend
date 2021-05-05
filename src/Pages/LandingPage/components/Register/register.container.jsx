@@ -53,7 +53,7 @@ const Register = () => {
         error = "Alphanumeric characters only allowed";
       }
     } else if (name === "full_name") {
-      const nameRegex = /^[a-zA-Z\-]+$/;
+      const nameRegex = /^[a-zA-Z]+$/;
       if (!value.length) {
         error = "Name is required";
       } else if (!value.match(nameRegex)) {

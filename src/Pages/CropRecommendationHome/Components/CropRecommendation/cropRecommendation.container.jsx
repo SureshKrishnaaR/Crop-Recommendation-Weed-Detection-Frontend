@@ -182,7 +182,7 @@ const CropRecommendation = () => {
           //districts API
           axios
             .get(
-              `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${10.79}&longitude=${78.7}&localityLanguage=en`
+              `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${position.coords.latitude}&longitude=${position.coords.longitude}&localityLanguage=en`
             )
             .then((res) => {
               console.log(res);

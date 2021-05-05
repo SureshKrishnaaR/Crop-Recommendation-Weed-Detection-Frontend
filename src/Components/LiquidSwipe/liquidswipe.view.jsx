@@ -117,6 +117,7 @@ const Page = ({ children, theme, index, setActive, gone = false }) => {
         });
       }, 100);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [gone]);
 
   const bind = useDrag(({ down, movement: [mx], xy: [, my], vxvy: [vx] }) => {
@@ -254,6 +255,7 @@ const LiquidSwipeView = ({ components, colors }) => {
         </Page>,
       ]);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isActive]);
   return (
     <>

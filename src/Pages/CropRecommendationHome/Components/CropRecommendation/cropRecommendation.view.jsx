@@ -68,7 +68,7 @@ const CropRecommendationView = ({
   handleCloseGuideMapModal,
 }) => {
   const mediatheme2 = useTheme();
-  const matchforxl = useMediaQuery(mediatheme2.breakpoints.up("lg"));
+  const matchforsm = useMediaQuery(mediatheme2.breakpoints.down("md"));
 
   return (
     <>
@@ -85,9 +85,7 @@ const CropRecommendationView = ({
       >
         {page !== 1 && (
           <>
-            {matchforxl ? (
-              <GuideMap progress={progress} approach={approach} />
-            ) : (
+            {matchforsm ? (
               <>
                 <motion.div
                   initial={{ opacity: 0, scale: 0 }}
@@ -115,6 +113,8 @@ const CropRecommendationView = ({
                   approach={approach}
                 ></GuideMapModal>
               </>
+            ) : (
+              <GuideMap progress={progress} approach={approach} />
             )}
             <motion.div
               initial={{ opacity: 0, scale: 0 }}

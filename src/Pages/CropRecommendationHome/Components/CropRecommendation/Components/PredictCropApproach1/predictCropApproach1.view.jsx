@@ -119,6 +119,7 @@ const PredictCropView = ({
                     duration={5}
                     decimals={3}
                   />
+                  {" cm"}
                 </Typography>
               </Typography>
             </motion.div>
@@ -150,6 +151,7 @@ const PredictCropView = ({
                     duration={5}
                     decimals={3}
                   />
+                  {" ºC"}
                 </Typography>
               </Typography>
             </motion.div>
@@ -180,7 +182,8 @@ const PredictCropView = ({
                     end={envfactors.humidity}
                     duration={5}
                     decimals={3}
-                  />
+                  />{" "}
+                  g.kg<sup>-1</sup>
                 </Typography>
               </Typography>
             </motion.div>

@@ -106,7 +106,10 @@ const GetAreaView = ({
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.6 }}
               >
-                <Typography>TOTAL LAND AREA - {areaval}</Typography>
+                <Typography>
+                  TOTAL LAND AREA - {areaval} {" m"}
+                  <sup>2</sup>
+                </Typography>
               </motion.div>
               <motion.div
                 style={{ marginTop: "30px" }}
