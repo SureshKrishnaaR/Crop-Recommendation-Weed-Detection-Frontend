@@ -140,7 +140,7 @@ export const predictCropYield = async ({
 }) => {
   let response = await axios.post(
     baseUrl +
-      `/recommendCropYield?state=${state}&district=${district}&season=${season}`,
+      `/recommendCropYield?state=${state}&district=${district.toUpperCase()}&season=${season}`,
     { crop: crop[0].toUpperCase() + crop.slice(1), area: area },
     {
       headers: {

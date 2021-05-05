@@ -1,12 +1,14 @@
+//built in modules
 import React from "react";
 import { useHistory } from "react-router-dom";
-import { Typography, Grid, Button, useMediaQuery } from "@material-ui/core";
-import { useTheme } from "@material-ui/core/styles";
 import CountUp from "react-countup";
 import { motion } from "framer-motion";
+import { Typography, Grid, Button, useMediaQuery } from "@material-ui/core";
+import { useTheme } from "@material-ui/core/styles";
 import HomeIcon from "@material-ui/icons/Home";
 import ReplayIcon from "@material-ui/icons/Replay";
 
+//component files
 import GetArea from "./components/getArea";
 import GetSeason from "./components/getSeason";
 
@@ -271,7 +273,7 @@ const PredictCropYieldView = ({
                       endIcon={<ReplayIcon />}
                       onClick={() => {
                         handlePageChange(1);
-                        handleProgressChange(0);
+                        handleProgressChange(-1);
                       }}
                     >
                       RESTART
