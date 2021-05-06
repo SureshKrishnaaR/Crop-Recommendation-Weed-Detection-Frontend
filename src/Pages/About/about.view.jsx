@@ -168,7 +168,7 @@ const AboutView = () => {
                     onClick={() => history.push("/profile")}
                     style={{ margin: "30px" }}
                   >
-                    DETECT WEED
+                    VIEW PROFILE
                   </Button>
                 </motion.div>
               )}

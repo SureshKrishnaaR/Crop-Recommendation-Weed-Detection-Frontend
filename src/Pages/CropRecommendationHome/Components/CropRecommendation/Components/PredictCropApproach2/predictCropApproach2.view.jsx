@@ -39,12 +39,13 @@ const PredictCropApproach2View = ({
 
   return (
     <>
-      <div style={{ height: matchesforxl ? "80%" : "100%" }}>
+      <div style={{ height: "80%" }}>
         <Box
           p={3}
           style={{
             display: "flex",
-            justifyContent: "flex-end",
+            justifyContent: matches ? "flex-end" : "center",
+            padding: "30px",
             marginTop: !matches && "60px",
           }}
         >
@@ -56,7 +57,7 @@ const PredictCropApproach2View = ({
               alignItems: "center",
               textAlign: "center",
               justifyContent: "space-between",
-              height: "20%",
+              height: "10%",
               padding: "20px",
               marginTop: matches && !matchesforxl && "40px",
             }}
