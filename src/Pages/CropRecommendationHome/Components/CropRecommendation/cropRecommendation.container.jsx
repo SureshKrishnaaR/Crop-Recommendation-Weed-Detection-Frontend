@@ -295,6 +295,7 @@ const CropRecommendation = () => {
 
   const handleAreaChange = (newareaval) => {
     setAreaVal(null);
+    setCropYield(null);
     if (newareaval === 0) {
       //Redux - from profile
       setAreaVal(userDetails["area"]);
@@ -303,6 +304,7 @@ const CropRecommendation = () => {
   };
 
   const handleAreaValChange = (event) => {
+    setCropYield(null);
     setAreaVal(event.target.value);
   };
 
