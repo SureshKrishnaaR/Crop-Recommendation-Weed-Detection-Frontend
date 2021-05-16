@@ -1,46 +1,30 @@
 # AGRI ASSISTANCE: An intelligent Machine Learning approach towards Crop Recommendation and Weed Detection
 
-## Visit https://github.com/vishwa-jith/Crop-recommendation-Weed-detection for Backend   
+## Visit https://github.com/vishwa-jith/Crop-recommendation-Weed-detection for Backend
 
-## Developer Information
+## DESKTOP INTERFACE
 
-| <b>Name of Developer | <b> Suresh Krishnaa R        |
-| :------------------- | :--------------------------- |
-| <b> Institute        | <b> Sri Sairam Engineering   |
-| <b> Email id         | <b> shyrams1346@gmail.com    |
-| <b> Department       | Computer Science Engineering |
+### Requirements
 
-| <b>Name of Developer | <b> Vishwajith V             |
-| :------------------- | :--------------------------- |
-| <b> Institute        | <b> Sri Sairam Engineering   |
-| <b> Email id         | <b> vishwajith567@gmail.com  |
-| <b> Department       | Computer Science Engineering |
-
-## Access Permissions Required
-
+❖ Browser - Chrome/Opera/Safari/Edge  
 ❖ Camera  
-❖ Location
+❖ Browser Navigator (Location Access)
 
-## Dependencies
+### Application Demo
 
-axios @0.21.1  
-framer-motion @4.1.3  
-react-countup @4.3.3  
-react-google-login @5.2.2  
-react-loadingg @1.7.2  
-react-measure @2.5.2  
-react-redux @7.2.3  
-react-router-dom @5.2.0  
-react-use-gesture @9.1.3  
-react-webcam @5.2.3  
-redux @4.0.5
+![alt text](https://github.com/SureshKrishnaaR/Crop-Recommendation-Weed-Detection-Frontend/blob/master/DESKTOPUI.gif?raw=true)
 
-## Tools and Technologies Used
+## MOBILE INTERFACE
 
-Code Editor - VS Code  
-Analytical IDE - Jupyter Notebook  
-Continous Integration - GitHub  
-Deployment - Heroku
+### Requirements
+
+❖ Browser - Chrome/Opera/Safari/Edge  
+❖ Camera  
+❖ Browser Navigator (Location Access)
+
+### Application Demo
+
+![alt text](https://github.com/SureshKrishnaaR/Crop-Recommendation-Weed-Detection-Frontend/blob/master/MOBILEUI.gif?raw=true)
 
 ## Dataset Collections
 
@@ -86,17 +70,45 @@ yarn serve
 npm serve
 ```
 
-Vist http://localhost:3000 or http://yourIp:3000   
+Vist http://localhost:3000 or http://yourIp:3000
 
-## Software Requirements   
-❖ python @3.8 (only acceptable till 3.8 --version)   
-❖ Nodejs   
-❖ npm (Node Package Manager)   
-❖ Git Bash   
+## Access Permissions Required
 
-## Other Requirements   
-❖ virtualenv (python)   
-❖ create-react-app (npm)   
+❖ Camera  
+❖ Location
+
+## Tools and Technologies Used
+
+Code Editor - VS Code  
+Analytical IDE - Jupyter Notebook  
+Continous Integration - GitHub  
+Deployment - Heroku
+
+## Software Requirements
+
+❖ python @3.8 (only acceptable till 3.8 --version)  
+❖ Nodejs  
+❖ npm (Node Package Manager)  
+❖ Git Bash
+
+## Other Requirements
+
+❖ virtualenv (python)  
+❖ create-react-app (npm)
+
+## Dependencies
+
+axios @0.21.1  
+framer-motion @4.1.3  
+react-countup @4.3.3  
+react-google-login @5.2.2  
+react-loadingg @1.7.2  
+react-measure @2.5.2  
+react-redux @7.2.3  
+react-router-dom @5.2.0  
+react-use-gesture @9.1.3  
+react-webcam @5.2.3  
+redux @4.0.5
 
 ## Objective
 
@@ -204,3 +216,17 @@ Collect the NPK values from the farmer.
 [5] R.Anirudh Reddy, G.Laasya, T.Sowmya, P.Sindhuja, Mudasar Basha, “Image Processing For Weed Detection”, International Journal of Engineering Technology, Management and Applied Sciences, April 2017, Volume 5, Issue 4, ISSN 2349-4476.
 
 [6] Rohit Kumar Rajak, Ankit Pawar, Mitalee Pendke, Pooja Shinde, Suresh Rathod, Avinash Devare, ”Crop Recommendation System to Maximize Crop Yield using Machine Learning Technique”, International Research Journal of Engineering and Technology (IRJET), Volume: 04 Issue: 12 | Dec-2017.
+
+## Developer Information
+
+| <b>Name of Developer | <b> Suresh Krishnaa R        |
+| :------------------- | :--------------------------- |
+| <b> Institute        | <b> Sri Sairam Engineering   |
+| <b> Email id         | <b> shyrams1346@gmail.com    |
+| <b> Department       | Computer Science Engineering |
+
+| <b>Name of Developer | <b> Vishwajith V             |
+| :------------------- | :--------------------------- |
+| <b> Institute        | <b> Sri Sairam Engineering   |
+| <b> Email id         | <b> vishwajith567@gmail.com  |
+| <b> Department       | Computer Science Engineering |
