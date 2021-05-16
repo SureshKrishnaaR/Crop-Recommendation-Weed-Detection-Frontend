@@ -39,7 +39,7 @@
 
 ### Reverse Geocoding
 
-Our Reverse Geocoding API is the first to deliver administrative/non-administrative boundaries-based results and as such, it is the perfect choice when you need to resolve a user's practical area such as their city, state or country rather than their street address.
+Our Reverse Geocoding API is the first to deliver administrative/non-administrative boundaries based results and as such, it is the perfect choice when you need to resolve a user's practical area such as their city, state or country rather than their street address.
 
 Use below link to access API via API key.  
 https://www.bigdatacloud.com/
@@ -70,7 +70,7 @@ yarn serve
 npm serve
 ```
 
-Vist http://localhost:3000 or http://yourIp:3000
+Visit http://localhost:3000 or http://yourIp:3000
 
 ## Access Permissions Required
 
@@ -81,12 +81,12 @@ Vist http://localhost:3000 or http://yourIp:3000
 
 Code Editor - VS Code  
 Analytical IDE - Jupyter Notebook  
-Continous Integration - GitHub  
+Continuous Integration - GitHub  
 Deployment - Heroku
 
 ## Software Requirements
 
-❖ python @3.8 (only acceptable till 3.8 --version)  
+❖ Python @3.8 (only acceptable till 3.8 --version)  
 ❖ Nodejs  
 ❖ npm (Node Package Manager)  
 ❖ Git Bash
@@ -170,9 +170,11 @@ To predict the most suitable crop, we use two different approaches,
 **Process** - Recommend a fertilizer based on the environmental factors, soil type and crop type.  
 **Algorithm** - Support Vector Machines  
 **Reason** - SVM will have higher accuracy when we have many features(high dimensional spaces).  
-**Accuracy Score** F- 97.5%
+**Accuracy Score** - 97.5%
 
-### CROP RECOMMENDATION Approach 2
+### CROP RECOMMENDATION
+
+**Approach 2**
 
 **Step 1**:
 
@@ -225,14 +227,14 @@ Collect the NPK values from the farmer.
 
 ## Developer Information
 
-| <b>Name of Developer | <b> Suresh Krishnaa R        |
-| :------------------- | :--------------------------- |
-| <b> Institute        | <b> Sri Sairam Engineering   |
-| <b> Email id         | <b> shyrams1346@gmail.com    |
-| <b> Department       | Computer Science Engineering |
+| <b>Name of Developer | <b> Suresh Krishnaa R              |
+| :------------------- | :--------------------------------- |
+| <b> Institute        | <b> Sri Sairam Engineering College |
+| <b> Email id         | <b> shyrams1346@gmail.com          |
+| <b> Department       | Computer Science Engineering       |
 
-| <b>Name of Developer | <b> Vishwajith V             |
-| :------------------- | :--------------------------- |
-| <b> Institute        | <b> Sri Sairam Engineering   |
-| <b> Email id         | <b> vishwajith567@gmail.com  |
-| <b> Department       | Computer Science Engineering |
+| <b>Name of Developer | <b> Vishwajith V                   |
+| :------------------- | :--------------------------------- |
+| <b> Institute        | <b> Sri Sairam Engineering College |
+| <b> Email id         | <b> vishwajith567@gmail.com        |
+| <b> Department       | Computer Science Engineering       |
