@@ -1,5 +1,103 @@
 # AGRI ASSISTANCE: An intelligent Machine Learning approach towards Crop Recommendation and Weed Detection
 
+## Visit https://github.com/vishwa-jith/Crop-recommendation-Weed-detection for Backend   
+
+## Developer Information
+
+| <b>Name of Developer | <b> Suresh Krishnaa R        |
+| :------------------- | :--------------------------- |
+| <b> Institute        | <b> Sri Sairam Engineering   |
+| <b> Email id         | <b> shyrams1346@gmail.com    |
+| <b> Department       | Computer Science Engineering |
+
+| <b>Name of Developer | <b> Vishwajith V             |
+| :------------------- | :--------------------------- |
+| <b> Institute        | <b> Sri Sairam Engineering   |
+| <b> Email id         | <b> vishwajith567@gmail.com  |
+| <b> Department       | Computer Science Engineering |
+
+## Access Permissions Required
+
+❖ Camera  
+❖ Location
+
+## Dependencies
+
+axios @0.21.1  
+framer-motion @4.1.3  
+react-countup @4.3.3  
+react-google-login @5.2.2  
+react-loadingg @1.7.2  
+react-measure @2.5.2  
+react-redux @7.2.3  
+react-router-dom @5.2.0  
+react-use-gesture @9.1.3  
+react-webcam @5.2.3  
+redux @4.0.5
+
+## Tools and Technologies Used
+
+Code Editor - VS Code  
+Analytical IDE - Jupyter Notebook  
+Continous Integration - GitHub  
+Deployment - Heroku
+
+## Dataset Collections
+
+| <b>Discipline             | <b> Dataset Link                                                                          |
+| :------------------------ | :---------------------------------------------------------------------------------------- |
+| <b> Crop Recommendation   | <b> https://www.kaggle.com/atharvaingle/crop-recommendation-dataset                       |
+| <b> Crop Yield            | <b> https://www.kaggle.com/ananysharma/crop-yield                                         |
+| <b> Fertilizer Prediction | <b> https://www.kaggle.com/gdabhishek/fertilizer-prediction                               |
+| <b> Weed Detection        | <b> https://www.kaggle.com/ravirajsinh45/crop-and-weed-detection-data-with-bounding-boxes |
+
+## 3rd Party API's
+
+### Reverse Geocoding
+
+Our Reverse Geocoding API is the first to deliver administrative/non-administrative boundaries-based results and as such, it is the perfect choice when you need to resolve a user's practical area such as their city, state or country rather than their street address.
+
+Use below link to access API via API key.  
+https://www.bigdatacloud.com/
+
+## Steps to start the Application (Frontend)
+
+```
+git clone https://github.com/SureshKrishnaaR/Crop-Recommendation-Weed-Detection-Frontend.git
+```
+
+**Install Dependencies**
+
+```
+# yarn
+yarn install
+
+# npm
+npm install
+```
+
+**Starting Application (Frontend)**
+
+```
+# yarn
+yarn serve
+
+# npm
+npm serve
+```
+
+Vist http://localhost:3000 or http://yourIp:3000   
+
+## Software Requirements   
+❖ python @3.8 (only acceptable till 3.8 --version)   
+❖ Nodejs   
+❖ npm (Node Package Manager)   
+❖ Git Bash   
+
+## Other Requirements   
+❖ virtualenv (python)   
+❖ create-react-app (npm)   
+
 ## Objective
 
 ❖ It is very essential for the farmers to choose a crop that best suits the land being used for cultivation. Farmers should get benefited by cultivating the **best fitting crops** rather than cultivating unsuitable crops.
@@ -53,37 +151,37 @@ To predict the most suitable crop, we use two different approaches,
 
 **Process** - Predict the ideal NPK values based on environmental factors and previously predicted crop.  
 **Algorithm** - Gradient Boosting Regressor  
-**Reason** - GBR uses weak learners as classifiers, and they learn from their previous mistakes.  
+**Reason** - GBR uses weak learners as classifiers, and they learn from their previous mistakes.
 
 **Step 3**:
 
 **Process** - Recommend a fertilizer based on the environmental factors, soil type and crop type.  
 **Algorithm** - Support Vector Machines  
 **Reason** - SVM will have higher accuracy when we have many features(high dimensional spaces).  
-**Accuracy Score** F- 97.5%  
+**Accuracy Score** F- 97.5%
 
 ### CROP RECOMMENDATION Approach 2
 
 **Step 1**:
 
-Collect the NPK values from the farmer.  
+Collect the NPK values from the farmer.
 
 **Step 2**:
 
 **Process** - Predict a best suitable crop based on the NPK values and environmental factors(temperature, humidity, rainfall).  
 **Algorithm** - Random Forest  
 **Reason** - Random Forest uses ensemble approach, so it has a very good accuracy compared to other algorithms.  
-**Accuracy Score** - 98.33%  
+**Accuracy Score** - 98.33%
 
 ## CROP YIELD / PRODUCTION
 
-❖ We also predict the **amount of crop** that the farmer can cultivate, this prediction is based on the **farmer’s location, seasonal changes, crop type and the amount of area** used for cultivation.  
+❖ We also predict the **amount of crop** that the farmer can cultivate, this prediction is based on the **farmer’s location, seasonal changes, crop type and the amount of area** used for cultivation.
 
-❖ This prediction would help to take fair and **correct decisions** which would make their **yield more productive**.  
+❖ This prediction would help to take fair and **correct decisions** which would make their **yield more productive**.
 
-❖ So based on this the farmer can decide whether to go ahead with the chosen crop or to choose a different crop.  
+❖ So based on this the farmer can decide whether to go ahead with the chosen crop or to choose a different crop.
 
-❖ And here we use **SGD - Stochastic Gradient Descent Algorithm** to predict the value of **crop yield** and this regression analysis is based on **crop** **type**, **location**, **area**and **season**.  
+❖ And here we use **SGD - Stochastic Gradient Descent Algorithm** to predict the value of **crop yield** and this regression analysis is based on **crop** **type**, **location**, **area**and **season**.
 
 ## CROP - WEED DETECTION
 
